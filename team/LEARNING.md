@@ -1,1 +1,1 @@
-
+- Anderson: I have experience with React, ReactNative, Java, JavaScript(TypeScript), and Python. I would love to learn more about databases and full-stack development in general.

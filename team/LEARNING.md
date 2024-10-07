@@ -1,1 +1,2 @@
 - Anderson: I have experience with React, ReactNative, Java, JavaScript(TypeScript), and Python. I would love to learn more about databases and full-stack development in general.
+- Braden: I have good experience with Python, C++, and JavaScript. I have a little bit of experience with Java and React. Throughout this class, I hope to learn all there is about full-stack mobile app development, and I also hope to gain experience with Swift and/or ReactNative.

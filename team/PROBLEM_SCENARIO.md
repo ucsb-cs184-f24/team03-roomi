@@ -1,0 +1,5 @@
+# Scenario
+
+Jeff is a new transfer UCSB student, he is studying computrer science and is very excited to start this new chapter in his life. He is a very clean person
+and likes his personal space. One thing that scares him about moving to a new school is making new friends and finding people to live with to save some money. 
+Jeff wants to find roommates that have similar living habits to him, as well as study something similar, so he can have some people to do work with. He previously had difficult roommates at his last school, so he knows what works and what does not for him. He finds out that UCSB students are using this new app (enter app name) to find and connect with potential roommates. He uses this app to find a handful of potential roommates and choose the ones that align closest with his goals.

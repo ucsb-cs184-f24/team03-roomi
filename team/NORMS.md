@@ -1,1 +1,8 @@
 - Timely PR reviews/approvals
+- good communication
+- not pushing dircetly to main
+- maintaining proper version control
+- keep everyone up to date
+- proper branches for features
+- taking initiative
+- show up to class

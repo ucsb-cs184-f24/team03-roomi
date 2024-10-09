@@ -2,15 +2,18 @@ Meeting Time: lect04
 
 Type of meeting: Spring Planning
 
-Team: Benajamin [x], Jamie Lai [x], Tobias Höllerer [x], Will Zhang [x], Yunhao Luo [x], Caleb Lee []
+Team: Benajamin [x], Alec [x], Brendan [x], Khang [x], Anderson [x], Ryan [x]
 
 Scribed Discussion:
 
-Benjamin: Looked into version control using GitHub through XCode.
+Benjamin: Design UI and play around with SwiftUI + simple PR for team repo
 
-Caleb is absent but announced that he started organizing the Gradescope class account in anticipation of h01 grading. Waiting for instructor feedback on rubriks. No current roadblocks.
+Alec: Plans on adding a XCode project to the repo + simple PR for team repo
 
-Yilin: ...
-Jamie:...
-Will:...
-Yunhao:...
+Brendan: Looking into different databases to use + simple PR for team repo
+
+Khang: Working on a product roadmap + simple PR for team repo
+
+Anderson: Looking into connecting database to app + simple PR for team repo
+
+Ryan: Investigating SwiftUI and UIKit + simple PR for team repo

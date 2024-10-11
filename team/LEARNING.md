@@ -8,10 +8,7 @@
 # Resources
 Benjamin: https://developer.apple.com/tutorials/swiftui/
 
-Khang:
-- https://developer.apple.com/documentation/xcode/
-- https://www.youtube.com/watch?v=HXoVSbwWUIk
-- https://www.hackingwithswift.com/
+Khang: https://developer.apple.com/documentation/xcode/
 
 
 # Discussion

@@ -7,6 +7,7 @@
 
 # Resources
 Benjamin: https://developer.apple.com/tutorials/swiftui/
+Khang: https://developer.apple.com/documentation/xcode/
 
 
 # Discussion

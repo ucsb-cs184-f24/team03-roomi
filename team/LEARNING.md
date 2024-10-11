@@ -10,6 +10,8 @@ Benjamin: https://developer.apple.com/tutorials/swiftui/
 
 Khang: https://developer.apple.com/documentation/xcode/
 
+Ryan: https://www.youtube.com/watch?v=n5X_V81OYnQ
+
 
 # Discussion
 Benefits: 

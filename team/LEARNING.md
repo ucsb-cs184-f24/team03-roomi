@@ -7,3 +7,15 @@
 
 # Resources
 Benjamin: https://developer.apple.com/tutorials/swiftui/
+
+
+# Discussion
+Benefits: 
+- Easy development environment
+- Universal coding standards
+- More secure
+- Straight forward syntax and amazing documentation
+
+Challenges:
+- Learning curve
+- Compatible with IOS only

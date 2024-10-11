@@ -1,0 +1,87 @@
+# Xcode
+# ===========
+build/
+DerivedData/
+*.xcworkspace
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+
+# Swift Package Manager
+# ===========
+.build/
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj/project.xcworkspace/xcuserdata
+.swiftpm/xcode/package.xcworkspace/xcuserdata
+
+# CocoaPods
+# ===========
+Pods/
+Podfile.lock
+
+# Carthage
+# ===========
+Carthage/Build/
+
+# Fastlane
+# ===========
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+# ===========
+*.xcarchive
+
+# Unit Test/Debug output
+# ===========
+test-reports/
+
+# Temporary files
+# ===========
+*.tmp
+*.swp
+*.lock
+*.DS_Store
+*.plist
+
+# Xcode environment-specific files
+# ===========
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# IDE Preferences
+# ===========
+*.xcsettings
+*.xcconfig
+
+# Assets
+# ===========
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# AppCenter and Crashlytics
+# ===========
+appcenter-logs/
+crashlytics/
+
+# Other generated files
+# ===========
+*.orig
+*.precompiled
+
+# macOS Files
+# ===========
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+# ===========
+._*

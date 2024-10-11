@@ -23,3 +23,4 @@ Benefits:
 Challenges:
 - Learning curve
 - Compatible with IOS only
+- Dealing with Apple Developer Program Fee

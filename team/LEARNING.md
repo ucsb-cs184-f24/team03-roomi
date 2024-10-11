@@ -4,3 +4,6 @@
 - Alec: I have experience building full stack applications (mostly web) but I am excited to see how I can apply this experience to mobile. Additionally I would like to gain more database exeprience larger and more complex schemas.
 - Ryan: I have experience building full stack web applications with React and Java. I hope to learn more about full stack mobile app development and learning Swift
 - Khang: I have experience with full-stack web development and backend development. I have worked with React, ReactNative, and Python. Through this class, I hope to learn more about the entire process of completing the development of a mobile app as well as learn a new language or tech stack.
+
+# Resources
+Benjamin: https://developer.apple.com/tutorials/swiftui/

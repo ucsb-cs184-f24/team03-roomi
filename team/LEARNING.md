@@ -23,9 +23,10 @@ Benefits:
 - Easy development environment
 - Universal coding standards
 - More secure
-- Straight forward syntax and amazing documentation
+- Straightforward syntax and amazing documentation
 
 Challenges:
 - Learning curve
 - Compatible with IOS only
 - Dealing with Apple Developer Program Fee
+- Collaborating effectively in a team

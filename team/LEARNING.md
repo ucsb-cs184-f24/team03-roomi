@@ -16,6 +16,7 @@ Alec: https://www.youtube.com/watch?v=T3QPQc0LW5w&ab_channel=Cebrail
 
 Anderson: https://www.youtube.com/watch?v=K-4blUReYoU&list=PL5PR3UyfTWvei-pKlZN7d8r-0tHCK1EKE
 
+Braden: https://www.swift.org/getting-started/swiftui/
 
 # Discussion
 Benefits: 

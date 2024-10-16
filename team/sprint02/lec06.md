@@ -2,7 +2,7 @@
 
 ## Meeting Time: lect04
 
-### Team: Benajamin [x], Alec (Product Owner) [], Braden [x], Khang [x], Anderson [x] (Scribe, Scrum Master), Ryan [x]
+### Team: Benjamin [x], Alec (Product Owner) [], Braden [x], Khang [x], Anderson [x] (Scribe, Scrum Master), Ryan [x]
 
 #### Scribed Discussion:
 

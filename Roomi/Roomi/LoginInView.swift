@@ -38,6 +38,12 @@ struct LoginInView: View {
             .background(Color.blue)
             .foregroundStyle(.white)
             .cornerRadius(10)
+            
+            Spacer().frame(height: 20)
+            
+            Button("Sign Up") {
+                
+            }
         }
         .padding()
     }

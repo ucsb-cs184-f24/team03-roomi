@@ -1,6 +1,6 @@
 # Type of meeting: Spring Planning
 
-## Meeting Time: lect04
+## Meeting Time: lect06
 
 ### Team: Benjamin [x], Alec (Product Owner) [], Braden [x], Khang [x], Anderson [x] (Scribe, Scrum Master), Ryan [x]
 

@@ -9,8 +9,14 @@ import SwiftUI
 
 struct SignUpButtonView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        Button("Sign Up") {
+            
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 55)
+        .background(Color.blue)
+        .foregroundStyle(.white)
+        .cornerRadius(10)    }
 }
 
 #Preview {

@@ -5,9 +5,9 @@
 
 ## Action item
 
-* a goal: make a better plan for indiviidual work. Make sure each individual works on something that fits together in the bigger project
+* a goal: make a better plan for individual work. Make sure each individual works on something that fits together in the bigger project
 * a change: review PRs quicker
-* a measurement: Have a minimun viable product
+* a measurement: Have a minimal viable product
 
 
 ## LATER

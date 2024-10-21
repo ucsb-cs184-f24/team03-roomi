@@ -52,6 +52,7 @@ struct LoginInView: View {
                 
                 NavigationLink {
                     SignUpView()
+                        .navigationBarBackButtonHidden(true)
                 } label: {
                     Text("Don't have an account?")
                     Text("Sign Up")

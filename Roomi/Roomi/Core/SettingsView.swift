@@ -9,25 +9,27 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-
+    
     var body: some View {
-        Text("Profile")
-        Text(viewModel.userSession?.email ?? "No Email")
-        
-        Button {
-            Task {
-                try viewModel.signOut()
+        VStack {
+            Text("Profile")
+            Text(viewModel.userSession?.email ?? "No Email")
+            
+            Button {
+                Task {
+                    try viewModel.signOut()
+                }
+            } label: {
+                Text("Log Out")
             }
-        } label: {
-            Text("Log Out")
-        }
-        
-        Button {
-            Task {
-                try await viewModel.deleteAccount()
+            
+            Button {
+                Task {
+                    try await viewModel.deleteAccount()
+                }
+            } label: {
+                Text("Delete Account")
             }
-        } label: {
-            Text("Delete Account")
         }
     }
 }

@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct LandingView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            Text("Welcome to Roomi!")
+                .font(.title)
+                .bold()
+            
+            Text(viewModel.userSession?.email ?? "No user session")
+        }
     }
 }
 

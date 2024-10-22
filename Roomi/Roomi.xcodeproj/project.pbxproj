@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A4D83B412CC849F1008BA856 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A4D83B402CC849F1008BA856 /* FirebaseAnalytics */; };
+		A4D83B462CC850D6008BA856 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A4D83B452CC850D6008BA856 /* GoogleSignIn */; };
+		A4D83B482CC850D6008BA856 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A4D83B472CC850D6008BA856 /* GoogleSignInSwift */; };
+		A4D83B4B2CC85102008BA856 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A4D83B4A2CC85102008BA856 /* FirebaseAuth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9492FE9E2CB99D35007E2E2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +36,22 @@
 		9492FEA72CB99D35007E2E2E /* RoomiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A4D83B562CC855FC008BA856 /* Exceptions for "Roomi" folder in "Roomi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9492FE8C2CB99D33007E2E2E /* Roomi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9492FE8F2CB99D33007E2E2E /* Roomi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A4D83B562CC855FC008BA856 /* Exceptions for "Roomi" folder in "Roomi" target */,
+			);
 			path = Roomi;
 			sourceTree = "<group>";
 		};
@@ -52,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D83B482CC850D6008BA856 /* GoogleSignInSwift in Frameworks */,
+				A4D83B412CC849F1008BA856 /* FirebaseAnalytics in Frameworks */,
+				A4D83B462CC850D6008BA856 /* GoogleSignIn in Frameworks */,
+				A4D83B4B2CC85102008BA856 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +102,7 @@
 				9492FE8F2CB99D33007E2E2E /* Roomi */,
 				9492FEA02CB99D35007E2E2E /* RoomiTests */,
 				9492FEAA2CB99D35007E2E2E /* RoomiUITests */,
+				A4D83B492CC85102008BA856 /* Frameworks */,
 				9492FE8E2CB99D33007E2E2E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +115,13 @@
 				9492FEA72CB99D35007E2E2E /* RoomiUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A4D83B492CC85102008BA856 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +144,10 @@
 			);
 			name = Roomi;
 			packageProductDependencies = (
+				A4D83B402CC849F1008BA856 /* FirebaseAnalytics */,
+				A4D83B452CC850D6008BA856 /* GoogleSignIn */,
+				A4D83B472CC850D6008BA856 /* GoogleSignInSwift */,
+				A4D83B4A2CC85102008BA856 /* FirebaseAuth */,
 			);
 			productName = Roomi;
 			productReference = 9492FE8D2CB99D33007E2E2E /* Roomi.app */;
@@ -195,6 +231,10 @@
 			);
 			mainGroup = 9492FE842CB99D33007E2E2E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A4D83B3F2CC845D1008BA856 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A4D83B442CC850D6008BA856 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9492FE8E2CB99D33007E2E2E /* Products */;
 			projectDirPath = "";
@@ -398,6 +438,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Roomi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Roomi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -426,6 +467,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Roomi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Roomi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,6 +594,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A4D83B3F2CC845D1008BA856 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+		A4D83B442CC850D6008BA856 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4D83B402CC849F1008BA856 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4D83B3F2CC845D1008BA856 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		A4D83B452CC850D6008BA856 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4D83B442CC850D6008BA856 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		A4D83B472CC850D6008BA856 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4D83B442CC850D6008BA856 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		A4D83B4A2CC85102008BA856 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4D83B3F2CC845D1008BA856 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9492FE852CB99D33007E2E2E /* Project object */;
 }

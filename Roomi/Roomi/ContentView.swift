@@ -1,24 +1,29 @@
 //
 //  ContentView.swift
 //  Roomi
-//
-//  Created by Alec Morrison on 10/11/24.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            if viewModel.authenticationState == .authenticated {
+                HomeView()
+            } else {
+                LoginInView()
+            }
         }
-        .padding()
+        .onAppear {
+            viewModel.registerAuthStateHandler()
+        }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(AuthenticationViewModel())
 }
+
+

@@ -1,15 +1,23 @@
 //
 //  LoginInView.swift
 //  Roomi
-//
-//  Created by Benjamin Conte on 10/16/24.
-//
 
 import SwiftUI
 
 struct LoginInView: View {
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    @Environment(\.dismiss) var dismiss
     @State var email: String = ""
     @State var password: String = ""
+    
+    private func signInWithGoogle() {
+        Task {
+          if await viewModel.signInWithGoogle() == true {
+            dismiss()
+          }
+        }
+      }
+    
     var body: some View {
         VStack {
             Text("Roomi")
@@ -46,6 +54,25 @@ struct LoginInView: View {
             }
         }
         .padding()
+        
+        Button(action: signInWithGoogle) {
+            HStack {
+                Image(systemName: "g.circle")
+                    .font(.title2)
+                Text("Sign in with Google")
+                    .fontWeight(.medium)
+                    .foregroundColor(.black)
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 55)
+            .background(Color.white)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+            )
+        }
+
     }
 }
 

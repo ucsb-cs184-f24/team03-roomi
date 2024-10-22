@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		94A3F9CE2CC75580008ED482 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 94A3F9CD2CC75580008ED482 /* FirebaseAuth */; };
+		94A3F9D02CC75580008ED482 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 94A3F9CF2CC75580008ED482 /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9492FE9E2CB99D35007E2E2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A3F9CE2CC75580008ED482 /* FirebaseAuth in Frameworks */,
+				94A3F9D02CC75580008ED482 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = Roomi;
 			packageProductDependencies = (
+				94A3F9CD2CC75580008ED482 /* FirebaseAuth */,
+				94A3F9CF2CC75580008ED482 /* FirebaseFirestore */,
 			);
 			productName = Roomi;
 			productReference = 9492FE8D2CB99D33007E2E2E /* Roomi.app */;
@@ -195,6 +204,9 @@
 			);
 			mainGroup = 9492FE842CB99D33007E2E2E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				94A3F9CC2CC75580008ED482 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9492FE8E2CB99D33007E2E2E /* Products */;
 			projectDirPath = "";
@@ -398,11 +410,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Roomi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Roomi;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,11 +438,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Roomi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Roomi;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,6 +564,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94A3F9CC2CC75580008ED482 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94A3F9CD2CC75580008ED482 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94A3F9CC2CC75580008ED482 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		94A3F9CF2CC75580008ED482 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94A3F9CC2CC75580008ED482 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9492FE852CB99D33007E2E2E /* Project object */;
 }

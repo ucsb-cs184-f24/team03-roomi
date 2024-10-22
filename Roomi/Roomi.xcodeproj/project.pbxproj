@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		01ADEDE42CC46B79005CAD03 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 01ADEDE32CC46B79005CAD03 /* FirebaseAnalytics */; };
+		01ADEDE72CC47071005CAD03 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 01ADEDE62CC47071005CAD03 /* FirebaseAuth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9492FE9E2CB99D35007E2E2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01ADEDE42CC46B79005CAD03 /* FirebaseAnalytics in Frameworks */,
+				01ADEDE72CC47071005CAD03 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +79,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01ADEDE52CC47071005CAD03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9492FE842CB99D33007E2E2E = {
 			isa = PBXGroup;
 			children = (
 				9492FE8F2CB99D33007E2E2E /* Roomi */,
 				9492FEA02CB99D35007E2E2E /* RoomiTests */,
 				9492FEAA2CB99D35007E2E2E /* RoomiUITests */,
+				01ADEDE52CC47071005CAD03 /* Frameworks */,
 				9492FE8E2CB99D33007E2E2E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +127,8 @@
 			);
 			name = Roomi;
 			packageProductDependencies = (
+				01ADEDE32CC46B79005CAD03 /* FirebaseAnalytics */,
+				01ADEDE62CC47071005CAD03 /* FirebaseAuth */,
 			);
 			productName = Roomi;
 			productReference = 9492FE8D2CB99D33007E2E2E /* Roomi.app */;
@@ -195,6 +212,9 @@
 			);
 			mainGroup = 9492FE842CB99D33007E2E2E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				01ADEDE22CC46B79005CAD03 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9492FE8E2CB99D33007E2E2E /* Products */;
 			projectDirPath = "";
@@ -396,6 +416,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Roomi/Preview Content\"";
+				DEVELOPMENT_TEAM = 9XC3WHWGL8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -408,7 +429,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alecmorrison.Roomi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bradencastillo.Roomi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -424,6 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Roomi/Preview Content\"";
+				DEVELOPMENT_TEAM = 9XC3WHWGL8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -436,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alecmorrison.Roomi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bradencastillo.Roomi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -552,6 +574,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		01ADEDE22CC46B79005CAD03 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		01ADEDE32CC46B79005CAD03 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01ADEDE22CC46B79005CAD03 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		01ADEDE62CC47071005CAD03 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 01ADEDE22CC46B79005CAD03 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9492FE852CB99D33007E2E2E /* Project object */;
 }

@@ -19,7 +19,6 @@ struct LoginInView: View {
                 
                 InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
                 
-                
                 InputView(text: $password, title: "Password", placeholder: "Enter Your password")
                 
                 ButtonView(title: "Sign In")

@@ -9,10 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Text("Welcome to Roomi!")
+            NavigationBarView()
+        }
     }
 }
 
 #Preview {
     HomeView()
+        .environmentObject(AuthViewModel())
 }

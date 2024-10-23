@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct SignUpButtonView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    var email: String
+    var password: String
+    var firstName: String
+    var lastName: String
+    
     var body: some View {
         Button("Sign Up") {
-            
+            Task {
+                try await viewModel.signUp(withEmail: email, password: password, firstName: firstName, lastName: lastName)
+                
+                if viewModel.userSession != nil {
+                    print("Jumping to home screen...")
+                }
+            }
         }
         .frame(maxWidth: .infinity)
         .frame(height: 55)
         .background(Color.blue)
         .foregroundStyle(.white)
-        .cornerRadius(10)    }
+        .cornerRadius(10)
+    }
 }
 
 #Preview {
-    SignUpButtonView()
+    SignUpButtonView(email: "", password: "", firstName: "", lastName: "")
+        .environmentObject(AuthViewModel())
 }

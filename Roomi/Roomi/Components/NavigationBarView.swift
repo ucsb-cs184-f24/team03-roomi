@@ -9,10 +9,28 @@ import SwiftUI
 
 struct NavigationBarView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            HStack {
+                NavigationLink {
+                    ProfileView()
+                        .navigationBarBackButtonHidden()
+                } label: {
+                    Text("Profile")
+                }
+                
+                NavigationLink {
+                    HomeView()
+                        .navigationBarBackButtonHidden()
+                } label: {
+                    Text("Home")
+                }
+            }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+        }
     }
 }
 
 #Preview {
     NavigationBarView()
+        .environmentObject(AuthViewModel())
 }

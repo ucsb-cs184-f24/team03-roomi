@@ -9,10 +9,11 @@ import SwiftUI
 
 struct SignUpView: View {
     @State private var email: String = ""
-    @State private var fullName: String = ""
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
     @State private var password: String = ""
-    @State private var confirmPassword: String = ""
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack {
@@ -21,14 +22,18 @@ struct SignUpView: View {
                 .font(.largeTitle)
             
             InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
+                .autocapitalization(.none)
             
-            InputView(text: $fullName, title: "Full Name", placeholder: "Enter Your Full Name")
+            InputView(text: $firstName, title: "First Name", placeholder: "Enter Your First Name")
+                .autocapitalization(.words)
+            
+            InputView(text: $lastName, title: "Last Name", placeholder: "Enter Your Last Name")
+                .autocapitalization(.words)
             
             InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
+                .autocapitalization(.none)
             
-            InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Confirm Your Password", isSecureField: true)
-            
-            SignUpButtonView()
+            SignUpButtonView(email: email, password: password, firstName: firstName, lastName: lastName)
             
             Button {
                 dismiss()
@@ -48,4 +53,5 @@ struct SignUpView: View {
 
 #Preview {
     SignUpView()
+        .environmentObject(AuthViewModel())
 }

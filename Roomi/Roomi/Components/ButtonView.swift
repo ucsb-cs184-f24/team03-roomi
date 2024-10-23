@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct SignUpButtonView: View {
+struct ButtonView: View {
+    let title: String
     var body: some View {
-        Button("Sign Up") {
-            
-        }
+        Button(title) {}
         .frame(maxWidth: .infinity)
         .frame(height: 55)
         .background(Color.blue)
         .foregroundStyle(.white)
-        .cornerRadius(10)    }
+        .cornerRadius(10)
+    }
 }
 
 #Preview {
-    SignUpButtonView()
+    ButtonView(title: "")
 }

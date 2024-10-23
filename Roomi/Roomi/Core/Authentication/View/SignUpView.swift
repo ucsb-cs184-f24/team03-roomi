@@ -9,8 +9,6 @@ import SwiftUI
 
 struct SignUpView: View {
     @State private var email: String = ""
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
     @State private var password: String = ""
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: AuthViewModel
@@ -27,7 +25,7 @@ struct SignUpView: View {
             InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
                 .autocapitalization(.none)
             
-            ButtonView(title: "Sign Up")
+            SignUpButtonView(email: email, password: password)
             
             Button {
                 dismiss()

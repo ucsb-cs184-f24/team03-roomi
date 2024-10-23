@@ -24,7 +24,7 @@ struct SignUpView: View {
             
             InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
             
-            SignUpButtonView()
+            ButtonView(title: "Sign Up")
             
             Button {
                 dismiss()

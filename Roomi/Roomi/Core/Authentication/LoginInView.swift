@@ -8,44 +8,38 @@
 import SwiftUI
 
 struct LoginInView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     var body: some View {
-        VStack {
-            Text("Roomi")
-                .fontWeight(.heavy)
-                .font(.largeTitle)
-            
-            TextField("Email", text: $email)
-                .padding()
-                .frame(height: 55)
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .autocapitalization(.none)
-            
-            SecureField("Password", text: $password)
-                .padding()
-                .frame(height: 55)
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .autocapitalization(.none)
-            
-            Button("Login") {
+        NavigationStack {
+            VStack {
+                Text("Roomi")
+                    .fontWeight(.heavy)
+                    .font(.largeTitle)
+                
+                InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
+                
+                InputView(text: $password, title: "Password", placeholder: "Enter Your password")
+                
+                ButtonView(title: "Sign In")
+                                
+                NavigationLink {
+                    SignUpView()
+                        .navigationBarBackButtonHidden(true)
+                } label: {
+                    HStack(spacing: 3) {
+                        Text("Don't have an account?")
+                        Text("Sign Up").fontWeight(.bold)
+                    }
+                    .font(.system(size: 14))
+                }
+                
+                Spacer().frame(height:20)
                 
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: 55)
-            .background(Color.blue)
-            .foregroundStyle(.white)
-            .cornerRadius(10)
+            .padding()
             
-            Spacer().frame(height: 20)
-            
-            Button("Sign Up") {
-                
-            }
         }
-        .padding()
     }
 }
 

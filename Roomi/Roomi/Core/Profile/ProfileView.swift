@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct ProfileView: View {
-     
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if let user = viewModel.currentUser {
+            NavigationStack {
+                Text("Profile")
+                    .font(.largeTitle)
+                
+                VStack {
+                    Text("Email: \(user.email)")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("Name: \(user.firstName) \(user.lastName)")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding()
+                .frame(maxHeight: .infinity, alignment: .top)
+                
+                NavigationBarView()
+            }
+        }
     }
 }
 
 #Preview {
     ProfileView()
+        .environmentObject(AuthViewModel())
 }

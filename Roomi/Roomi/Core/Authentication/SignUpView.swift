@@ -22,11 +22,7 @@ struct SignUpView: View {
             
             InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
             
-            InputView(text: $fullName, title: "Full Name", placeholder: "Enter Your Full Name")
-            
             InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
-            
-            InputView(text: $confirmPassword, title: "Confirm Password", placeholder: "Confirm Your Password", isSecureField: true)
             
             SignUpButtonView()
             

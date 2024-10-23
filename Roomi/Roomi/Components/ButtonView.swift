@@ -11,11 +11,11 @@ struct ButtonView: View {
     let title: String
     var body: some View {
         Button(title) {}
-        .frame(maxWidth: .infinity)
-        .frame(height: 55)
-        .background(Color.blue)
-        .foregroundStyle(.white)
-        .cornerRadius(10)
+            .frame(maxWidth: .infinity)
+            .frame(height: 55)
+            .background(Color.blue)
+            .foregroundStyle(.white)
+            .cornerRadius(10)
     }
 }
 

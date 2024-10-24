@@ -13,7 +13,17 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession != nil {
-                NavigationBarView()
+                TabView {
+                    HomeView()
+                        .tabItem {
+                            Label("Home", systemImage: "house")
+                        }
+                    
+                    ProfileView()
+                        .tabItem {
+                            Label("Profile", systemImage: "person.circle")
+                        }
+                }
             }
             else {
                 LoginView()

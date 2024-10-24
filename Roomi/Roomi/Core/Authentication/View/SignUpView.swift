@@ -25,7 +25,7 @@ struct SignUpView: View {
             InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
                 .autocapitalization(.none)
             
-            SignUpButtonView(email: email, password: password)
+            SignButtonView(title: "Sign Up", email: email, password: password)
             
             Button {
                 dismiss()

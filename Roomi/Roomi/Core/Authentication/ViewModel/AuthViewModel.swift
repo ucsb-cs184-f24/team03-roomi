@@ -48,7 +48,14 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
-        
+        do {
+            try Auth.auth().signOut()
+            self.userSession = nil
+            self.currentUser = nil
+        }
+        catch {
+            print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
+        }
     }
     
     func deleteAccount() {
@@ -64,7 +71,5 @@ class AuthViewModel: ObservableObject {
         catch {
             print("Could not fetch user with error \(error.localizedDescription)")
         }
-        
-        
     }
 }

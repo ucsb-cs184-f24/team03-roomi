@@ -16,10 +16,6 @@ struct SignUpButtonView: View {
         Button("Sign Up") {
             Task {
                 try await viewModel.signUp(withEmail: email, password: password)
-                
-                if viewModel.userSession != nil {
-                    print("Jumping to home screen...")
-                }
             }
         }
         .frame(maxWidth: .infinity)

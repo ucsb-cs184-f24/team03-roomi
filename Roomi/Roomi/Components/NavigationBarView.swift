@@ -9,23 +9,16 @@ import SwiftUI
 
 struct NavigationBarView: View {
     var body: some View {
-        NavigationStack {
-            HStack {
-                NavigationLink {
-                    ProfileView()
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("Profile")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
                 }
-                
-                NavigationLink {
-                    HomeView()
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("Home")
+            
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.circle")
                 }
-            }
-            .frame(maxHeight: .infinity, alignment: .bottom)
         }
     }
 }

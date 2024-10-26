@@ -19,9 +19,9 @@ struct LoginView: View {
                 
                 InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
                 
-                InputView(text: $password, title: "Password", placeholder: "Enter Your password")
+                InputView(text: $password, title: "Password", placeholder: "Enter Your password", isSecureField: true)
                 
-                ButtonView(title: "Sign In")
+                ButtonView(title: "Sign In", email: email, password: password)
                                 
                 NavigationLink {
                     SignUpView()
@@ -44,5 +44,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginInView()
+    LoginView()
 }

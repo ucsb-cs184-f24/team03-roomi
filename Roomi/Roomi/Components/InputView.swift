@@ -26,6 +26,7 @@ struct InputView: View {
                     .frame(height: 55)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .autocapitalization(.none)
             }
             else {
                 TextField(placeholder, text: $text)
@@ -33,6 +34,7 @@ struct InputView: View {
                     .frame(height: 55)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
+                    .autocapitalization(.none)
             }
         }
     }

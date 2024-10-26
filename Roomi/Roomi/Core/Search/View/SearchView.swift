@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct SearchView: View {
+    @ObservedObject var model = SearchViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List (model.profileList) { profile in
+                ProfileCard(profileInformation: profile)
+            }
+        }
+    }
+    
+    init() {
+        model.getProfiles()
     }
 }
 

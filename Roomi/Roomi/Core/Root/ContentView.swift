@@ -19,9 +19,14 @@ struct ContentView: View {
                             Label("Home", systemImage: "house")
                         }
                     
+                    SearchView()
+                        .tabItem {
+                            Label ("Profiles", systemImage: "person.circle")
+                        }
+                    
                     ProfileView()
                         .tabItem {
-                            Label("Profile", systemImage: "person.circle")
+                            Label ("My Profile", systemImage: "person.crop.circle")
                         }
                 }
             }

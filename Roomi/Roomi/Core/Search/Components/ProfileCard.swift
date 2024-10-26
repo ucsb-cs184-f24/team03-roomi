@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ProfileCard: View {
+    let profileInformation: Profile
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink (destination: ExpandedProfile(profileInformation: profileInformation)) {
+            VStack(alignment: .leading) {
+                Text(profileInformation.fullname)
+                    .font(.title)
+                Text(profileInformation.location)
+                    .font(.subheadline)
+            }
+        }
     }
 }
 
 #Preview {
-    ProfileCard()
+    ProfileCard(profileInformation: .init(id: .init(), fullname: "Michael Jordan", location: "San Diego", hobby: "Basketball", age: 34))
 }

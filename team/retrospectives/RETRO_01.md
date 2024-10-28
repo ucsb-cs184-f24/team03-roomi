@@ -9,11 +9,8 @@
 * a change: review PRs quicker
 * a measurement: Have a minimal viable product
 
-
-## LATER
 ## Retro Assessment
 
-* A brief description of what retro outline or process you used.
-* A brief assessment of how it went.
-* What advice would you give to the next person leading a retro
-  based on what you learned today?
+* We stated action items (a goal, a measurement, and a change).
+* We have had better communication for clearer tasks and made significant progress toward MVP.
+* Choose a good goal to focus in on and a tangible measurement.

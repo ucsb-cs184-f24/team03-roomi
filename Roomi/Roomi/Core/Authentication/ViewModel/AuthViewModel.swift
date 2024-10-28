@@ -11,12 +11,16 @@ import FirebaseFirestore
 
 @MainActor
 class AuthViewModel: ObservableObject {
+    @Published var loginState: Bool
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     
+    
+    
+    
     init() {
         self.userSession = Auth.auth().currentUser
-        
+        loginState = true
         Task {
             await fetchUser()
         }

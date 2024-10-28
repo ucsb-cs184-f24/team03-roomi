@@ -23,7 +23,7 @@ struct LoginView: View {
                 
                 InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
                 
-                InputView(text: $password, title: "Password", placeholder: "Enter Your password", isSecureField: true)
+                InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
                 
                 ButtonView(title: "Login", background: .blue){
                     // Attempt Login
@@ -34,18 +34,15 @@ struct LoginView: View {
                 .frame(height: 50)
                 .padding()
                 
-//                ButtonView(title: "Sign In", email: email, password: password)
-                                
-                NavigationLink {
-                    SignUpView()
-                        .navigationBarBackButtonHidden(true)
-                } label: {
-                    HStack(spacing: 3) {
+                              
+                
+                Button (action: {
+                    viewModel.loginState.toggle()
+                }) {
                         Text("Don't have an account?")
-                        Text("Sign Up").fontWeight(.bold)
+                        Text("Sign Up")
+                        .fontWeight(.bold)
                     }
-                    .font(.system(size: 14))
-                }
                 
                 Spacer().frame(height:20)
                 

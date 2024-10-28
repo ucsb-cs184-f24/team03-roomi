@@ -36,15 +36,13 @@ struct SignUpView: View {
             }
             .padding()
             
-            Button {
-                dismiss()
-            } label: {
-                HStack(spacing: 3) {
+            Button (action: {
+                viewModel.loginState.toggle()
+            }) {
                     Text("Already have an account?")
-                    Text("Login").fontWeight(.bold)
+                    Text("Login")
+                    .fontWeight(.bold)
                 }
-                .font(.system(size: 14))
-            }
             
             Spacer().frame(height:20)
         }

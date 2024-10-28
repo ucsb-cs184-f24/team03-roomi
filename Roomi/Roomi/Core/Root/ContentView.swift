@@ -26,8 +26,13 @@ struct ContentView: View {
                 }
             }
             else {
-                LoginView()
-            }
+                if viewModel.loginState == true {
+                    LoginView()
+                }
+                else {
+                    SignUpView()
+                }
+                            }
         }
     }
 }

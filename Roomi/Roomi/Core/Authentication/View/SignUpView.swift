@@ -23,7 +23,18 @@ struct SignUpView: View {
             
             InputView(text: $password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
             
-            ButtonView(title: "Sign Up", email: email, password: password)
+            NavigationLink(destination: ProfileCreationView()) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(.blue)
+                        .frame(height: 50)
+                    
+                    Text("Sign Up")
+                        .foregroundColor(Color.white)
+                        .bold()
+                }
+            }
+            .padding()
             
             Button {
                 dismiss()

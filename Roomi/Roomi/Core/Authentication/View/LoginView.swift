@@ -10,6 +10,10 @@ import SwiftUI
 struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @EnvironmentObject var viewModel: AuthViewModel
+    
+    // could we just init a state for user object here and then edit it accordingly during profile creation
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -21,7 +25,16 @@ struct LoginView: View {
                 
                 InputView(text: $password, title: "Password", placeholder: "Enter Your password", isSecureField: true)
                 
-                ButtonView(title: "Sign In", email: email, password: password)
+                ButtonView(title: "Login", background: .blue){
+                    // Attempt Login
+                    Task {
+                        try await viewModel.login(withEmail: email, password: password)
+                    }
+                }
+                .frame(height: 50)
+                .padding()
+                
+//                ButtonView(title: "Sign In", email: email, password: password)
                                 
                 NavigationLink {
                     SignUpView()

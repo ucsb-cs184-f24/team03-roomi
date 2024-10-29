@@ -7,25 +7,31 @@
 
 import SwiftUI
 
-struct ProfileCreationView: View {
+struct ProfileCreationView: View, Hashable {
+    @EnvironmentObject var viewModel: AuthViewModel
     @State private var name: String = ""
     @State private var selectedNumber = 18
     @State private var selectedGender = "Male"
-    @EnvironmentObject var viewModel: AuthViewModel
+    @State private var phoneNumber = ""
     
     var body: some View {
         VStack {
+            // TODO ADD VALIDATION FOR THESE FIELDS
+            
+            
             Text("Lets Get to Know You...")
                 .fontWeight(.heavy)
                 .font(.title)
                 .padding(.bottom, 50)
             
-            InputView(text: $name, title: "Name", placeholder: "Name")
+            // name input
+            InputView(text: $viewModel.potentialUser.name, title: "Name", placeholder: "Name")
             
+            // age selector
             Text("Age")
                 .font(.subheadline)
                 .padding(.top, 20)
-            Picker("Select a number", selection: $selectedNumber) {
+            Picker("Select a number", selection: $viewModel.potentialUser.age) {
                 ForEach(18...100, id: \.self) { number in
                     Text("\(number)")
                 }
@@ -37,12 +43,11 @@ struct ProfileCreationView: View {
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
             
-            
+            // gender input
             Text("Gender")
                 .font(.subheadline)
                 .padding(.top, 20)
-
-            Picker("Select Gender", selection: $selectedGender) {
+            Picker("Select Gender", selection: $viewModel.potentialUser.gender) {
                 ForEach(["Male", "Female"], id: \.self) { gender in
                     Text(gender)
                 }
@@ -50,11 +55,15 @@ struct ProfileCreationView: View {
             .pickerStyle(SegmentedPickerStyle())
             .padding()
             
+            // phone number input
+            TextField("Enter your phone number", text: $viewModel.potentialUser.phoneNumber)
+                .keyboardType(.numberPad) // Use number pad keyboard
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
             
             ButtonView(title: "Create Profile", background: .blue){
                 Task {
-                    // CALL VIEW MODEL SIGN UP METHOD
-                    // try await viewModel.signUp(withEmail: email, password: password)
+                    try await viewModel.signUp()
                 }
             }
             .frame(height: 50)
@@ -63,6 +72,16 @@ struct ProfileCreationView: View {
         }
         .padding()
             
+    }
+    
+    // Conformance to Hashable
+    static func == (lhs: ProfileCreationView, rhs: ProfileCreationView) -> Bool {
+        // Implement equality check (e.g., compare properties)
+        return true // Change as necessary based on your properties
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        // Hash relevant properties if needed
     }
 }
 

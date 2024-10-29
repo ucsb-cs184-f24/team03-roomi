@@ -19,7 +19,7 @@ struct ProfileView: View {
                     
                     Text("Email: \(user.email)")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Name: \(user.firstName) \(user.lastName)")
+                    Text("Name: \(user.name)")
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Button("Logout") {

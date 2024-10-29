@@ -11,9 +11,10 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        if let user = viewModel.currentUser {
-            NavigationStack {
-                VStack {
+        NavigationStack {
+            VStack {
+                if let user = viewModel.currentUser {
+                    
                     Text("Profile")
                         .font(.largeTitle)
                     
@@ -25,12 +26,12 @@ struct ProfileView: View {
                     Button("Logout") {
                         viewModel.signOut()
                     }
-                        .foregroundStyle(.red)
-                        .frame(maxHeight: .infinity, alignment: .bottom)
+                    .foregroundStyle(.red)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
                 }
-                .padding()
-                .frame(maxHeight: .infinity, alignment: .top)
             }
+            .padding()
+            .frame(maxHeight: .infinity, alignment: .top)
         }
     }
 }

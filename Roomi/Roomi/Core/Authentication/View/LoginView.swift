@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @EnvironmentObject var viewModel: AuthViewModel
+    
+    // could we just init a state for user object here and then edit it accordingly during profile creation
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -17,22 +19,37 @@ struct LoginView: View {
                     .fontWeight(.heavy)
                     .font(.largeTitle)
                 
-                InputView(text: $email, title: "Email", placeholder: "Enter Your Email")
-                
-                InputView(text: $password, title: "Password", placeholder: "Enter Your password", isSecureField: true)
-                
-                ButtonView(title: "Sign In", email: email, password: password)
-                                
-                NavigationLink {
-                    SignUpView()
-                        .navigationBarBackButtonHidden(true)
-                } label: {
-                    HStack(spacing: 3) {
-                        Text("Don't have an account?")
-                        Text("Sign Up").fontWeight(.bold)
-                    }
-                    .font(.system(size: 14))
+                // display error messages
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(Color.red)
                 }
+                
+                // email and password inputs
+                InputView(text: $viewModel.potentialUser.email, title: "Email", placeholder: "Enter Your Email")
+                
+                InputView(text: $viewModel.password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
+                
+                // login button
+                ButtonView(title: "Login", background: .blue){
+                    // Attempt Login
+                    Task {
+                        try await viewModel.login()
+                    }
+                }
+                .frame(height: 50)
+                .padding()
+                
+                              
+                // button to switch to sign up view
+                Button (action: {
+                    viewModel.loginState.toggle()
+                    viewModel.errorMessage = ""
+                }) {
+                        Text("Don't have an account?")
+                        Text("Sign Up")
+                        .fontWeight(.bold)
+                    }
                 
                 Spacer().frame(height:20)
                 

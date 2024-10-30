@@ -12,10 +12,30 @@ struct ProfileCard: View {
     var body: some View {
         NavigationLink (destination: ExpandedProfileCard(userInformation: userInformation)) {
             VStack(alignment: .leading) {
-                Text(userInformation.name)
-                    .font(.title)
-                Text(userInformation.gender)
+                ZStack {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 80)
+                        .clipShape(Circle())
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                }
+            }
+            VStack {
+                    Text(userInformation.name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                    Text(userInformation.gender)
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading)
+                Text("\(userInformation.age) years old")
                     .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading)
             }
         }
     }
@@ -23,4 +43,6 @@ struct ProfileCard: View {
 
 #Preview {
     ProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890"))
+        
+        
 }

@@ -11,6 +11,7 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
+        
         NavigationStack {
             VStack {
                 if let user = viewModel.currentUser {

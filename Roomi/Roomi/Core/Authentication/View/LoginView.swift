@@ -20,10 +20,10 @@ struct LoginView: View {
                     .font(.largeTitle)
                 
                 // display error messages
-//                if !viewModel.errorMessage.isEmpty {
-//                    Text(viewModel.errorMessage)
-//                        .foregroundColor(Color.red)
-//                }
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(Color.red)
+                }
                 
                 // email and password inputs
                 InputView(text: $viewModel.potentialUser.email, title: "Email", placeholder: "Enter Your Email")
@@ -62,5 +62,4 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-        .environmentObject(AuthViewModel())
 }

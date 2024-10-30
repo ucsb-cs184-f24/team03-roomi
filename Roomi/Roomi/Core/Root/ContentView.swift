@@ -28,6 +28,12 @@ struct ContentView: View {
                         .tabItem {
                             Label("Profile", systemImage: "person.circle")
                         }
+                    
+                    NavigationView
+                    {
+                        ChatListView()
+                    }.tabItem
+                    {Label("Messages", systemImage: "message.fill")}
                 }
             }
             else {

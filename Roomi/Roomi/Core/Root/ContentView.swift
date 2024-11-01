@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var relationshipsViewModel: UserRelationshipsViewModel
     
     var body: some View {
         Group {
@@ -45,4 +46,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(AuthViewModel())
+        .environmentObject(UserRelationshipsViewModel())
 }

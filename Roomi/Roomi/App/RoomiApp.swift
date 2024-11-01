@@ -11,6 +11,7 @@ import Firebase
 @main
 struct RoomiApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var userRelationshipsViewModel = UserRelationshipsViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -19,6 +20,7 @@ struct RoomiApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(userRelationshipsViewModel)
         }
     }
 }

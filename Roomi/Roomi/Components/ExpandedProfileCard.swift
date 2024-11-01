@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExpandedProfileCard: View {
     let userInformation: User
+    @EnvironmentObject var userRelationshipsViewModel: UserRelationshipsViewModel
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(userInformation.name)
@@ -29,7 +31,9 @@ struct ExpandedProfileCard: View {
         
         HStack {
             Button {
-                
+                Task {
+                    userRelationshipsViewModel.addDislike(userId: userInformation.id)
+                }
             } label: {
                 Image(systemName: "xmark.circle.fill")
                     .resizable()
@@ -38,7 +42,9 @@ struct ExpandedProfileCard: View {
             }
 
             Button {
-                
+                Task {
+                    userRelationshipsViewModel.addLike(userId: userInformation.id)
+                }
             } label: {
                 Image(systemName: "checkmark.circle.fill")
                     .resizable()

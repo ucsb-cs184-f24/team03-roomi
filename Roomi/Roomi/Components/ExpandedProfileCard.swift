@@ -44,6 +44,7 @@ struct ExpandedProfileCard: View {
             Button {
                 Task {
                     userRelationshipsViewModel.addLike(userId: userInformation.id)
+                    print(userRelationshipsViewModel.likes)
                 }
             } label: {
                 Image(systemName: "checkmark.circle.fill")
@@ -57,4 +58,5 @@ struct ExpandedProfileCard: View {
 
 #Preview {
     ExpandedProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890", likes: [], dislikes: [], matches: []))
+        .environmentObject(UserRelationshipsViewModel())
 }

@@ -3,6 +3,10 @@ import SwiftUI
 struct ProfileDetailView: View {
     let profile: Profile
     @Environment(\.presentationMode) var presentationMode
+    
+    var compatibilityScore: Int {
+        calculateCompatibilityScore()
+    }
 
     var body: some View {
         ZStack {
@@ -13,27 +17,31 @@ struct ProfileDetailView: View {
             )
             .edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 25) {
-                Spacer().frame(height: 80)
-                
-                ProfileImageView(image: profile.image, size: 120)
-                
-                Text(profile.name)
-                    .font(.largeTitle).bold()
-                    .foregroundColor(.white)
-                
-                HStack(spacing: 20) {
-                    GenderBubble(gender: profile.gender)
-                    AgeBubble(age: profile.age)
+            ScrollView {
+                VStack(spacing: 25) {
+                    Spacer().frame(height: 80)
+                    
+                    ProfileImageView(image: profile.image, size: 120)
+                    
+                    Text(profile.name)
+                        .font(.largeTitle).bold()
+                        .foregroundColor(.white)
+                    
+                    HStack(spacing: 20) {
+                        GenderBubble(gender: profile.gender)
+                        AgeBubble(age: profile.age)
+                    }
+                    
+                    LocationBubble(location: profile.location)
+                    
+                    ProfileInfoBubble(title: "About Me", text: profile.bio)
+                    
+                    CompatibilityScoreBubble(score: compatibilityScore)
+                    
+                    Spacer()
                 }
-                
-                LocationBubble(location: profile.location)
-                
-                ProfileInfoBubble(title: "About Me", text: profile.bio)
-                
-                Spacer()
+                .padding()
             }
-            .padding()
             
             VStack {
                 HStack {
@@ -70,10 +78,41 @@ struct ProfileDetailView: View {
         }
         .navigationBarHidden(true)
     }
+    
+    func calculateCompatibilityScore() -> Int {
+        var score = 0
+        
+        if profile.location == "San Francisco, CA" || profile.location == "Los Angeles, CA" {
+            score += 30
+        }
+        if profile.age >= 25 && profile.age <= 30 || profile.gender == "Female" {
+            score += 20
+        }
+        if profile.bio.contains("hiking") || profile.bio.contains("outdoor") {
+            score += 10
+        }
+        
+        return min(score, 100)
+    }
 }
 
-
-
+struct CompatibilityScoreBubble: View {
+    let score: Int
+    
+    var body: some View {
+        VStack {
+            Text("Compatibility Score")
+                .font(.headline)
+                .foregroundColor(.white.opacity(0.9))
+            Text("\(score)%")
+                .font(.largeTitle).bold()
+                .foregroundColor(score >= 50 ? .green : .red)
+        }
+        .padding()
+        .background(Color.white.opacity(0.15))
+        .cornerRadius(15)
+    }
+}
 
 struct GenderBubble: View {
     let gender: String

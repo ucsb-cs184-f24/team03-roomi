@@ -12,24 +12,22 @@ struct ExpandedProfileCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(userInformation.name)
-                .font(.title)
-            Text(userInformation.gender)
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+            Image("Sample_Profile_Image")
+                .resizable()
+                .frame(width: 300, height: 400)
+
+            Text("Sex: \(userInformation.gender)")
                 .font(.subheadline)
             Text("\(userInformation.age) years old")
                 .font(.subheadline)
         }
         .padding(.top)
+        .frame(maxHeight: .infinity, alignment: .top)
         
         HStack {
-            Button {
-                
-            } label: {
-                Image(systemName: "checkmark.circle.fill")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.green)
-            }
-            
             Button {
                 
             } label: {
@@ -37,6 +35,15 @@ struct ExpandedProfileCard: View {
                     .resizable()
                     .frame(width: 50, height: 50)
                     .foregroundColor(.red)
+            }
+
+            Button {
+                
+            } label: {
+                Image(systemName: "checkmark.circle.fill")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .foregroundColor(.green)
             }
         }.padding(.bottom)
     }

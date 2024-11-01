@@ -14,7 +14,7 @@ struct ProfileView: View {
         NavigationStack {
             VStack {
                 if let user = viewModel.currentUser {
-                    
+                
                     Text("Profile")
                         .font(.largeTitle)
                     
@@ -28,6 +28,9 @@ struct ProfileView: View {
                     }
                     .foregroundStyle(.red)
                     .frame(maxHeight: .infinity, alignment: .bottom)
+                }
+                else {
+                    Text("Not logged in")
                 }
             }
             .padding()

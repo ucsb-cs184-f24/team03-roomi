@@ -12,17 +12,17 @@ struct ExpandedProfileCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(userInformation.name)
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                .font(.system(size: 40, weight: .bold))
             
+            // replace with user image(s) once implemented
             Image("Sample_Profile_Image")
                 .resizable()
                 .frame(width: 300, height: 400)
 
-            Text("Sex: \(userInformation.gender)")
-                .font(.subheadline)
-            Text("\(userInformation.age) years old")
-                .font(.subheadline)
+            Text("Sex: \(userInformation.gender.capitalized)")
+                .font(.system(size: 20))
+            Text("Age: \(userInformation.age) years old")
+                .font(.system(size: 20))
         }
         .padding(.top)
         .frame(maxHeight: .infinity, alignment: .top)
@@ -50,5 +50,5 @@ struct ExpandedProfileCard: View {
 }
 
 #Preview {
-    ExpandedProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890"))
+    ExpandedProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890", likes: [], dislikes: [], matches: []))
 }

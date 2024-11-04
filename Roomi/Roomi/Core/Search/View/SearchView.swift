@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var viewModel = AuthViewModel()
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         NavigationView {
             List (viewModel.userList) { user in

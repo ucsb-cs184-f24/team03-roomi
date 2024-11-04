@@ -8,7 +8,8 @@ struct HomeView: View {
     let tabs = [
         (title: "Matches", image: "person.fill"),
         (title: "Home", image: "house.fill"),
-        (title: "Profile", image: "gearshape.fill")
+        (title: "Profile", image: "gearshape.fill"),
+        (title: "", image: "message.fill")
     ]
     
     var body: some View {
@@ -27,6 +28,11 @@ struct HomeView: View {
                     SearchView()
                 } else if selectedTab == 2 {
                     ProfileView()
+                } else if selectedTab == 3 {
+                    NavigationView
+                    {
+                        ChatListView()
+                    }
                 }
                 
                 Spacer()

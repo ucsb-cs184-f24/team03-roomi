@@ -38,7 +38,7 @@ Open the Roomi project with XCode and install the necessary dependencies by goin
 If prompted to verify the Developer App certificate for your account is trusted on your device. Open Settings on the device and navigate to General -> VPN & Device Management, then select your Developer App certificate to trust it
 
 ## Step 4:
-Sign into your apple id, change the bundle identifier to yours, and select a development team in the Signing & Capabilities editor.
+Sign into your apple id, change the bundle identifier to yours, and select a development team in the Signing & Capabilities editor
 
 ## Step 5: 
 Make sure your IPhone is plugged in and connected to the same wifi network, then choose it as a simulator then build and run

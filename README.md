@@ -19,3 +19,33 @@ On the app, users will be able to swipe through different profiles and view info
 - Admin/Moderator: A role that monitors and manages the app from inappropriate content, scams, etc.
 
 We want our app to be available to a wide array of people to ensure we can maximize the amount of people we can help find roommates. Therefore, currently, we have decided not to restrict our user base to a specific domain.
+
+# Installation
+
+## Prerequisites
+Download the latest version of XCode from the Apple Appstore
+
+## Step 1: 
+Clone the repository through HTTP or SSH by using git clone
+
+## Step 2: 
+Open the Roomi project with XCode and install the necessary dependencies by going to File -> Add Package Dependancies
+
+- "firebase-ios-sdk"
+- Specifically add FirebaseAuth and FirebaseFirestore to Roomi when prompted
+
+## Step 3: 
+If prompted to verify the Developer App certificate for your account is trusted on your device. Open Settings on the device and navigate to General -> VPN & Device Management, then select your Developer App certificate to trust it
+
+## Step 4:
+Sign into your apple id, change the bundle identifier to yours, and select a development team in the Signing & Capabilities editor.
+
+## Step 5: 
+Make sure your IPhone is plugged in and connected to the same wifi network, then choose it as a simulator then build and run
+
+
+# Functionality
+TODO: Write usage instructions. Structuring it as a walkthrough can help structure this section, and showcase your features.
+
+# Known Problems
+TODO: Describe any known issues, bugs, odd behaviors or code smells. Provide steps to reproduce the problem and/or name a file or a function where the problem lives.

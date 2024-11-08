@@ -25,7 +25,7 @@ struct HomeView: View {
                 if selectedTab == 0 {
                     MatchesView()
                 } else if selectedTab == 1 {
-                    SearchView()
+                    CardStackView()
                 } else if selectedTab == 2 {
                     ProfileView()
                 } else if selectedTab == 3 {
@@ -97,4 +97,5 @@ extension Color {
 #Preview {
     HomeView()
         .environmentObject(AuthViewModel())
+        .environmentObject(CardsViewModel(service: CardService()))
 }

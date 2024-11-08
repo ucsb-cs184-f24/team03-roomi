@@ -1,4 +1,4 @@
-# Date of Retrospective: 10/18/23
+# Date of Retrospective: 11/08/24
 
 * Led by: Anderson
 * Present: Alec, Braden, Khang, Benny, Ryan

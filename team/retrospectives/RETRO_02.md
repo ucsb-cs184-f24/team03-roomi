@@ -1,22 +1,17 @@
-# Date of Retrospective: 10/20/23
+# Date of Retrospective: 11/10/24
 
-* Led by: name-goes-here
-* Present: name1, name2, ... , nameN
-* Absent: name1, name2, ...
+* Led by: Anderson Lee
+* Present: Alec, Khang, Ryan, Benjamin, Braden
+* Absent: None
 
 ## Action item
 
-* a goal: identify something the team wants to get better at
-* a change: identify one thing that the team will change about how it works together
-* a measurement: identify at least one way to measure whether the change helped the team achieve the goal, or move closer to it.
-
-## Optional
-
-* Record anything else you think the team might want to remember from this retro
+* a goal: Communicating with each other so that we can be up-to-date about our progress which will result in smoother integration and productivity.
+* a change: We will improve our PR process by including clear acceptance criteria, photos, and quicker code reviews.
+* a measurement: Merging PRs will have no roadblocks with regards to multiple members working on the same task or problems with testing.
 
 ## Retro Assessment
 
-* A brief description of what retro outline or process you used.
-* A brief assessment of how it went.
-* What advice would you give to the next person leading a retro
-  based on what you learned today?
+* The Start, Stop, Continue retro template was used to formulate a goal, change, and measurement.
+* The retro went well as a lot of feedback from team members were similar. This made it easy to identify what we are doing well and what we need to change.
+* I would advise getting feedback from all team members and formulating a plan based on commonalities in their responses.

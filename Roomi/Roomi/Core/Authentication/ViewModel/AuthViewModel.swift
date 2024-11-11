@@ -18,7 +18,12 @@ class AuthViewModel: ObservableObject {
     @Published var password = ""
     @Published var errorMessage = ""
     @Published var userList = [User]()
-
+    @Published var likedList = [User]()
+    @Published var matchList = [User]()
+    @Published var dislikeList = [User]()
+    
+    private let db = Firestore.firestore()
+    
     init() {
         self.userSession = Auth.auth().currentUser
         Task {
@@ -111,28 +116,158 @@ class AuthViewModel: ObservableObject {
         }
         return true
     }
-        
+    
     func getAllUsers() {
-        // Get reference to Database
-        let db = Firestore.firestore()
-        
         // Read in documents
         db.collection("users").getDocuments { snapshot, error in
-            // Check for errors
-            if let error {
-                print("Error fetching documents: \(error)")
-            }
-            
             // Check if no documents
             guard let documents = snapshot?.documents else {
-                print("No documents fetched")
                 return
             }
             
             // Extract profiles
-            self.userList =  documents.map { user in
+            self.userList =  documents.compactMap { user in
+                if(user.documentID == self.currentUser?.id) { // Only show other users
+                    return nil
+                }
+                
+                if(self.likedList.contains { likedUser in
+                    likedUser.id == user.documentID
+                }) {
+                    return nil
+                }
+                
+                if(self.matchList.contains { matchUser in
+                    matchUser.id == user.documentID
+                }) {
+                    return nil
+                }
+                
+                if(self.dislikeList.contains { dislikedUser in
+                    dislikedUser.id == user.documentID
+                }) {
+                    return nil
+                }
+                
                 return User(id: user.documentID, email: user.get("email") as? String ?? "", name: user.get("name") as? String ?? "", age: user.get("age") as? Int ?? 0, gender: user.get("gender") as? String ?? "", phoneNumber: user.get("phoneNumber") as? String ?? "")
             }
         }
+    }
+    
+    func getAllMatches() {
+        // Check if current user is nil
+        guard let currentUser = self.currentUser else {
+            return
+        }
+        
+        // Look at current user's document
+        db.collection("users").document(currentUser.id).getDocument { snapshot, error in
+            // Check if document exists
+            guard let documents = snapshot else {
+                return
+            }
+            
+            // Populate list of User matches based on user IDs in current users document
+            let matchIds = documents.get("matches") as? [String] ?? [String]()
+            
+            // Filter out matched users from userList
+            self.matchList = matchIds.compactMap { id in
+                self.userList.first { user in
+                    user.id == id
+                }
+            }
+        }
+    }
+    
+    func getAllLikes() {
+        // Check if current user is nil
+        guard let currentUser = self.currentUser else {
+            return
+        }
+        
+        // Look at current user's document
+        db.collection("users").document(currentUser.id).getDocument { snapshot, error in
+            // Check if document exists
+            guard let documents = snapshot else {
+                return
+            }
+            
+            // Populate list of user likes based on user IDs in current users liked document
+            let likedIds = documents.get("liked") as? [String] ?? [String]()
+            
+            // Filter out liked users from userList
+            self.likedList = likedIds.compactMap { id in
+                self.userList.first { user in
+                    user.id == id
+                }
+            }
+        }
+    }
+    
+    func getAllDislikes() {
+        // Check if current user is nil
+        guard let currentUser = self.currentUser else {
+            return
+        }
+        
+        // Look at current user's document
+        db.collection("users").document(currentUser.id).getDocument { snapshot, error in
+            // Check if document exists
+            guard let documents = snapshot else {
+                return
+            }
+            
+            // Populate list of user dislikes based on user IDs in current users disliked document
+            let dislikedIds = documents.get("disliked") as? [String] ?? [String]()
+            
+            // Filter out disliked users from userList
+            self.dislikeList = dislikedIds.compactMap { id in
+                self.userList.first { user in
+                    user.id == id
+                }
+            }
+        }
+    }
+    
+    func like(user: User) {
+        guard let currentUser = self.currentUser else {
+            return
+        }
+        
+        // Look at likees document
+        db.collection("users").document(user.id).getDocument { snapshot, error in
+            // Check if document exists
+            guard let documents = snapshot else {
+                return
+            }
+            
+            // Check user document for likers Id
+            if(documents.get("liked") as? [String] ?? [String]()).contains(currentUser.id) {
+                // Add match to both users
+                self.db.collection("users").document(currentUser.id).updateData(
+                    ["matches": FieldValue.arrayUnion([user.id])])
+                self.db.collection("users").document(user.id).updateData(
+                    ["matches": FieldValue.arrayUnion([currentUser.id])])
+                
+                // Remove user from likees list
+                self.db.collection("users").document(user.id).updateData(
+                    ["liked": FieldValue.arrayRemove([currentUser.id])])
+            } else {
+                // Add likee to likers list
+                self.db.collection("users").document(currentUser.id).updateData(
+                    ["liked": FieldValue.arrayUnion([user.id])])
+            }
+        }
+    }
+    
+    func dislike(user: User) {
+        // Check if current user is nil
+        guard let currentUser = self.currentUser else {
+            return
+        }
+        
+        // Add disliked user to current user's disliked list
+        db.collection("users").document(currentUser.id).updateData(
+            ["disliked": FieldValue.arrayUnion([user.id])])
     }
 }

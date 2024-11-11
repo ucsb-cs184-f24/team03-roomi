@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileCardView: View {
-    let profile: Profile
+    let userInformation: User
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
@@ -17,13 +17,11 @@ struct ProfileCardView: View {
                 .frame(height: 200)
                 .overlay(
                     VStack {
-                        ProfileImageView(image: profile.image)
-                        
-                        Text(profile.name)
+                        Text(userInformation.name)
                             .font(.title2).bold()
                             .foregroundColor(.white)
                         
-                        Text("\(profile.age) years old")
+                        Text("\(userInformation.age) years old")
                             .foregroundColor(.white.opacity(0.7))
                             .padding(.bottom, 10)
                     }

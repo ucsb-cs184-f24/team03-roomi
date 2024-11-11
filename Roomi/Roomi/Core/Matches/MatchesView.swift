@@ -1,30 +1,21 @@
 import SwiftUI
 
+@MainActor
 struct MatchesView: View {
     @State private var selectedTab: MatchTab = .matches
+    @EnvironmentObject var viewModel: AuthViewModel
 
     enum MatchTab: String, CaseIterable {
         case matches = "Matches"
         case likes = "Likes"
     }
 
-    let matchedProfiles = [
-        Profile(name: "Alex", age: 26, gender: "Male", location: "San Francisco, CA", image: "person.fill", bio: "Loves hiking and outdoor adventures."),
-        Profile(name: "Jordan", age: 29, gender: "Female", location: "Los Angeles, CA", image: "person.fill", bio: "Tech enthusiast and coffee lover."),
-        Profile(name: "Taylor", age: 24, gender: "Female", location: "New York, NY", image: "person.fill", bio: "Aspiring artist and foodie.")
-    ]
-
-    let likedProfiles = [
-        Profile(name: "Chris", age: 27, gender: "Male", location: "Austin, TX", image: "person.fill", bio: "Musician and part-time chef."),
-        Profile(name: "Morgan", age: 30, gender: "Female", location: "Seattle, WA", image: "person.fill", bio: "Entrepreneur with a passion for travel.")
-    ]
-
-    var displayedProfiles: [Profile] {
+    var displayedProfiles: [User] {
         switch selectedTab {
         case .matches:
-            return matchedProfiles
+            return viewModel.matchList
         case .likes:
-            return likedProfiles
+            return viewModel.likedList
         }
     }
 
@@ -35,9 +26,9 @@ struct MatchesView: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
-                        ForEach(displayedProfiles) { profile in
-                            NavigationLink(destination: ProfileDetailView(profile: profile)) {
-                                ProfileCardView(profile: profile)
+                        ForEach(displayedProfiles) { user in
+                            NavigationLink(destination: ProfileDetailView(userInformation: user)) {
+                                ProfileCardView(userInformation: user)
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -54,6 +45,10 @@ struct MatchesView: View {
                 .edgesIgnoringSafeArea(.all)
             )
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            viewModel.getAllMatches()
+            viewModel.getAllLikes()
         }
     }
 }
@@ -75,4 +70,5 @@ struct MatchTabPicker: View {
 
 #Preview {
     MatchesView()
+        .environmentObject(AuthViewModel())
 }

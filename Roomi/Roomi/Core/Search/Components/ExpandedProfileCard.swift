@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpandedProfileCard: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     let userInformation: User
     var body: some View {
         VStack(alignment: .leading) {
@@ -22,7 +23,7 @@ struct ExpandedProfileCard: View {
         
         HStack {
             Button {
-                
+                viewModel.like(user: userInformation)
             } label: {
                 Image(systemName: "checkmark.circle.fill")
                     .resizable()
@@ -31,7 +32,7 @@ struct ExpandedProfileCard: View {
             }
             
             Button {
-                
+                viewModel.dislike(user: userInformation)
             } label: {
                 Image(systemName: "xmark.circle.fill")
                     .resizable()
@@ -44,4 +45,5 @@ struct ExpandedProfileCard: View {
 
 #Preview {
     ExpandedProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890"))
+        .environmentObject(AuthViewModel())
 }

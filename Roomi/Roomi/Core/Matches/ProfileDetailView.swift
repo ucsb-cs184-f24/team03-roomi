@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ProfileDetailView: View {
-    let profile: Profile
     @Environment(\.presentationMode) var presentationMode
+    let userInformation: User
 
     var body: some View {
         ZStack {
@@ -15,22 +15,18 @@ struct ProfileDetailView: View {
             
             VStack(spacing: 25) {
                 Spacer().frame(height: 80)
-                
-                ProfileImageView(image: profile.image, size: 120)
-                
-                Text(profile.name)
+                                
+                Text(userInformation.name)
                     .font(.largeTitle).bold()
                     .foregroundColor(.white)
                 
                 HStack(spacing: 20) {
-                    GenderBubble(gender: profile.gender)
-                    AgeBubble(age: profile.age)
+                    GenderBubble(gender: userInformation.gender)
+                    AgeBubble(age: userInformation.age)
                 }
                 
-                LocationBubble(location: profile.location)
-                
-                ProfileInfoBubble(title: "About Me", text: profile.bio)
-                
+                LocationBubble(location: userInformation.email)
+                                
                 Spacer()
             }
             .padding()
@@ -48,7 +44,7 @@ struct ProfileDetailView: View {
                     
                     Spacer()
                     
-                    Text(profile.name)
+                    Text(userInformation.name)
                         .font(.headline)
                         .foregroundColor(.white)
                     

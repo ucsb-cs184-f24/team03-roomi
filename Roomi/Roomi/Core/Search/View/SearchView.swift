@@ -11,12 +11,18 @@ struct SearchView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         NavigationView {
-            List (viewModel.userList) { user in
-                ProfileCard(userInformation: user)
+            if(viewModel.isLoading) {
+                ProgressView()
+            } else {
+                List (viewModel.potentialUsers) { user in
+                    ProfileCard(userInformation: user)
+                }
             }
-            .onAppear { // Gets all users when the view is opened
-                viewModel.getAllUsers()
+        }.refreshable {
+            Task {
+                await viewModel.getAllUsers()
             }
+            viewModel.getAllPotentialUsers()
         }
     }
 }

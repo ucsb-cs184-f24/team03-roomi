@@ -17,7 +17,9 @@ struct ChatListView: View {
             }
         }
         .onAppear {
-            viewModel.getAllUsers()
+            Task {
+                await viewModel.getAllUsers()
+            }
         }
         .navigationTitle("Messages")
     }

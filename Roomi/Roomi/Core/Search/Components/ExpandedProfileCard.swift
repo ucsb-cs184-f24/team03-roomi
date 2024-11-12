@@ -23,7 +23,9 @@ struct ExpandedProfileCard: View {
         
         HStack {
             Button {
-                viewModel.like(user: userInformation)
+                Task {
+                    await viewModel.like(otherUser: userInformation)
+                }
             } label: {
                 Image(systemName: "checkmark.circle.fill")
                     .resizable()
@@ -32,7 +34,9 @@ struct ExpandedProfileCard: View {
             }
             
             Button {
-                viewModel.dislike(user: userInformation)
+                Task {
+                    await viewModel.dislike(otherUser: userInformation)
+                }
             } label: {
                 Image(systemName: "xmark.circle.fill")
                     .resizable()

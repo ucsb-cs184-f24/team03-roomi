@@ -46,9 +46,11 @@ struct MatchesView: View {
             )
             .navigationBarTitleDisplayMode(.inline)
         }
-        .onAppear {
-            viewModel.getAllMatches()
-            viewModel.getAllLikes()
+        .refreshable {
+            Task {
+                await viewModel.getAllMatches()
+                await viewModel.getAllLikes()
+            }
         }
     }
 }

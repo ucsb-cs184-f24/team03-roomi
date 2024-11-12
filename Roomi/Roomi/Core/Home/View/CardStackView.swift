@@ -11,11 +11,18 @@ struct CardStackView: View {
     @EnvironmentObject var viewModel: CardsViewModel
     
     var body: some View {
-        ZStack{
-            ForEach(viewModel.cardModels){ card in
-                CardView(model: card)
+        VStack {
+            ZStack{
+                ForEach(viewModel.cardModels){ card in
+                    CardView(model: card)
+                }
+            }
+            
+            if !viewModel.cardModels.isEmpty {
+                SwipeActionButtonsView()
             }
         }
+        .padding(.top, 20)
     }
 }
 

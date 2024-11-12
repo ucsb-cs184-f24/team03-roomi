@@ -26,7 +26,7 @@ struct CardView: View {
 //                        endPoint: .bottom
 //                    ))
                 
-                // TODO - make the info in here a scrollview
+                 //TODO - make the info in here a scrollview
                 
                 VStack {
                     Text(model.user.name)
@@ -39,9 +39,12 @@ struct CardView: View {
                 SwipeActionIndicatorView(xOffset: $xOffset)
             }
         }
+        .onReceive(viewModel.$buttonSwipeAction, perform: { action in
+            onRecieveSwipeAction(action)
+        })
         .frame(width: SizeConstants.cardWidth, height: SizeConstants.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .offset(x: xOffset, y: UIScreen.main.bounds.height * 0.1)
+        .offset(x: xOffset)
         .rotationEffect(.degrees(degrees))
         .animation(.snappy, value: xOffset)
         .gesture(
@@ -76,6 +79,21 @@ private extension CardView {
             viewModel.removeCard(model)
         }
     }
+    
+    func onRecieveSwipeAction(_ action: SwipeAction?) {
+        guard let action else { return }
+        
+        let topCard = viewModel.cardModels.last
+        
+        if topCard == model {
+            switch action {
+            case .reject:
+                swipeLeft()
+            case .like:
+                swipeRight()
+            }
+        }
+    }
 }
 
 private extension CardView {
@@ -102,6 +120,10 @@ private extension CardView {
     
 
 #Preview {
-    CardView(model: CardModel(user: MockData.users[1]))
-        .environmentObject(CardsViewModel(service: CardService()))
+    
+    ZStack{
+        Color.gray
+        CardView(model: CardModel(user: MockData.users[1]))
+            .environmentObject(CardsViewModel(service: CardService()))
+    }
 }

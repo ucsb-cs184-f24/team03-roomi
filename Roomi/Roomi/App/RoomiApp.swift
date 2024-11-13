@@ -10,7 +10,8 @@ import Firebase
 
 @main
 struct RoomiApp: App {
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var authViewModel = AuthViewModel()
+    @StateObject var cardsViewModel = CardsViewModel(service: CardService())
     
     init() {
         FirebaseApp.configure()
@@ -18,7 +19,8 @@ struct RoomiApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
+                .environmentObject(authViewModel)
+                .environmentObject(cardsViewModel)
         }
     }
 }

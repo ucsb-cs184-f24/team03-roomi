@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     @EnvironmentObject var relationshipsViewModel: UserRelationshipsViewModel
-    
+  
     var body: some View {
         NavigationView {
             List (relationshipsViewModel.userList) { user in

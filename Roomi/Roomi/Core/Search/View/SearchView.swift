@@ -18,7 +18,7 @@ struct SearchView: View {
             .onAppear { // Gets all users when the view is opened
                 Task {
                     await relationshipsViewModel.getAllUsers()
-                    print(relationshipsViewModel.userList)
+
                     relationshipsViewModel.userList = relationshipsViewModel.userList.filter({ user in !relationshipsViewModel.likes.contains(user.id) && !relationshipsViewModel.dislikes.contains(user.id)})
                 }
             }

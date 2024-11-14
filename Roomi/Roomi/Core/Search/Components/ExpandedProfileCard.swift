@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpandedProfileCard: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var searchViewModel: SearchViewModel
     let userInformation: User
     var body: some View {
         VStack(alignment: .leading) {
@@ -24,7 +24,7 @@ struct ExpandedProfileCard: View {
         HStack {
             Button {
                 Task {
-                    await viewModel.like(otherUser: userInformation)
+                    await searchViewModel.like(otherUser: userInformation)
                 }
             } label: {
                 Image(systemName: "checkmark.circle.fill")
@@ -35,7 +35,7 @@ struct ExpandedProfileCard: View {
             
             Button {
                 Task {
-                    await viewModel.dislike(otherUser: userInformation)
+                    await searchViewModel.dislike(otherUser: userInformation)
                 }
             } label: {
                 Image(systemName: "xmark.circle.fill")

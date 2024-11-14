@@ -8,26 +8,30 @@
 import SwiftUI
 
 struct SearchView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var searchViewModel: SearchViewModel
+
     var body: some View {
         NavigationView {
-            if(viewModel.isLoading) {
-                ProgressView()
-            } else {
-                List (viewModel.potentialUsers) { user in
-                    ProfileCard(userInformation: user)
-                }
+            List (searchViewModel.potentialUsers) { user in
+                ProfileCard(userInformation: user)
             }
-        }.refreshable {
+        }
+        .onAppear {
             Task {
-                await viewModel.getAllUsers()
+                await searchViewModel.getAllUsers()
             }
-            viewModel.getAllPotentialUsers()
+            searchViewModel.getAllPotentialUsers()
+        }
+        .refreshable {
+            Task {
+                await searchViewModel.getAllUsers()
+            }
+            searchViewModel.getAllPotentialUsers()
         }
     }
 }
 
 #Preview {
     SearchView()
-        .environmentObject(AuthViewModel())
+        .environmentObject(SearchViewModel())
 }

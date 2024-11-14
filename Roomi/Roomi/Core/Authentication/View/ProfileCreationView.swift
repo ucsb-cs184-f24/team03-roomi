@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileCreationView: View, Hashable {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var searchViewModel: SearchViewModel
     @State private var name: String = ""
     @State private var selectedNumber = 18
     @State private var selectedGender = "Male"
@@ -64,6 +65,7 @@ struct ProfileCreationView: View, Hashable {
             ButtonView(title: "Create Profile", background: .blue){
                 Task {
                     try await viewModel.signUp()
+                    await searchViewModel.initialize()
                 }
             }
             .frame(height: 50)
@@ -88,4 +90,5 @@ struct ProfileCreationView: View, Hashable {
 #Preview {
     ProfileCreationView()
         .environmentObject(AuthViewModel())
+        .environmentObject(SearchViewModel())
 }

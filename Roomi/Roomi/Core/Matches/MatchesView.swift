@@ -4,6 +4,8 @@ import SwiftUI
 struct MatchesView: View {
     @State private var selectedTab: MatchTab = .matches
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var searchViewModel: SearchViewModel
+
 
     enum MatchTab: String, CaseIterable {
         case matches = "Matches"
@@ -13,9 +15,9 @@ struct MatchesView: View {
     var displayedProfiles: [User] {
         switch selectedTab {
         case .matches:
-            return viewModel.matchList
+            return searchViewModel.matchList
         case .likes:
-            return viewModel.likedList
+            return searchViewModel.likedList
         }
     }
 
@@ -46,10 +48,16 @@ struct MatchesView: View {
             )
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear {
+            Task {
+                await searchViewModel.getAllMatches()
+                await searchViewModel.getAllLikes()
+            }
+        }
         .refreshable {
             Task {
-                await viewModel.getAllMatches()
-                await viewModel.getAllLikes()
+                await searchViewModel.getAllMatches()
+                await searchViewModel.getAllLikes()
             }
         }
     }
@@ -73,4 +81,5 @@ struct MatchTabPicker: View {
 #Preview {
     MatchesView()
         .environmentObject(AuthViewModel())
+        .environmentObject(SearchViewModel())
 }

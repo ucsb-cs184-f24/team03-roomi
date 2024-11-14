@@ -11,6 +11,7 @@ import Firebase
 @main
 struct RoomiApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var searchViewModel = SearchViewModel()
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
@@ -18,6 +19,7 @@ struct RoomiApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(searchViewModel)
         }
     }
 }

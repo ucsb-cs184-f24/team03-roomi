@@ -20,12 +20,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct RoomiApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var userRelationshipsViewModel = UserRelationshipsViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(userRelationshipsViewModel)
         }
     }
 }

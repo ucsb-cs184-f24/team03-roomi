@@ -26,6 +26,7 @@ struct ProfileCreationView: View, Hashable {
             
             // name input
             InputView(text: $viewModel.potentialUser.name, title: "Name", placeholder: "Name")
+                .textInputAutocapitalization(.words)
             
             // age selector
             Text("Age")

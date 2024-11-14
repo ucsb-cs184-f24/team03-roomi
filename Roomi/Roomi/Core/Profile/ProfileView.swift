@@ -11,27 +11,24 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                if let user = viewModel.currentUser {
-                    
-                    Text("Profile")
-                        .font(.largeTitle)
-                    
-                    Text("Email: \(user.email)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Name: \(user.name)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    Button("Logout") {
-                        viewModel.signOut()
-                    }
-                    .foregroundStyle(.red)
-                    .frame(maxHeight: .infinity, alignment: .bottom)
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+            
+            if let user = viewModel.currentUser {
+                
+                ProfileDetailView(userInformation: user)
+                
+                Button("Logout") {
+                    viewModel.signOut()
                 }
+                .foregroundStyle(.red)
+                .frame(maxHeight: .infinity, alignment: .bottom)
             }
-            .padding()
-            .frame(maxHeight: .infinity, alignment: .top)
         }
     }
 }

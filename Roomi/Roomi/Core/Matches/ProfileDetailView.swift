@@ -33,6 +33,7 @@ struct ProfileDetailView: View {
             
             VStack {
                 HStack {
+                    
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
                     }) {

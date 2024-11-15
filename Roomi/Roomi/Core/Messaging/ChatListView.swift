@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatListView: View {
     @EnvironmentObject var cardsViewModel: CardsViewModel
     @EnvironmentObject var viewModel: AuthViewModel
-
+    
     var body: some View {
         List(cardsViewModel.matchList.filter { $0.id != viewModel.userSession?.uid }) { user in
             NavigationLink(destination: ChatView(viewModel: MessagingViewModel(recipientId: user.id))) {

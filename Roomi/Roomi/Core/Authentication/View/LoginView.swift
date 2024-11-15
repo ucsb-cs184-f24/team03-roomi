@@ -21,10 +21,10 @@ struct LoginView: View {
                     .font(.largeTitle)
                 
                 // display error messages
-//                if !viewModel.errorMessage.isEmpty {
-//                    Text(viewModel.errorMessage)
-//                        .foregroundColor(Color.red)
-//                }
+                //                if !viewModel.errorMessage.isEmpty {
+                //                    Text(viewModel.errorMessage)
+                //                        .foregroundColor(Color.red)
+                //                }
                 
                 // email and password inputs
                 InputView(text: $viewModel.potentialUser.email, title: "Email", placeholder: "Enter Your Email")
@@ -42,16 +42,16 @@ struct LoginView: View {
                 .frame(height: 50)
                 .padding()
                 
-                              
+                
                 // button to switch to sign up view
                 Button (action: {
                     viewModel.loginState.toggle()
                     viewModel.errorMessage = ""
                 }) {
-                        Text("Don't have an account?")
-                        Text("Sign Up")
+                    Text("Don't have an account?")
+                    Text("Sign Up")
                         .fontWeight(.bold)
-                    }
+                }
                 
                 Spacer().frame(height:20)
                 

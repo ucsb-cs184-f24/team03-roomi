@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileCardView: View {
     let userInformation: User
-
+    
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             RoundedRectangle(cornerRadius: 20)
@@ -35,7 +35,7 @@ struct ProfileCardView: View {
 struct ProfileImageView: View {
     let image: String
     var size: CGFloat = 80
-
+    
     var body: some View {
         Image(systemName: image)
             .resizable()

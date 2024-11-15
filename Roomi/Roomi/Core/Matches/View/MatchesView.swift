@@ -44,12 +44,19 @@ struct MatchesView: View {
                 .edgesIgnoringSafeArea(.all)
             )
             .navigationBarTitleDisplayMode(.inline)
-        }.refreshable {
+        }.onAppear {
             Task {
                 try await cardsViewModel.getAllMatches()
                 try await cardsViewModel.getAllLikes()
             }
         }
+        .refreshable {
+            Task {
+                try await cardsViewModel.getAllMatches()
+                try await cardsViewModel.getAllLikes()
+            }
+        }
+        
     }
 }
 

@@ -33,6 +33,6 @@ struct MockData {
             gender: "Male",
             phoneNumber: "phone #"
         ),
-            
+        
     ]
 }

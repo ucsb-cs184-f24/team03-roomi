@@ -13,20 +13,20 @@ struct CardView: View {
     @State private var degrees: Double = 0
     
     let model: CardModel
-
+    
     var body: some View {
         ZStack {
             ZStack(alignment: .top){
                 
                 Rectangle()
                     .fill(.white)
-//                    .fill(LinearGradient(
-//                        gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
-//                        startPoint: .top,
-//                        endPoint: .bottom
-//                    ))
+                //                    .fill(LinearGradient(
+                //                        gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
+                //                        startPoint: .top,
+                //                        endPoint: .bottom
+                //                    ))
                 
-                 //TODO - make the info in here a scrollview
+                //TODO - make the info in here a scrollview
                 
                 VStack {
                     Text(model.user.name)
@@ -54,7 +54,7 @@ struct CardView: View {
         )
     }
 }
-    
+
 
 private extension CardView {
     func returnToCenter() {
@@ -123,7 +123,7 @@ private extension CardView {
         
     }
 }
-    
+
 
 #Preview {
     

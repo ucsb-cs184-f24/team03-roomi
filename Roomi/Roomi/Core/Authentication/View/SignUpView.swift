@@ -56,10 +56,10 @@ struct SignUpView: View {
                     viewModel.loginState.toggle()
                     viewModel.errorMessage = ""
                 }) {
-                        Text("Already have an account?")
-                        Text("Login")
+                    Text("Already have an account?")
+                    Text("Login")
                         .fontWeight(.bold)
-                    }
+                }
                 
                 Spacer().frame(height:20)
             }

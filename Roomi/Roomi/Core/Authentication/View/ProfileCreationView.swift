@@ -73,7 +73,7 @@ struct ProfileCreationView: View, Hashable {
             
         }
         .padding()
-            
+        
     }
     
     // Conformance to Hashable

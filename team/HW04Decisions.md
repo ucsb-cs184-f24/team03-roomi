@@ -8,3 +8,4 @@
 | Braden | Implement front-end changes/improvements to the Chat UI | Benny |
 | Benny | Designing a new look for the profile page | Braden |
 | Ryan | Implement upload picture feature for profile page, changed styling of profile cards | Khang |
+| Khang | Design and implement testing | Ryan |

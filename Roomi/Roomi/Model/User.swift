@@ -14,7 +14,4 @@ struct User: Identifiable, Codable {
     var age: Int
     var gender: String
     var phoneNumber: String
-    var likes: Set<String>
-    var dislikes: Set<String>
-    var matches: [String]
 }

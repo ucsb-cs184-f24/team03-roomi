@@ -42,7 +42,7 @@ struct ProfileCard: View {
 }
 
 #Preview {
-    ProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890", likes: [], dislikes: [], matches: []))
+    ProfileCard(userInformation: .init(id: .init(), email: "jdoe@gmail.com", name: "John Doe", age: 25, gender: "male", phoneNumber: "+1234567890"))
         
         
 }

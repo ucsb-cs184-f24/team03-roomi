@@ -19,16 +19,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct RoomiApp: App {
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var authViewModel = AuthViewModel()
     @StateObject var searchViewModel = SearchViewModel()
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @StateObject var cardsViewModel = CardsViewModel(service: CardService())    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
                 .environmentObject(searchViewModel)
+                .environmentObject(authViewModel)
+                .environmentObject(cardsViewModel)
         }
     }
 }

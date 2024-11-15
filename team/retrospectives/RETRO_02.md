@@ -9,6 +9,7 @@
 * a goal: Communicating with each other so that we can be up-to-date about our progress which will result in smoother integration and productivity.
 * a change: We will improve our PR process by including clear acceptance criteria, photos, and quicker code reviews.
 * a measurement: Merging PRs will have no roadblocks with regards to multiple members working on the same task or problems with testing.
+* the outcome: Multiple PRs have been merged using efficient communication and quicker code reviews resulting in a seemingly smoother process.
 
 ## Retro Assessment
 

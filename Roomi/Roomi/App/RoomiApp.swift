@@ -19,13 +19,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct RoomiApp: App {
-    @StateObject var viewModel = AuthViewModel()
+    @StateObject var authViewModel = AuthViewModel()
+    @StateObject var cardsViewModel = CardsViewModel(service: CardService())
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(viewModel)
+                .environmentObject(authViewModel)
+                .environmentObject(cardsViewModel)
         }
     }
 }

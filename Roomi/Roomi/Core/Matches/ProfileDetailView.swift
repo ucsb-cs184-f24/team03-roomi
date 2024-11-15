@@ -156,3 +156,8 @@ struct ProfileInfoBubble: View {
         .padding(.vertical, 8)
     }
 }
+
+
+#Preview {
+    ProfileDetailView(profile: Profile(name: "Alex", age: 26, gender: "Male", location: "San Francisco, CA", image: "person.fill", bio: "Loves hiking and outdoor adventures."))
+}

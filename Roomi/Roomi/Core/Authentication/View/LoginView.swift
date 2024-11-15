@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var cardsViewModel: CardsViewModel
     
     // could we just init a state for user object here and then edit it accordingly during profile creation
     
@@ -35,6 +36,7 @@ struct LoginView: View {
                     // Attempt Login
                     Task {
                         try await viewModel.login()
+                        cardsViewModel.initialize()
                     }
                 }
                 .frame(height: 50)

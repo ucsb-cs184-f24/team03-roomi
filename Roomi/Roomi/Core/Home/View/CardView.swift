@@ -68,6 +68,9 @@ private extension CardView {
             degrees = 12
         } completion: {
             viewModel.removeCard(model)
+            Task {
+                try await viewModel.like(otherUser: model.user)
+            }
         }
     }
     
@@ -77,6 +80,9 @@ private extension CardView {
             degrees = -12
         } completion: {
             viewModel.removeCard(model)
+            Task {
+                try await viewModel.dislike(otherUser: model.user)
+            }
         }
     }
     
@@ -124,6 +130,6 @@ private extension CardView {
     ZStack{
         Color.gray
         CardView(model: CardModel(user: MockData.users[1]))
-            .environmentObject(CardsViewModel(service: CardService()))
+            .environmentObject(CardsViewModel())
     }
 }

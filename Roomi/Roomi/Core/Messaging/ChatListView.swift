@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct ChatListView: View {
+    @EnvironmentObject var cardsViewModel: CardsViewModel
     @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
-        List(viewModel.userList.filter { $0.id != viewModel.userSession?.uid }) { user in
+        List(cardsViewModel.matchList.filter { $0.id != viewModel.userSession?.uid }) { user in
             NavigationLink(destination: ChatView(viewModel: MessagingViewModel(recipientId: user.id))) {
                 Text("Chat with \(user.name)")
             }
         }
         .onAppear {
-            viewModel.getAllUsers()
+            Task {
+                try await cardsViewModel.getAllMatches()
+            }
         }
         .navigationTitle("Messages")
     }

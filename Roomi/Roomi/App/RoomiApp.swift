@@ -20,7 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct RoomiApp: App {
     @StateObject var authViewModel = AuthViewModel()
-    @StateObject var cardsViewModel = CardsViewModel(service: CardService())
+    @StateObject var cardsViewModel = CardsViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {

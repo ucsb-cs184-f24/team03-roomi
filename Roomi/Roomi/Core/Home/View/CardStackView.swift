@@ -23,10 +23,17 @@ struct CardStackView: View {
             }
         }
         .padding(.top, 20)
+        .alert("🎉 It's a Match!", isPresented: $viewModel.isMatch) {
+            Button("OK", role: .cancel) {
+                viewModel.isMatch = false
+            }
+        } message: {
+            Text(viewModel.matchMessage)
+        }
     }
 }
 
 #Preview {
     CardStackView()
-        .environmentObject(CardsViewModel(service: CardService()))
+        .environmentObject(CardsViewModel())
 }

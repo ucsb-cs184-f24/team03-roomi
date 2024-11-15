@@ -47,5 +47,5 @@ struct SwipeActionButtonsView: View {
 
 #Preview {
     SwipeActionButtonsView()
-        .environmentObject(CardsViewModel(service: CardService()))
+        .environmentObject(CardsViewModel())
 }

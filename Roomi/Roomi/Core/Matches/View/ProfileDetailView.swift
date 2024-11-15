@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileDetailView: View {
-    let profile: Profile
+    let userInformation: User
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -16,21 +16,16 @@ struct ProfileDetailView: View {
             VStack(spacing: 25) {
                 Spacer().frame(height: 80)
                 
-                ProfileImageView(image: profile.image, size: 120)
                 
-                Text(profile.name)
+                Text(userInformation.name)
                     .font(.largeTitle).bold()
                     .foregroundColor(.white)
                 
                 HStack(spacing: 20) {
-                    GenderBubble(gender: profile.gender)
-                    AgeBubble(age: profile.age)
+                    GenderBubble(gender: userInformation.gender)
+                    AgeBubble(age: userInformation.age)
                 }
-                
-                LocationBubble(location: profile.location)
-                
-                ProfileInfoBubble(title: "About Me", text: profile.bio)
-                
+                                                
                 Spacer()
             }
             .padding()
@@ -48,7 +43,7 @@ struct ProfileDetailView: View {
                     
                     Spacer()
                     
-                    Text(profile.name)
+                    Text(userInformation.name)
                         .font(.headline)
                         .foregroundColor(.white)
                     
@@ -159,5 +154,5 @@ struct ProfileInfoBubble: View {
 
 
 #Preview {
-    ProfileDetailView(profile: Profile(name: "Alex", age: 26, gender: "Male", location: "San Francisco, CA", image: "person.fill", bio: "Loves hiking and outdoor adventures."))
+    ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212"))
 }

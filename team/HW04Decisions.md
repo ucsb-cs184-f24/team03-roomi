@@ -9,3 +9,4 @@
 | Benny | Designing a new look for the profile page | Braden |
 | Ryan | Implement upload picture feature for profile page, changed styling of profile cards | Khang |
 | Khang | Design and implement testing | Ryan |
+| Alec  | Redesign search list and AB test swipe cards | Anderson |

@@ -8,19 +8,14 @@
 import SwiftUI
 
 struct SearchView: View {
-    @EnvironmentObject var relationshipsViewModel: UserRelationshipsViewModel
-  
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         NavigationView {
-            List (relationshipsViewModel.userList) { user in
+            List (viewModel.userList) { user in
                 ProfileCard(userInformation: user)
             }
             .onAppear { // Gets all users when the view is opened
-                Task {
-                    await relationshipsViewModel.getAllUsers()
-
-                    relationshipsViewModel.userList = relationshipsViewModel.userList.filter({ user in !relationshipsViewModel.likes.contains(user.id) && !relationshipsViewModel.dislikes.contains(user.id)})
-                }
+                viewModel.getAllUsers()
             }
         }
     }
@@ -29,5 +24,4 @@ struct SearchView: View {
 #Preview {
     SearchView()
         .environmentObject(AuthViewModel())
-        .environmentObject(UserRelationshipsViewModel())
 }

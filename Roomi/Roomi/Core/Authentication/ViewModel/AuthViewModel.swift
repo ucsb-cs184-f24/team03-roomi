@@ -14,9 +14,10 @@ class AuthViewModel: ObservableObject {
     @Published var loginState = true
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
-    @Published var potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", likes: [], dislikes: [], matches: [])
+    @Published var potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
     @Published var password = ""
     @Published var errorMessage = ""
+    @Published var userList = [User]()
 
     init() {
         self.userSession = Auth.auth().currentUser
@@ -50,10 +51,7 @@ class AuthViewModel: ObservableObject {
                             name: potentialUser.name,
                             age: potentialUser.age,
                             gender: potentialUser.gender,
-                            phoneNumber: potentialUser.phoneNumber,
-                            likes: [],
-                            dislikes: [],
-                            matches: [])
+                            phoneNumber: potentialUser.phoneNumber)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
@@ -69,7 +67,7 @@ class AuthViewModel: ObservableObject {
             try Auth.auth().signOut()
             self.userSession = nil
             self.currentUser = nil
-            self.potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", likes: [], dislikes: [], matches: [])
+            self.potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
             self.password = ""
             self.loginState = true
             
@@ -112,5 +110,29 @@ class AuthViewModel: ObservableObject {
             return false
         }
         return true
+    }
+        
+    func getAllUsers() {
+        // Get reference to Database
+        let db = Firestore.firestore()
+        
+        // Read in documents
+        db.collection("users").getDocuments { snapshot, error in
+            // Check for errors
+            if let error {
+                print("Error fetching documents: \(error)")
+            }
+            
+            // Check if no documents
+            guard let documents = snapshot?.documents else {
+                print("No documents fetched")
+                return
+            }
+            
+            // Extract profiles
+            self.userList =  documents.map { user in
+                return User(id: user.documentID, email: user.get("email") as? String ?? "", name: user.get("name") as? String ?? "", age: user.get("age") as? Int ?? 0, gender: user.get("gender") as? String ?? "", phoneNumber: user.get("phoneNumber") as? String ?? "")
+            }
+        }
     }
 }

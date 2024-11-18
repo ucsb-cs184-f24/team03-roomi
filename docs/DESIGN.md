@@ -8,6 +8,16 @@
 
 ### Finding a Roommate
 
+#### Log In / Sign Up
+
+#### Profile Set Up
+
+#### Search for Roommates
+
+#### Like/Dislike
+
+#### ...
+
 ### Matching
 
 ### Messaging

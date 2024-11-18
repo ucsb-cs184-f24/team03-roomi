@@ -34,6 +34,7 @@ class AuthViewModel: ObservableObject {
             let result = try await Auth.auth().signIn(withEmail: potentialUser.email, password: self.password)
             self.userSession = result.user
             await fetchUser()
+            self.potentialUser = self.currentUser!
         }
         catch {
             errorMessage = "Error Logging In"
@@ -54,6 +55,7 @@ class AuthViewModel: ObservableObject {
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
+            self.potentialUser = user
         }
         catch {
             errorMessage = "Error Signing Up"
@@ -76,7 +78,14 @@ class AuthViewModel: ObservableObject {
     }
     
     func deleteAccount() {
-        
+        do {
+            Auth.auth().currentUser?.delete()
+            self.userSession = nil
+            self.currentUser = nil
+            self.potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
+            self.password = ""
+            self.loginState = true
+        }
     }
     
     func fetchUser() async {
@@ -84,6 +93,7 @@ class AuthViewModel: ObservableObject {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             self.currentUser = try snapshot.data(as: User.self)
+            self.potentialUser = currentUser!
         }
         catch {
             print("Could not fetch user with error \(error.localizedDescription)")

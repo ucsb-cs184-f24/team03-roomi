@@ -25,7 +25,6 @@ class CardsViewModel: ObservableObject {
     private let db = Firestore.firestore()
     
     init() {
-        print("INIT")
         Task {
             try await fetchCurrentUser()
             try await getAllUsers()
@@ -48,7 +47,6 @@ class CardsViewModel: ObservableObject {
     }
     
     func fetchCurrentUser() async throws {
-        print("Fetching current user")
         do {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
@@ -60,7 +58,6 @@ class CardsViewModel: ObservableObject {
     }
     
     func getAllUsers() async throws {
-        print("Getting all users")
         do {
             // Read in documents
             let snapshot = try await db.collection("users").getDocuments()
@@ -92,7 +89,6 @@ class CardsViewModel: ObservableObject {
     
     // Users the current user has not liked, matched, or disliked
     func getAllPotentialUsers() {
-        print("Getting all potential users")
         // Check if current user is nil
         guard let currentUser = self.currentUser else {
             return
@@ -109,7 +105,6 @@ class CardsViewModel: ObservableObject {
     }
     
     func like(otherUser: User) async throws {
-        print("Liking user")
         // Check if current user is nil
         guard let currentUser = self.currentUser else {
             return
@@ -118,49 +113,59 @@ class CardsViewModel: ObservableObject {
         let currentUserRef = db.collection("users").document(currentUser.id)
         let otherUserRef = db.collection("users").document(otherUser.id)
         
-        do {
-            let otherUserLikedList = try await otherUserRef.getDocument().data()?["liked"] as? [String] ?? []
-            
-            if(otherUserLikedList.contains(currentUser.id)) { // Match
-                print("match has been found")
-                try await otherUserRef.updateData(["liked": FieldValue.arrayRemove([currentUser.id])])
-                try await currentUserRef.updateData(["matched": FieldValue.arrayUnion([otherUser.id])])
-                try await otherUserRef.updateData(["matched": FieldValue.arrayUnion([currentUser.id])])
-                self.matchList.append(otherUser)
+        Task.detached(priority: .background) {
+            do {
+                let otherUserLikedList = try await otherUserRef.getDocument().data()?["liked"] as? [String] ?? []
                 
-                // Show the match alert
-                self.matchMessage = "You matched with \(otherUser.name)!"
-                self.isMatch = true
-            } else {
-                try await currentUserRef.updateData(["liked": FieldValue.arrayUnion([otherUser.id])])
-                self.likedList.append(otherUser)
+                if(otherUserLikedList.contains(currentUser.id)) { // Matchup
+                    Task {
+                        try await otherUserRef.updateData(["liked": FieldValue.arrayRemove([currentUser.id])])
+                        try await currentUserRef.updateData(["matched": FieldValue.arrayUnion([otherUser.id])])
+                        try await otherUserRef.updateData(["matched": FieldValue.arrayUnion([currentUser.id])])
+                    }
+                    
+                    await MainActor.run {
+                        self.matchList.append(otherUser)
+                        
+                        // Show the match alert
+                        self.matchMessage = "You matched with \(otherUser.name)!"
+                        self.isMatch = true
+                    }
+                } else {
+                    try await currentUserRef.updateData(["liked": FieldValue.arrayUnion([otherUser.id])])
+                    await MainActor.run {
+                        self.likedList.append(otherUser)
+                    }
+                }
+                await MainActor.run {
+                    self.potentialUsers.removeAll { $0.id == otherUser.id }
+                }
+            } catch {
+                print("Error adding liked user: \(error)")
             }
-            
-            self.potentialUsers.removeAll { $0.id == otherUser.id }
-        } catch {
-            print("Error adding liked user: \(error)")
         }
     }
     
     func dislike(otherUser: User) async throws {
-        print("Disliking user")
         guard let currentUser = self.currentUser else {
             return
         }
         
         let currentUserRef = db.collection("users").document(currentUser.id)
-        do {
-            try await currentUserRef.updateData(["disliked": FieldValue.arrayUnion([otherUser.id as String])])
-            self.dislikedList.append(otherUser)
-            self.potentialUsers.removeAll { $0.id == otherUser.id }
-        } catch {
-            print("Error adding disliked user: \(error)")
+        Task.detached(priority: .background) {
+            do {
+                try await currentUserRef.updateData(["disliked": FieldValue.arrayUnion([otherUser.id as String])])
+                await MainActor.run {
+                    self.dislikedList.append(otherUser)
+                    self.potentialUsers.removeAll { $0.id == otherUser.id }
+                }
+            } catch {
+                print("Error adding disliked user: \(error)")
+            }
         }
-        
     }
     
     func getAllLikes() async throws {
-        print("Getting all likes")
         // Check if current user is nil
         guard let currentUser = self.currentUser else {
             return
@@ -181,7 +186,6 @@ class CardsViewModel: ObservableObject {
     }
     
     func getAllMatches() async throws {
-        print("Getting all matches")
         // Check if current user is nil
         guard let currentUser = self.currentUser else {
             return
@@ -202,7 +206,6 @@ class CardsViewModel: ObservableObject {
     }
     
     func getAllDislikes() async throws {
-        print("Getting all dislikes")
         // Check if current user is nil
         guard let currentUser = self.currentUser else {
             return
@@ -223,7 +226,6 @@ class CardsViewModel: ObservableObject {
     }
     
     func removeCard(_ card: CardModel) {
-        print("Removing card from stack")
         guard let index = cardModels.firstIndex(where: { $0.id == card.id }) else {return}
         cardModels.remove(at: index)
         buttonSwipeAction = nil

@@ -226,5 +226,6 @@ class CardsViewModel: ObservableObject {
         print("Removing card from stack")
         guard let index = cardModels.firstIndex(where: { $0.id == card.id }) else {return}
         cardModels.remove(at: index)
+        buttonSwipeAction = nil
     }
 }

@@ -4,6 +4,16 @@
 
 ## Team Decisions
 
+### Using Swift and Firebase
+- As a team we decided it would be a good experience for each of us to learn swift and xcode. So far we have come to find that although xcode may have some bugs and unnecessary complexity, support for swift is extremely broad and as long as we can create a good structure and use good standards, it is a great platform.
+- Firebase was a unanimous choice for its easy integration and authentication features. So far it has gotten the job done, although we are having slight struggles with finding the best, most efficient way to upload photos.
+
+### User Properties
+- We have a list of user properties that we have brainstormed and need to narrow down. Some must include properties are photos, bios, age, name, email, contact info, and then some living preferences.
+
+### Pages
+- We decided to provide a few pages, one for profile, one for swiping, one for messages, and then one for matches that will contain people who liked you and the full profile of all your matches.
+
 ## User Flows
 
 ### Finding a Roommate

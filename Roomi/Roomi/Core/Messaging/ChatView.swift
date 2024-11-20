@@ -15,13 +15,28 @@ struct ChatView: View {
 
     var body: some View {
         VStack {
-            ScrollView {
-                ForEach(viewModel.messages) { message in
-                    Text(message.text)
-                        .padding()
-                        .background(message.senderId == Auth.auth().currentUser?.uid ? Color.blue.opacity(0.1) : Color.gray.opacity(0.1))
-                        .cornerRadius(8)
-                        .frame(maxWidth: .infinity, alignment: message.senderId == Auth.auth().currentUser?.uid ? .trailing : .leading)
+            ScrollViewReader { proxy in
+                ScrollView {
+                    ForEach(viewModel.messages) { message in
+                        Text(message.text)
+                            .padding()
+                            .background(message.senderId == Auth.auth().currentUser?.uid ? Color.blue.opacity(0.1) : Color.gray.opacity(0.1))
+                            .cornerRadius(8)
+                            .frame(maxWidth: .infinity, alignment: message.senderId == Auth.auth().currentUser?.uid ? .trailing : .leading)
+                            .id(message.id)
+                    }
+                }
+                .onChange(of: viewModel.messages.count) {
+                    if let lastMessage = viewModel.messages.last {
+                        withAnimation {
+                            proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                        }
+                    }
+                }
+                .onAppear {
+                    if let lastMessage = viewModel.messages.last {
+                        proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                    }
                 }
             }
 
@@ -36,6 +51,5 @@ struct ChatView: View {
             }
             .padding()
         }
-        .navigationTitle("Chat")
     }
 }

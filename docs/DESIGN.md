@@ -1,6 +1,9 @@
 # Design Document
 
 ## System Overview
+![System Archtecture Diagram](Roomi_System_Archtecture.png)
+
+The diagram above depicts the current hierarchy of our application. The client can send information to the frontend by interacting with the application. Once received, the application can send information to our Firebase Authentication service if they want to log in/out or sign up for a new account. Once received, Firebase will send information back to the frontend, indicating a successful/unsuccesful authentication operation. Our database, Firestore, will be queried for different operations once they have logged in. Requests such as changing their profile, matching/unmatching with other users, messages, and many other functionalities all perform operations on the database. Once received, Firestore will either update with the requested information or send an error message.
 
 ## Team Decisions
 
@@ -33,5 +36,3 @@
 ### Messaging
 
 ### Setting up/Editing your Profile
-
-Link: https://docs.google.com/document/d/1gvS7rbaXjE_oviKEhrC58hk9FQNZ7XEZ5OZXIlY3Syw/edit?usp=sharing

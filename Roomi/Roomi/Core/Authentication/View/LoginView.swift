@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var cardsViewModel: CardsViewModel
     
     // could we just init a state for user object here and then edit it accordingly during profile creation
     
@@ -20,10 +21,10 @@ struct LoginView: View {
                     .font(.largeTitle)
                 
                 // display error messages
-//                if !viewModel.errorMessage.isEmpty {
-//                    Text(viewModel.errorMessage)
-//                        .foregroundColor(Color.red)
-//                }
+                //                if !viewModel.errorMessage.isEmpty {
+                //                    Text(viewModel.errorMessage)
+                //                        .foregroundColor(Color.red)
+                //                }
                 
                 // email and password inputs
                 InputView(text: $viewModel.potentialUser.email, title: "Email", placeholder: "Enter Your Email")
@@ -35,21 +36,22 @@ struct LoginView: View {
                     // Attempt Login
                     Task {
                         try await viewModel.login()
+                        cardsViewModel.initialize()
                     }
                 }
                 .frame(height: 50)
                 .padding()
                 
-                              
+                
                 // button to switch to sign up view
                 Button (action: {
                     viewModel.loginState.toggle()
                     viewModel.errorMessage = ""
                 }) {
-                        Text("Don't have an account?")
-                        Text("Sign Up")
+                    Text("Don't have an account?")
+                    Text("Sign Up")
                         .fontWeight(.bold)
-                    }
+                }
                 
                 Spacer().frame(height:20)
                 

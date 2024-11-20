@@ -30,7 +30,7 @@ struct SwipeActionButtonsView: View {
                 viewModel.buttonSwipeAction = .like
             } label: {
                 Image(systemName: "checkmark")
-                    //.fontWeight(.heavy)
+                //.fontWeight(.heavy)
                     .foregroundStyle(.black)
                     .background {
                         Circle()
@@ -47,5 +47,5 @@ struct SwipeActionButtonsView: View {
 
 #Preview {
     SwipeActionButtonsView()
-        .environmentObject(CardsViewModel(service: CardService()))
+        .environmentObject(CardsViewModel())
 }

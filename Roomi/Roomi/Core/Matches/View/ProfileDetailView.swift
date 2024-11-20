@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct ProfileDetailView: View {
-    let profile: Profile
+    let userInformation: User
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -16,20 +16,15 @@ struct ProfileDetailView: View {
             VStack(spacing: 25) {
                 Spacer().frame(height: 80)
                 
-                ProfileImageView(image: profile.image, size: 120)
                 
-                Text(profile.name)
+                Text(userInformation.name)
                     .font(.largeTitle).bold()
                     .foregroundColor(.white)
                 
                 HStack(spacing: 20) {
-                    GenderBubble(gender: profile.gender)
-                    AgeBubble(age: profile.age)
+                    GenderBubble(gender: userInformation.gender)
+                    AgeBubble(age: userInformation.age)
                 }
-                
-                LocationBubble(location: profile.location)
-                
-                ProfileInfoBubble(title: "About Me", text: profile.bio)
                 
                 Spacer()
             }
@@ -48,7 +43,7 @@ struct ProfileDetailView: View {
                     
                     Spacer()
                     
-                    Text(profile.name)
+                    Text(userInformation.name)
                         .font(.headline)
                         .foregroundColor(.white)
                     
@@ -77,7 +72,7 @@ struct ProfileDetailView: View {
 
 struct GenderBubble: View {
     let gender: String
-
+    
     var body: some View {
         VStack {
             Image(systemName: gender == "Male" ? "person.fill" : "person.fill.badge.plus")
@@ -97,7 +92,7 @@ struct GenderBubble: View {
 
 struct AgeBubble: View {
     let age: Int
-
+    
     var body: some View {
         VStack {
             Text("\(age)")
@@ -116,7 +111,7 @@ struct AgeBubble: View {
 
 struct LocationBubble: View {
     let location: String
-
+    
     var body: some View {
         HStack {
             Image(systemName: "mappin.and.ellipse")
@@ -137,7 +132,7 @@ struct LocationBubble: View {
 struct ProfileInfoBubble: View {
     let title: String
     let text: String
-
+    
     var body: some View {
         VStack(spacing: 10) {
             Text(title)
@@ -159,5 +154,5 @@ struct ProfileInfoBubble: View {
 
 
 #Preview {
-    ProfileDetailView(profile: Profile(name: "Alex", age: 26, gender: "Male", location: "San Francisco, CA", image: "person.fill", bio: "Loves hiking and outdoor adventures."))
+    ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212"))
 }

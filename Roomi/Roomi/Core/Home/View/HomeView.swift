@@ -97,5 +97,5 @@ extension Color {
 #Preview {
     HomeView()
         .environmentObject(AuthViewModel())
-        .environmentObject(CardsViewModel(service: CardService()))
+        .environmentObject(CardsViewModel())
 }

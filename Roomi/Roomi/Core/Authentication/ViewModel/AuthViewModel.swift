@@ -18,7 +18,7 @@ class AuthViewModel: ObservableObject {
     @Published var password = ""
     @Published var errorMessage = ""
     @Published var userList = [User]()
-
+    
     init() {
         self.userSession = Auth.auth().currentUser
         Task {
@@ -111,7 +111,7 @@ class AuthViewModel: ObservableObject {
         }
         return true
     }
-        
+    
     func getAllUsers() {
         // Get reference to Database
         let db = Firestore.firestore()

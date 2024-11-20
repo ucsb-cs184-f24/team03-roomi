@@ -13,20 +13,20 @@ struct CardView: View {
     @State private var degrees: Double = 0
     
     let model: CardModel
-
+    
     var body: some View {
         ZStack {
             ZStack(alignment: .top){
                 
                 Rectangle()
                     .fill(.white)
-//                    .fill(LinearGradient(
-//                        gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
-//                        startPoint: .top,
-//                        endPoint: .bottom
-//                    ))
+                //                    .fill(LinearGradient(
+                //                        gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
+                //                        startPoint: .top,
+                //                        endPoint: .bottom
+                //                    ))
                 
-                 //TODO - make the info in here a scrollview
+                //TODO - make the info in here a scrollview
                 
                 VStack {
                     Text(model.user.name)
@@ -54,7 +54,7 @@ struct CardView: View {
         )
     }
 }
-    
+
 
 private extension CardView {
     func returnToCenter() {
@@ -68,6 +68,9 @@ private extension CardView {
             degrees = 12
         } completion: {
             viewModel.removeCard(model)
+            Task {
+                try await viewModel.like(otherUser: model.user)
+            }
         }
     }
     
@@ -77,6 +80,9 @@ private extension CardView {
             degrees = -12
         } completion: {
             viewModel.removeCard(model)
+            Task {
+                try await viewModel.dislike(otherUser: model.user)
+            }
         }
     }
     
@@ -117,13 +123,13 @@ private extension CardView {
         
     }
 }
-    
+
 
 #Preview {
     
     ZStack{
         Color.gray
         CardView(model: CardModel(user: MockData.users[1]))
-            .environmentObject(CardsViewModel(service: CardService()))
+            .environmentObject(CardsViewModel())
     }
 }

@@ -25,14 +25,7 @@ class CardsViewModel: ObservableObject {
     private let db = Firestore.firestore()
     
     init() {
-        Task {
-            try await fetchCurrentUser()
-            try await getAllUsers()
-            try await getAllLikes()
-            try await getAllMatches()
-            try await getAllDislikes()
-            getAllPotentialUsers()
-        }
+        initialize()
     }
     
     func initialize() {

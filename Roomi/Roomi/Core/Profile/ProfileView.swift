@@ -39,11 +39,6 @@ struct ProfileView: View {
                             viewModel.signOut()
                         }
                         .frame(width: 100, height: 40)
-                        
-                        ButtonView(title: "Delete Account", background: .red) {
-                            viewModel.signOut()
-                        }
-                        .frame(width: 200, height: 40)
                     }
                 }
                 .padding()

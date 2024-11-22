@@ -64,8 +64,8 @@ struct UpdateProfileView: View {
                 }
             }
             .frame(width: 150, height: 50)
+            .padding()
         }
-        .padding()
     }
 }
 

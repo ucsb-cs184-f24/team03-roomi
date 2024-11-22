@@ -10,6 +10,24 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+extension DateFormatter {
+    static let messageTimestampFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.locale = Locale.current
+        return formatter
+    }()
+
+    static let messageDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.locale = Locale.current
+        return formatter
+    }()
+}
+
 class MessagingViewModel: ObservableObject {
     @Published var messages: [Message] = []
     @Published var newMessageText = ""

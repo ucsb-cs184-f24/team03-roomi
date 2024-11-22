@@ -75,7 +75,7 @@ struct GenderBubble: View {
     
     var body: some View {
         VStack {
-            Image(systemName: gender == "Male" ? "person.fill" : "person.fill.badge.plus")
+            Image(systemName: "person.fill")
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(.white)

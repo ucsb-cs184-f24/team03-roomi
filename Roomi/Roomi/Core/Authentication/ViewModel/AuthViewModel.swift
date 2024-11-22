@@ -77,6 +77,25 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    func updateProfile(user: User) async throws {
+        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+        
+        let userData: [String: Any] = [
+            "name": user.name,
+            "age": user.age,
+            "gender": user.gender,
+            "phoneNumber": user.phoneNumber,
+        ]
+        
+        try await Firestore.firestore().collection("users").document(currentUserId).updateData(userData)
+        
+        self.currentUser?.name = user.name
+        self.currentUser?.age = user.age
+        self.currentUser?.gender = user.gender
+        self.currentUser?.phoneNumber = user.phoneNumber
+        
+    }
+    
     func deleteAccount() {
         
     }

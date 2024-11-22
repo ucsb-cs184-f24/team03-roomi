@@ -51,7 +51,7 @@ struct ProfileView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ProfileCreationView()) {
+                    NavigationLink(destination: UpdateProfileView(user: viewModel.currentUser)) {
                         Text("Edit")
                             .foregroundStyle(.white)
                     }

@@ -10,7 +10,7 @@ profile creation, which is an image named profile_creation_1 in the alecmorrison
 
 ## Results
 
-- New peofile creation pipeline video exists in file named profile_creation_2 in the alecmorrison folder.
+- New profile creation pipeline video exists in file named profile_creation_2 in the alecmorrison folder.
 
 ### list view vs swipe view, 
 - Andrew (My roommate) chose the swipe view for the novelty and ease of use

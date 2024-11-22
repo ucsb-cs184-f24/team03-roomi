@@ -12,7 +12,12 @@ struct ChatListView: View {
 
     var body: some View {
         List(viewModel.userList.filter { $0.id != viewModel.userSession?.uid }) { user in
-            NavigationLink(destination: ChatView(viewModel: MessagingViewModel(recipientId: user.id))) {
+            NavigationLink(
+                destination: ChatView(
+                    viewModel: MessagingViewModel(recipientId: user.id),
+                    recipientName: user.name
+                )
+            ) {
                 Text("Chat with \(user.name)")
             }
         }

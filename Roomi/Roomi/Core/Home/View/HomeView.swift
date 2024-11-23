@@ -24,14 +24,18 @@ struct HomeView: View {
             VStack {
                 if selectedTab == 0 {
                     MatchesView()
+                        .accessibilityIdentifier("MatchesView")
                 } else if selectedTab == 1 {
                     CardStackView()
+                        .accessibilityIdentifier("CardStackView")
                 } else if selectedTab == 2 {
                     ProfileView()
+                        .accessibilityIdentifier("ProfileView")
                 } else if selectedTab == 3 {
                     NavigationView
                     {
                         ChatListView()
+                        .accessibilityIdentifier("ChatListView")
                     }
                 }
                 
@@ -62,6 +66,8 @@ struct HomeView: View {
                                         .font(.caption2)
                                         .foregroundColor(.white)
                                 }
+                                .accessibilityIdentifier("\(tabs[index].title)Button")
+                                .accessibilityValue(selectedTab == index ? "selected" : "not selected")
                             }
                             .frame(maxWidth: selectedTab == index ? 80 : 50)
                             .animation(.easeInOut, value: selectedTab == index)

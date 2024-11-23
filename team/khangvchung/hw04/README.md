@@ -6,3 +6,8 @@ I conducted testing with a small group of users on the structure and UI of the a
 
 ### User Feedback
 Gathering feedback from users, here are some of the common critiques and suggested improvements:
+
+- UI is inconsistent across tabs
+- More profile customization options
+- Add filtering options to narrow down searches
+- Questions about how matching is done

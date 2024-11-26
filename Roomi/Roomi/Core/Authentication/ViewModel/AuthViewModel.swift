@@ -135,4 +135,12 @@ class AuthViewModel: ObservableObject {
             }
         }
     }
+    
+    func clearPotentialUser() {
+        potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
+        password = ""
+        
+        print(potentialUser)
+        print(password)
+    }
 }

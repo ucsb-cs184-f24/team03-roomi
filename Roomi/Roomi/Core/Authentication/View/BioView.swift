@@ -11,6 +11,7 @@ struct BioView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.presentationMode) var presentationMode
     @Binding var navigationPath: NavigationPath
+    @State private var showError: Bool = false
     
     var body: some View {
         ZStack {
@@ -38,11 +39,14 @@ struct BioView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                TextField("School/Work", text: $viewModel.potentialUser.name)
+                TextField("School/Work", text: $viewModel.potentialUser.schoolWork)
                     .padding()
                     .frame(height: 55)
                     .background(Color.white.opacity(0.8))
                     .cornerRadius(10)
+                    .onChange(of: viewModel.potentialUser.schoolWork) {
+                        showError = false
+                    }
                 
                 // bio input
                 Text("Tell Us About Yourself...")
@@ -50,17 +54,26 @@ struct BioView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                TextEditor(text: $viewModel.potentialUser.name)
+                TextEditor(text: $viewModel.potentialUser.bio)
                     .padding()
                     .frame(height: 200)
                     .opacity(0.8)
                     .background(Color.white.opacity(0.8))
                     .cornerRadius(10)
+                    .onChange(of: viewModel.potentialUser.bio) {
+                        showError = false
+                    }
                 
                 
                 // next button
                 Button(action: {
-                    navigationPath.append("")
+                    if (viewModel.potentialUser.schoolWork.isEmpty || viewModel.potentialUser.bio.isEmpty) {
+                        showError = true
+                    }
+                    else {
+                        navigationPath.append("Social Details")
+                    }
+                    
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -74,7 +87,11 @@ struct BioView: View {
                 }
                 .padding()
                 
-                
+                if showError {
+                    Text("Fill All Fields")
+                        .foregroundColor(.red)
+                        .font(.caption)
+                }
                 
             }
             .padding()
@@ -104,6 +121,14 @@ struct BioView: View {
             var body: some View {
                 NavigationStack(path: $navigationPath) {
                     BioView(navigationPath: $navigationPath).environmentObject(AuthViewModel())
+                    .navigationDestination(for: String.self) { destination in
+                        switch destination {
+                        case "Social Details":
+                            SocialDetailsView(navigationPath: $navigationPath)
+                        default:
+                            EmptyView()
+                        }
+                    }
                 }
             }
         }

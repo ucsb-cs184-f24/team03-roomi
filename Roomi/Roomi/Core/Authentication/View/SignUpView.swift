@@ -71,6 +71,10 @@ struct SignUpView: View {
                                     PersonalDetailsView(navigationPath: $navigationPath)
                                 case "Bio":
                                     BioView(navigationPath: $navigationPath)
+                                case "Social Details":
+                                    SocialDetailsView(navigationPath: $navigationPath)
+                                case "Photos Upload":
+                                    PhotosUploadView(navigationPath: $navigationPath)
                                 default:
                                     EmptyView()
                                 }

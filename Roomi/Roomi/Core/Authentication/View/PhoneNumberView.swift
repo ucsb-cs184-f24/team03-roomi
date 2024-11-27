@@ -11,6 +11,7 @@ struct PhoneNumberView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.presentationMode) var presentationMode
     @Binding var navigationPath: NavigationPath
+    @State private var showError: Bool = false
     
     var body: some View {
         ZStack {
@@ -44,6 +45,7 @@ struct PhoneNumberView: View {
                         TextField("", text: $viewModel.potentialUser.phoneNumber)
                         .foregroundStyle(.white)
                         .onChange(of: viewModel.potentialUser.phoneNumber) {
+                            showError = false
                             if !viewModel.potentialUser.phoneNumber.isEmpty {
                                 viewModel.potentialUser.phoneNumber = viewModel.potentialUser.phoneNumber.formatPhoneNumber()
                             }
@@ -63,7 +65,12 @@ struct PhoneNumberView: View {
                 
                 
                 Button(action: {
-                    navigationPath.append("Personal Details")
+                    if (viewModel.potentialUser.phoneNumber.filter {$0.isNumber}.count != 10){
+                        showError = true
+                    }
+                    else {
+                        navigationPath.append("Personal Details")
+                    }
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -76,6 +83,13 @@ struct PhoneNumberView: View {
                     }
                 }
                 .padding()
+                
+                
+                if showError {
+                    Text("Enter a Valid Phone Number")
+                        .foregroundColor(.red)
+                        .font(.caption)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding(.top, 100)

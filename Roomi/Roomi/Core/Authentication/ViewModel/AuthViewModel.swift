@@ -14,7 +14,7 @@ class AuthViewModel: ObservableObject {
     @Published var loginState = true
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
-    @Published var potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
+    @Published var potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true)
     @Published var password = ""
     @Published var errorMessage = ""
     @Published var userList = [User]()
@@ -51,7 +51,12 @@ class AuthViewModel: ObservableObject {
                             name: potentialUser.name,
                             age: potentialUser.age,
                             gender: potentialUser.gender,
-                            phoneNumber: potentialUser.phoneNumber)
+                            phoneNumber: potentialUser.phoneNumber,
+                            schoolWork: potentialUser.schoolWork,
+                            bio: potentialUser.bio,
+                            social: potentialUser.social,
+                            drugs: potentialUser.drugs,
+                            petFriendly: potentialUser.petFriendly)
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
@@ -67,7 +72,7 @@ class AuthViewModel: ObservableObject {
             try Auth.auth().signOut()
             self.userSession = nil
             self.currentUser = nil
-            self.potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
+            self.potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true)
             self.password = ""
             self.loginState = true
             
@@ -131,13 +136,13 @@ class AuthViewModel: ObservableObject {
             
             // Extract profiles
             self.userList =  documents.map { user in
-                return User(id: user.documentID, email: user.get("email") as? String ?? "", name: user.get("name") as? String ?? "", age: user.get("age") as? Int ?? 0, gender: user.get("gender") as? String ?? "", phoneNumber: user.get("phoneNumber") as? String ?? "")
+                return User(id: user.documentID, email: user.get("email") as? String ?? "", name: user.get("name") as? String ?? "", age: user.get("age") as? Int ?? 0, gender: user.get("gender") as? String ?? "", phoneNumber: user.get("phoneNumber") as? String ?? "", schoolWork: user.get("schoolWork") as? String ?? "", bio: user.get("bio") as? String ?? "", social: user.get("social") as? String ?? "", drugs: user.get("drugs") as? String ?? "", petFriendly: user.get("petFriendly") as? Bool ?? true)
             }
         }
     }
     
     func clearPotentialUser() {
-        potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "")
+        potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true)
         password = ""
         
         print(potentialUser)

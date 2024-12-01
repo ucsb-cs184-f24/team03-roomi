@@ -27,6 +27,12 @@ struct ProfileDetailView: View {
                 }
                 
                 Spacer()
+                
+                ButtonView(title: "Unmatch", background: .red) {
+                    // unmatch user
+                }
+                .frame(height: 50)
+                .padding()
             }
             .padding()
             

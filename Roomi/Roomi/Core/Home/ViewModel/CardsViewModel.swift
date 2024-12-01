@@ -39,11 +39,12 @@ class CardsViewModel: ObservableObject {
         }
     }
     
-    func fetchCurrentUser() async throws {
+    func fetchCurrentUser() async throws -> DocumentSnapshot? {
         do {
-            guard let uid = Auth.auth().currentUser?.uid else { return }
+            guard let uid = Auth.auth().currentUser?.uid else { return nil }
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             self.currentUser = try snapshot.data(as: User.self)
+            return snapshot
         }
         catch {
             print("Could not fetch user with error \(error.localizedDescription)")
@@ -222,5 +223,15 @@ class CardsViewModel: ObservableObject {
         guard let index = cardModels.firstIndex(where: { $0.id == card.id }) else {return}
         cardModels.remove(at: index)
         buttonSwipeAction = nil
+    }
+    
+    func unMatch(otherUser: User) async throws {
+        do {
+            let snapshot = try await fetchCurrentUser()
+            
+        }
+        catch {
+            print("Error fetching current user: \(error)")
+        }
     }
 }

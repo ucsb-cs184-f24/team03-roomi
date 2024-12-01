@@ -3,6 +3,7 @@ import SwiftUI
 struct ProfileDetailView: View {
     let userInformation: User
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var cardsViewModel: CardsViewModel
     
     var body: some View {
         ZStack {
@@ -29,7 +30,9 @@ struct ProfileDetailView: View {
                 Spacer()
                 
                 ButtonView(title: "Unmatch", background: .red) {
-                    // unmatch user
+                    Task {
+                        try await cardsViewModel.unmatch(otherUserId: userInformation.id)
+                    }
                 }
                 .frame(height: 50)
                 .padding()

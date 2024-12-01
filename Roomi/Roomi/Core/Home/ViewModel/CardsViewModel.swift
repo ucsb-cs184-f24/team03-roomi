@@ -224,19 +224,24 @@ class CardsViewModel: ObservableObject {
         buttonSwipeAction = nil
     }
     
-    @MainActor
-    func unMatch(otherUser: User) async throws {
+    func unmatch(otherUserId: String) async throws {
         guard let currentUser = self.currentUser else { return }
         
         let currentUserRef = db.collection("users").document(currentUser.id)
+        let otherUserRef = db.collection("users").document(otherUserId)
         
-        self.likedList.removeAll() { $0.id == otherUser.id}
+        self.likedList.removeAll() { $0.id == otherUserId}
+        self.matchList.removeAll() { $0.id == otherUserId}
         
-        do {
-            try await currentUserRef.updateData(["liked" : likedList])
-        }
-        catch {
-            print("Error unmatching: \(error)")
+        Task.detached(priority: .background) {
+            do {
+                try await currentUserRef.updateData(["liked": self.likedList])
+                try await currentUserRef.updateData(["matched": self.matchList])
+                try await otherUserRef.updateData(["matched": FieldValue.arrayRemove([otherUserId])])
+            }
+            catch {
+                print("Error unmatching: \(error)")
+            }
         }
     }
 }

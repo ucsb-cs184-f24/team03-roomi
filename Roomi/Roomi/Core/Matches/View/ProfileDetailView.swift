@@ -43,7 +43,7 @@ struct ProfileDetailView: View {
                     
                     Spacer()
                     
-                    Text(userInformation.name)
+                    Text("Matched!")
                         .font(.headline)
                         .foregroundColor(.white)
                     

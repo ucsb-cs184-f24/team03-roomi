@@ -77,15 +77,32 @@ class AuthViewModel: ObservableObject {
         }
     }
     
-    func deleteAccount() {
+    func updateProfile(user: User) async throws {
+        guard let currentUserId = Auth.auth().currentUser?.uid else { return }
+        
+        let userData: [String: Any] = [
+            "name": user.name,
+            "age": user.age,
+            "gender": user.gender,
+            "phoneNumber": user.phoneNumber,
+        ]
+        
+        try await Firestore.firestore().collection("users").document(currentUserId).updateData(userData)
+        
+        self.currentUser?.name = user.name
+        self.currentUser?.age = user.age
+        self.currentUser?.gender = user.gender
+        self.currentUser?.phoneNumber = user.phoneNumber
         
     }
+    
     
     func fetchUser() async {
         do {
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             self.currentUser = try snapshot.data(as: User.self)
+            self.potentialUser = self.currentUser!
         }
         catch {
             print("Could not fetch user with error \(error.localizedDescription)")

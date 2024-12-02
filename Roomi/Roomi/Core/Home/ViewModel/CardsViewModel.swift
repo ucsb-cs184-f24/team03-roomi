@@ -235,9 +235,9 @@ class CardsViewModel: ObservableObject {
         
         Task.detached(priority: .background) {
             do {
-                try await currentUserRef.updateData(["liked": self.likedList])
-                try await currentUserRef.updateData(["matched": self.matchList])
-                try await otherUserRef.updateData(["matched": FieldValue.arrayRemove([otherUserId])])
+                try await currentUserRef.updateData(["liked": FieldValue.arrayRemove([otherUserId])])
+                try await currentUserRef.updateData(["matched": FieldValue.arrayRemove([otherUserId])])
+                try await otherUserRef.updateData(["matched": FieldValue.arrayRemove([currentUser.id])])
             }
             catch {
                 print("Error unmatching: \(error)")

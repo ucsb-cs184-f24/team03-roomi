@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ProfileDetailView: View {
     let userInformation: User
+    let onMatchedList: Bool
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var cardsViewModel: CardsViewModel
     
@@ -29,13 +30,15 @@ struct ProfileDetailView: View {
                 
                 Spacer()
                 
-                ButtonView(title: "Unmatch", background: .red) {
-                    Task {
-                        try await cardsViewModel.unmatch(otherUserId: userInformation.id)
+                if onMatchedList {
+                    ButtonView(title: "Unmatch", background: .red) {
+                        Task {
+                            try await cardsViewModel.unmatch(otherUserId: userInformation.id)
+                        }
                     }
+                    .frame(height: 50)
+                    .padding()
                 }
-                .frame(height: 50)
-                .padding()
             }
             .padding()
             
@@ -163,5 +166,5 @@ struct ProfileInfoBubble: View {
 
 
 #Preview {
-    ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212"))
+    ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212"), onMatchedList: true)
 }

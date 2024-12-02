@@ -26,7 +26,7 @@ struct MatchesView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         ForEach(displayedProfiles) { user in
-                            NavigationLink(destination: ProfileDetailView(userInformation: user)) {
+                            NavigationLink(destination: ProfileDetailView(userInformation: user, onMatchedList: selectedTab == .matches)) {
                                 ProfileCardView(userInformation: user)
                             }
                             .buttonStyle(PlainButtonStyle())

@@ -7,6 +7,8 @@
 
 import SwiftUI
 import FirebaseCore
+import Foundation
+import RediStack
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,

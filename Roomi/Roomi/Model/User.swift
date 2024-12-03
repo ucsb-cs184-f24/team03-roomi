@@ -14,4 +14,5 @@ struct User: Identifiable, Codable, Hashable {
     var age: Int
     var gender: String
     var phoneNumber: String
+    var imageKey: String?
 }

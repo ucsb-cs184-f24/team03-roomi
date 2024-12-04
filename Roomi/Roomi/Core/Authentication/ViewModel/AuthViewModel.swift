@@ -90,15 +90,24 @@ class AuthViewModel: ObservableObject {
             "age": user.age,
             "gender": user.gender,
             "phoneNumber": user.phoneNumber,
+            "schoolWork": user.schoolWork,
+            "bio": user.bio,
+            "drugs": user.drugs,
+            "petFriendly": user.petFriendly,
+            "social": user.social
         ]
-        
+
         try await Firestore.firestore().collection("users").document(currentUserId).updateData(userData)
         
         self.currentUser?.name = user.name
         self.currentUser?.age = user.age
         self.currentUser?.gender = user.gender
         self.currentUser?.phoneNumber = user.phoneNumber
-        
+        self.currentUser?.schoolWork = user.schoolWork
+        self.currentUser?.bio = user.bio
+        self.currentUser?.drugs = user.drugs
+        self.currentUser?.petFriendly = user.petFriendly
+        self.currentUser?.social = user.social
     }
     
     

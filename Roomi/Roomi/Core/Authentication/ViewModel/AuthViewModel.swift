@@ -29,6 +29,7 @@ class AuthViewModel: ObservableObject {
     
     func login() async throws {
         guard validate() else {
+            loadingState = false
             return
         }
         
@@ -36,8 +37,10 @@ class AuthViewModel: ObservableObject {
             let result = try await Auth.auth().signIn(withEmail: potentialUser.email, password: self.password)
             self.userSession = result.user
             await fetchUser()
+            loadingState = false
         }
         catch {
+            loadingState = false
             errorMessage = "Error Logging In"
             print("DEBUG: Failed logging in with error: \(error.localizedDescription)")
         }

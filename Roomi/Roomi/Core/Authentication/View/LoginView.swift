@@ -15,48 +15,66 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text("Roomi")
-                    .fontWeight(.heavy)
-                    .font(.largeTitle)
-                
-                // display error messages
-                //                if !viewModel.errorMessage.isEmpty {
-                //                    Text(viewModel.errorMessage)
-                //                        .foregroundColor(Color.red)
-                //                }
-                
-                // email and password inputs
-                InputView(text: $viewModel.potentialUser.email, title: "Email", placeholder: "Enter Your Email")
-                
-                InputView(text: $viewModel.password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
-                
-                // login button
-                ButtonView(title: "Login", background: .blue){
-                    // Attempt Login
-                    Task {
-                        try await viewModel.login()
-                        cardsViewModel.initialize()
+            
+            ZStack{
+                VStack {
+                    Text("Roomi")
+                        .fontWeight(.heavy)
+                        .font(.largeTitle)
+                    
+                    // display error messages
+                    if !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(Color.red)
                     }
+                    
+                    // email and password inputs
+                    InputView(text: $viewModel.potentialUser.email, title: "Email", placeholder: "Enter Your Email")
+                    
+                    InputView(text: $viewModel.password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
+                    
+                    // login button
+                    ButtonView(title: "Login", background: .blue){
+                        // Attempt Login
+                        viewModel.loadingState = true
+                        Task {
+                            try await viewModel.login()
+                            cardsViewModel.initialize()
+                        }
+                    }
+                    .frame(height: 50)
+                    .padding()
+                    
+                    
+                    // button to switch to sign up view
+                    Button (action: {
+                        viewModel.loginState.toggle()
+                        viewModel.errorMessage = ""
+                    }) {
+                        Text("Don't have an account?")
+                        Text("Sign Up")
+                            .fontWeight(.bold)
+                    }
+                    
+                    Spacer().frame(height:20)
+                    
                 }
-                .frame(height: 50)
                 .padding()
                 
-                
-                // button to switch to sign up view
-                Button (action: {
-                    viewModel.loginState.toggle()
-                    viewModel.errorMessage = ""
-                }) {
-                    Text("Don't have an account?")
-                    Text("Sign Up")
-                        .fontWeight(.bold)
+                if viewModel.loadingState {
+                    Color.black.opacity(0.4)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    VStack {
+                        ProgressView("Logging In...")
+                            .progressViewStyle(CircularProgressViewStyle())
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(10)
+                    }
                 }
                 
-                Spacer().frame(height:20)
-                
             }
-            .padding()
             
         }
     }

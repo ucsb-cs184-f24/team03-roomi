@@ -62,6 +62,8 @@ struct ProfileCreationView: View, Hashable {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             
+            
+            
             ButtonView(title: "Create Profile", background: .blue){
                 Task {
                     try await viewModel.signUp()

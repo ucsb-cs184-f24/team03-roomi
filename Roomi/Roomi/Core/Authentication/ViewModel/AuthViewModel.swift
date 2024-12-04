@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 @MainActor
 class AuthViewModel: ObservableObject {
+    @Published var loadingState = false
     @Published var loginState = true
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
@@ -60,8 +61,10 @@ class AuthViewModel: ObservableObject {
             let encodedUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
             await fetchUser()
+            loadingState = false
         }
         catch {
+            loadingState = false
             errorMessage = "Error Signing Up"
             print("DEBUG: Failed to create user with error: \(error.localizedDescription)")
         }
@@ -140,6 +143,11 @@ class AuthViewModel: ObservableObject {
             errorMessage = "Please Enter Valid Email"
             return false
         }
+        
+        guard password.count >= 6 else {
+            errorMessage = "Password Minimum 6 Characters"
+            return false
+        }
         return true
     }
     
@@ -170,8 +178,5 @@ class AuthViewModel: ObservableObject {
     func clearPotentialUser() {
         potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true)
         password = ""
-        
-        print(potentialUser)
-        print(password)
     }
 }

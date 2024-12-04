@@ -29,6 +29,8 @@ struct PhotosUploadView: View {
                 
                 ButtonView(title: "Create Profile", background: .blue){
                     Task {
+                        navigationPath = NavigationPath()
+                        viewModel.loadingState = true
                         try await viewModel.signUp()
                         cardsViewModel.initialize()
                     }

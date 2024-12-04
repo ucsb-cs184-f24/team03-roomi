@@ -15,7 +15,12 @@ struct MockData {
             name: "Joe",
             age: 21,
             gender: "Male",
-            phoneNumber: "phone #"
+            phoneNumber: "phone #",
+            schoolWork: "",
+            bio: "",
+            social: "",
+            drugs: "",
+            petFriendly: true
         ),
         .init(
             id: NSUUID().uuidString,
@@ -23,7 +28,12 @@ struct MockData {
             name: "Megan",
             age: 30,
             gender: "Female",
-            phoneNumber: "phone #"
+            phoneNumber: "phone #",
+            schoolWork: "",
+            bio: "",
+            social: "",
+            drugs: "",
+            petFriendly: true
         ),
         .init(
             id: NSUUID().uuidString,
@@ -31,7 +41,12 @@ struct MockData {
             name: "Bob",
             age: 27,
             gender: "Male",
-            phoneNumber: "phone #"
+            phoneNumber: "phone #",
+            schoolWork: "",
+            bio: "",
+            social: "",
+            drugs: "",
+            petFriendly: true
         ),
         
     ]

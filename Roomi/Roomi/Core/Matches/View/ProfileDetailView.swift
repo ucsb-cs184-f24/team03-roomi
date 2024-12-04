@@ -33,7 +33,7 @@ struct ProfileDetailView: View {
                 if onMatchedList {
                     ButtonView(title: "Unmatch", background: .red) {
                         Task {
-                            try await cardsViewModel.unmatch(otherUserId: userInformation.id)
+                            try await cardsViewModel.block(otherUser: userInformation)
                         }
                     }
                     .frame(height: 50)

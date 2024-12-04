@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ProfileDetailView: View {
     let userInformation: User
+    let onMatchedList: Bool
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var cardsViewModel: CardsViewModel
     
     var body: some View {
         ZStack {
@@ -27,6 +29,16 @@ struct ProfileDetailView: View {
                 }
                 
                 Spacer()
+                
+                if onMatchedList {
+                    ButtonView(title: "Block", background: .red) {
+                        Task {
+                            try await cardsViewModel.block(otherUser: userInformation)
+                        }
+                    }
+                    .frame(height: 50)
+                    .padding()
+                }
             }
             .padding()
             
@@ -43,7 +55,7 @@ struct ProfileDetailView: View {
                     
                     Spacer()
                     
-                    Text(userInformation.name)
+                    Text("Matched!")
                         .font(.headline)
                         .foregroundColor(.white)
                     

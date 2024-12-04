@@ -56,7 +56,7 @@ struct UpdateProfileView: View {
             ButtonView(title: "Update Profile", background: .blue) {
                 Task {
                     do {
-                        try await viewModel.updateProfile(user: User(id: "", email: "", name: name, age: age, gender: gender, phoneNumber: phoneNumber))
+                        try await viewModel.updateProfile(user: User(id: "", email: "", name: name, age: age, gender: gender, phoneNumber: phoneNumber, schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true))
                         dismiss()
                     } catch {
                         print("Error updating profile")
@@ -70,6 +70,6 @@ struct UpdateProfileView: View {
 }
 
 #Preview {
-    UpdateProfileView(user: User(id: "", email: "", name: "", age: 0, gender: "", phoneNumber: ""))
+    UpdateProfileView(user: User(id: "", email: "", name: "", age: 0, gender: "", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true))
         .environmentObject(AuthViewModel())
 }

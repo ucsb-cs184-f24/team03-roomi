@@ -32,10 +32,10 @@ struct SignUpView: View {
                 
                 // button to validate and move to profile creation
                 Button(action: {
-                    if viewModel.validate() {                       // Call validate function
-                        navigationPath.append(ProfileCreationView()) // Append destination to navigation path
+                    if viewModel.validate() {
+                        navigationPath.append("Phone Number")
                     } else {
-                        print("Validation failed") // Handle validation failure
+                        print("Validation failed")
                     }
                 }) {
                     ZStack {
@@ -63,9 +63,22 @@ struct SignUpView: View {
                 
                 Spacer().frame(height:20)
             }
-            .navigationDestination(for: ProfileCreationView.self) { _ in // Handle navigation destination
-                ProfileCreationView()
-            }
+            .navigationDestination(for: String.self) { destination in
+                                switch destination {
+                                case "Phone Number":
+                                    PhoneNumberView(navigationPath: $navigationPath)
+                                case "Personal Details":
+                                    PersonalDetailsView(navigationPath: $navigationPath)
+                                case "Bio":
+                                    BioView(navigationPath: $navigationPath)
+                                case "Social Details":
+                                    SocialDetailsView(navigationPath: $navigationPath)
+                                case "Photos Upload":
+                                    PhotosUploadView(navigationPath: $navigationPath)
+                                default:
+                                    EmptyView()
+                                }
+                            }
             .padding()
         }
     }

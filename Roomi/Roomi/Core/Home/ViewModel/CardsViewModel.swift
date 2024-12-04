@@ -72,7 +72,12 @@ class CardsViewModel: ObservableObject {
                     name: user.get("name") as? String ?? "",
                     age: user.get("age") as? Int ?? 0,
                     gender: user.get("gender") as? String ?? "",
-                    phoneNumber: user.get("phoneNumber") as? String ?? ""
+                    phoneNumber: user.get("phoneNumber") as? String ?? "",
+                    schoolWork: user.get("schoolWork") as? String ?? "",
+                    bio: user.get("bio") as? String ?? "",
+                    social: user.get("social") as? String ?? "",
+                    drugs: user.get("drugs") as? String ?? "",
+                    petFriendly: user.get("petFriendly") as? Bool ?? true
                 )
             }
         } catch {

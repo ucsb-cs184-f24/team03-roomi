@@ -87,7 +87,7 @@ struct GenderBubble: View {
     
     var body: some View {
         VStack {
-            Image(systemName: gender == "Male" ? "person.fill" : "person.fill.badge.plus")
+            Image(systemName: "person.fill")
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(.white)
@@ -166,5 +166,5 @@ struct ProfileInfoBubble: View {
 
 
 #Preview {
-    ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212"), onMatchedList: true)
+    ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true))
 }

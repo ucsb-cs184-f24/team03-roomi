@@ -14,4 +14,9 @@ struct User: Identifiable, Codable, Hashable {
     var age: Int
     var gender: String
     var phoneNumber: String
+    var schoolWork: String
+    var bio: String
+    var social: String
+    var drugs: String
+    var petFriendly: Bool
 }

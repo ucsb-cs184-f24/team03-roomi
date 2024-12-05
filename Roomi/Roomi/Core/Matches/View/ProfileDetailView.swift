@@ -18,7 +18,6 @@ struct ProfileDetailView: View {
             VStack(spacing: 25) {
                 Spacer().frame(height: 80)
                 
-                
                 Text(userInformation.name)
                     .font(.largeTitle).bold()
                     .foregroundColor(.white)
@@ -31,13 +30,32 @@ struct ProfileDetailView: View {
                 Spacer()
                 
                 if onMatchedList {
-                    ButtonView(title: "Block", background: .red) {
-                        Task {
-                            try await cardsViewModel.block(otherUser: userInformation)
+                    VStack(spacing: 20) {
+                        NavigationLink(
+                            destination: ChatView(
+                                viewModel: MessagingViewModel(recipientId: userInformation.id),
+                                recipientName: userInformation.name
+                            )
+                        ) {
+                            Text("Message \(userInformation.name)")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue.opacity(0.7))
+                                .cornerRadius(10)
+                                .shadow(radius: 5)
                         }
+                        .padding(.horizontal)
+                        
+                        ButtonView(title: "Block", background: .red) {
+                            Task {
+                                try await cardsViewModel.block(otherUser: userInformation)
+                            }
+                        }
+                        .frame(height: 50)
+                        .padding(.horizontal)
                     }
-                    .frame(height: 50)
-                    .padding()
                 }
             }
             .padding()
@@ -78,9 +96,6 @@ struct ProfileDetailView: View {
         .navigationBarHidden(true)
     }
 }
-
-
-
 
 struct GenderBubble: View {
     let gender: String
@@ -164,7 +179,8 @@ struct ProfileInfoBubble: View {
     }
 }
 
-
+/*
 #Preview {
     ProfileDetailView(userInformation: User(id: "1", email: "alex@example.com", name: "Alex", age: 26, gender: "Male", phoneNumber: "+1 212 555 1212", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true))
 }
+*/

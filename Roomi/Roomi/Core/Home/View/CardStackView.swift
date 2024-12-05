@@ -11,7 +11,7 @@ struct CardStackView: View {
     @EnvironmentObject var viewModel: CardsViewModel
     
     var body: some View {
-        VStack {
+        VStack (spacing: 20){
             ZStack{
                 ForEach(viewModel.cardModels){ card in
                     CardView(model: card)

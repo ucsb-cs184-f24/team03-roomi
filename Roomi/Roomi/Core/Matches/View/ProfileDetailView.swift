@@ -3,7 +3,7 @@ import SwiftUI
 struct ProfileDetailView: View {
     let userInformation: User
     @Environment(\.presentationMode) var presentationMode
-    
+
     var body: some View {
         ZStack {
             LinearGradient(
@@ -16,7 +16,6 @@ struct ProfileDetailView: View {
             VStack(spacing: 25) {
                 Spacer().frame(height: 80)
                 
-                
                 Text(userInformation.name)
                     .font(.largeTitle).bold()
                     .foregroundColor(.white)
@@ -27,6 +26,23 @@ struct ProfileDetailView: View {
                 }
                 
                 Spacer()
+
+                NavigationLink(
+                    destination: ChatView(
+                        viewModel: MessagingViewModel(recipientId: userInformation.id),
+                        recipientName: userInformation.name
+                    )
+                ) {
+                    Text("Message \(userInformation.name)")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.7))
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                }
+                .padding(.horizontal)
             }
             .padding()
             
@@ -66,9 +82,6 @@ struct ProfileDetailView: View {
         .navigationBarHidden(true)
     }
 }
-
-
-
 
 struct GenderBubble: View {
     let gender: String

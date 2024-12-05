@@ -33,6 +33,7 @@ struct ChatView: View {
                                 .foregroundColor(.white)
                         }
                         .padding(message.senderId == Auth.auth().currentUser?.uid ? .leading : .trailing, 50)
+                        .padding()
                     }
                 }
                 .onChange(of: viewModel.messages.count) {

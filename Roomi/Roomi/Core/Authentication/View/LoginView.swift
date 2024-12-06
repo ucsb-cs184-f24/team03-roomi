@@ -17,10 +17,22 @@ struct LoginView: View {
         NavigationStack {
             
             ZStack{
+                LinearGradient(
+                    gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+                
                 VStack {
                     Text("Roomi")
+                        .foregroundColor(Color(.white))
                         .fontWeight(.heavy)
                         .font(.largeTitle)
+                        .padding(.bottom, 100)
+                    Text("Login")
+                        .foregroundColor(Color(.white))
+                        .fontWeight(.heavy)
                     
                     // display error messages
                     if !viewModel.errorMessage.isEmpty {
@@ -34,7 +46,7 @@ struct LoginView: View {
                     InputView(text: $viewModel.password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
                     
                     // login button
-                    ButtonView(title: "Login", background: .blue){
+                    ButtonView(title: "Login"){
                         // Attempt Login
                         viewModel.loadingState = true
                         Task {
@@ -52,7 +64,9 @@ struct LoginView: View {
                         viewModel.errorMessage = ""
                     }) {
                         Text("Don't have an account?")
+                            .foregroundColor(Color(.white))
                         Text("Sign Up")
+                            .foregroundColor(Color(.white))
                             .fontWeight(.bold)
                     }
                     

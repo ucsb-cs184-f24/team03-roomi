@@ -27,7 +27,7 @@ struct PhotosUploadView: View {
                 Text("Upload Photos Page")
                 
                 
-                ButtonView(title: "Create Profile", background: .blue){
+                ButtonView(title: "Create Profile"){
                     Task {
                         navigationPath = NavigationPath()
                         viewModel.loadingState = true

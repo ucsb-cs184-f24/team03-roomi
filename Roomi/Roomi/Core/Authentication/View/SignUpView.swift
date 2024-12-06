@@ -17,10 +17,22 @@ struct SignUpView: View {
             
             ZStack {
                 
+                LinearGradient(
+                    gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+                
                 VStack {
-                    Text("Roomi")
+                    Text("New Here?")
+                        .foregroundColor(Color(.white))
                         .fontWeight(.heavy)
                         .font(.largeTitle)
+                        .padding(.bottom, 100)
+                    Text("Sign Up")
+                        .foregroundColor(Color(.white))
+                        .fontWeight(.heavy)
                     
                     // display error message
                     if !viewModel.errorMessage.isEmpty {
@@ -43,7 +55,7 @@ struct SignUpView: View {
                     }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color.gray.opacity(0.7))
                                 .frame(height: 50)
                             
                             Text("Sign Up")
@@ -60,7 +72,9 @@ struct SignUpView: View {
                         viewModel.errorMessage = ""
                     }) {
                         Text("Already have an account?")
+                            .foregroundColor(Color(.white))
                         Text("Login")
+                            .foregroundColor(Color(.white))
                             .fontWeight(.bold)
                     }
                     

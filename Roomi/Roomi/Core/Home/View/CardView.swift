@@ -27,7 +27,7 @@ struct CardView: View {
             VStack(spacing: 20) {
                 Spacer()
                 
-                Image("profile-placeholder")
+                Image(systemName: "person.fill")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 150, height: 150)

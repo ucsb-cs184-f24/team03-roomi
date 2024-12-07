@@ -65,7 +65,7 @@ class CardsViewModel: ObservableObject {
                     return nil
                 }
                 
-                // Return the User object if it passes all filters
+                // Return the User object with merged properties
                 return User(
                     id: user.documentID,
                     email: user.get("email") as? String ?? "",
@@ -73,11 +73,12 @@ class CardsViewModel: ObservableObject {
                     age: user.get("age") as? Int ?? 0,
                     gender: user.get("gender") as? String ?? "",
                     phoneNumber: user.get("phoneNumber") as? String ?? "",
-                    schoolWork: user.get("schoolWork") as? String ?? "",
-                    bio: user.get("bio") as? String ?? "",
-                    social: user.get("social") as? String ?? "",
-                    drugs: user.get("drugs") as? String ?? "",
-                    petFriendly: user.get("petFriendly") as? Bool ?? true
+                    imageKey: user.get("imageKey") as? String ?? "", // From rv-profileCards
+                    schoolWork: user.get("schoolWork") as? String ?? "", // From main
+                    bio: user.get("bio") as? String ?? "", // From main
+                    social: user.get("social") as? String ?? "", // From main
+                    drugs: user.get("drugs") as? String ?? "", // From main
+                    petFriendly: user.get("petFriendly") as? Bool ?? true // From main
                 )
             }
         } catch {

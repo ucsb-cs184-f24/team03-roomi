@@ -32,7 +32,6 @@ struct HomeView: View {
                 Spacer()
                 
                 VStack(spacing: 0) {
-                    Divider()
                     
                     HStack {
                         ForEach(0..<tabs.count, id: \.self) { index in

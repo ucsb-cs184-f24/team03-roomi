@@ -16,7 +16,7 @@ struct InputView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .foregroundColor(Color(.darkGray))
+                .foregroundColor(Color(.white))
                 .fontWeight(.semibold)
                 .font(.footnote)
             
@@ -24,7 +24,7 @@ struct InputView: View {
                 SecureField(placeholder, text: $text)
                     .padding()
                     .frame(height: 55)
-                    .background(Color.gray.opacity(0.2))
+                    .background(Color.white.opacity(0.8))
                     .cornerRadius(10)
                     .autocapitalization(.none)
             }
@@ -32,7 +32,7 @@ struct InputView: View {
                 TextField(placeholder, text: $text)
                     .padding()
                     .frame(height: 55)
-                    .background(Color.gray.opacity(0.2))
+                    .background(Color.white.opacity(0.8))
                     .cornerRadius(10)
                     .autocapitalization(.none)
             }

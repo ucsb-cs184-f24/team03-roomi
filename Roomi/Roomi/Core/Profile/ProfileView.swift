@@ -8,56 +8,81 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                // Gradient Background
                 LinearGradient(
                     gradient: Gradient(colors: [Color(hex: 0x4A90E2), Color(hex: 0x9013FE)]),
                     startPoint: .top,
                     endPoint: .bottom
                 )
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea() // Ensure gradient fills the entire screen
                 
-                VStack {
-                    if let user = viewModel.currentUser {
-                        if isLoadingImage {
-                            ProgressView() // Show loading spinner
-                        } else if let image = profileImage {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 150, height: 150)
-                                .clipShape(Circle())
-                        } else {
-                            Circle()
-                                .fill(Color.gray)
-                                .frame(width: 150, height: 150)
-                        }
+                ScrollView {
+                    VStack(spacing: 16) {
+                        if let user = viewModel.currentUser {
+                            // Profile Picture
+                            if isLoadingImage {
+                                ProgressView() // Show loading spinner
+                                    .frame(width: 150, height: 150)
+                            } else if let image = profileImage {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 150, height: 150)
+                                    .clipShape(Circle())
+                                    .shadow(radius: 10)
+                            } else {
+                                Circle()
+                                    .fill(Color.gray)
+                                    .frame(width: 150, height: 150)
+                            }
 
-                        Text(user.name)
-                            .font(.largeTitle).bold()
-                            .foregroundColor(.white)
-                        
-                        HStack {
-                            GenderBubble(gender: user.gender)
-                            AgeBubble(age: user.age)
+                            // User Name
+                            Text(user.name)
+                                .font(.largeTitle).bold()
+                                .foregroundColor(.white)
+
+                            // Gender and Age
+                            HStack {
+                                GenderBubble(gender: user.gender)
+                                AgeBubble(age: user.age)
+                            }
+
+                            // Additional Profile Info
+                            VStack(spacing: 12) {
+                                if let schoolWork = user.schoolWork, !schoolWork.isEmpty {
+                                    LocationBubble(location: schoolWork)
+                                }
+                                if let bio = user.bio, !bio.isEmpty {
+                                    ProfileInfoBubble(title: "Bio", text: bio)
+                                }
+                                if let social = user.social, !social.isEmpty {
+                                    ProfileInfoBubble(title: "Social", text: social)
+                                }
+                                ProfileInfoBubble(title: "Alcohol/420", text: user.drugs)
+                                ProfileInfoBubble(title: "Pet Friendly", text: (user.petFriendly) ? "Yes" : "No")
+                            }
+
+                            // Logout Button
+                            ButtonView(title: "Logout", background: .red) {
+                                viewModel.signOut()
+                            }
+                            .frame(width: 100, height: 40)
+                            .padding(.top, 20)
                         }
-                        
-                        Spacer()
-                        ButtonView(title: "Logout", background: .red) {
-                            viewModel.signOut()
-                        }
-                        .frame(width: 100, height: 40)
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .top) // Align content to top
                 }
-                .padding()
-                .frame(maxHeight: .infinity, alignment: .top)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: UpdateProfileView(user: viewModel.currentUser)) {
                         Text("Edit")
-                            .foregroundStyle(.white)
+                            .foregroundColor(.white) // Ensure the text matches the theme
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline) // Use inline title for compact bar
         }
         .onAppear {
             fetchImage()
@@ -91,5 +116,4 @@ struct ProfileView: View {
             }
         }
     }
-
 }

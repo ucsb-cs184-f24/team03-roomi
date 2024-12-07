@@ -9,7 +9,6 @@ struct HomeView: View {
         (title: "Matches", image: "person.fill"),
         (title: "Home", image: "house.fill"),
         (title: "Profile", image: "gearshape.fill"),
-        (title: "", image: "message.fill")
     ]
     
     var body: some View {
@@ -28,17 +27,11 @@ struct HomeView: View {
                     CardStackView()
                 } else if selectedTab == 2 {
                     ProfileView()
-                } else if selectedTab == 3 {
-                    NavigationView
-                    {
-                        ChatListView()
-                    }
                 }
                 
                 Spacer()
                 
                 VStack(spacing: 0) {
-                    Divider()
                     
                     HStack {
                         ForEach(0..<tabs.count, id: \.self) { index in

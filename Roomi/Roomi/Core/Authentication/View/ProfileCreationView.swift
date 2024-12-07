@@ -19,7 +19,6 @@ struct ProfileCreationView: View, Hashable {
         VStack {
             // TODO ADD VALIDATION FOR THESE FIELDS
             
-            
             Text("Lets Get to Know You...")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -62,9 +61,8 @@ struct ProfileCreationView: View, Hashable {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             
-            
-            
-            ButtonView(title: "Create Profile", background: .blue){
+            // Create Profile Button
+            ButtonView(title: "Create Profile", background: .blue) {
                 Task {
                     try await viewModel.signUp()
                     cardsViewModel.initialize()
@@ -72,10 +70,8 @@ struct ProfileCreationView: View, Hashable {
             }
             .frame(height: 50)
             .padding()
-            
         }
         .padding()
-        
     }
     
     // Conformance to Hashable

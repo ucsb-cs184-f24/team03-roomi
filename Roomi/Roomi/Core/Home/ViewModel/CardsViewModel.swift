@@ -42,7 +42,7 @@ class CardsViewModel: ObservableObject {
     func fetchCurrentUser() async throws {
         do {
             guard let uid = Auth.auth().currentUser?.uid else { return }
-            let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+            let snapshot = try await db.collection("users").document(uid).getDocument()
             self.currentUser = try snapshot.data(as: User.self)
         }
         catch {
@@ -65,7 +65,7 @@ class CardsViewModel: ObservableObject {
                     return nil
                 }
                 
-                // Return the User object if it passes all filters
+                // Return the User object with merged properties
                 return User(
                     id: user.documentID,
                     email: user.get("email") as? String ?? "",
@@ -73,7 +73,12 @@ class CardsViewModel: ObservableObject {
                     age: user.get("age") as? Int ?? 0,
                     gender: user.get("gender") as? String ?? "",
                     phoneNumber: user.get("phoneNumber") as? String ?? "",
-                    imageKey: user.get("imageKey") as? String ?? ""
+                    imageKey: user.get("imageKey") as? String ?? "", // From rv-profileCards
+                    schoolWork: user.get("schoolWork") as? String ?? "", // From main
+                    bio: user.get("bio") as? String ?? "", // From main
+                    social: user.get("social") as? String ?? "", // From main
+                    drugs: user.get("drugs") as? String ?? "", // From main
+                    petFriendly: user.get("petFriendly") as? Bool ?? true // From main
                 )
             }
         } catch {
@@ -223,5 +228,26 @@ class CardsViewModel: ObservableObject {
         guard let index = cardModels.firstIndex(where: { $0.id == card.id }) else {return}
         cardModels.remove(at: index)
         buttonSwipeAction = nil
+    }
+    
+    func block(otherUser: User) async throws {
+        guard let currentUser = self.currentUser else { return }
+        
+        let currentUserRef = db.collection("users").document(currentUser.id)
+        let otherUserRef = db.collection("users").document(otherUser.id)
+        
+        self.matchList.removeAll() { $0.id == otherUser.id}
+        try await dislike(otherUser: otherUser)
+        
+        Task.detached(priority: .background) {
+            do {
+                try await currentUserRef.updateData(["matched": FieldValue.arrayRemove([otherUser.id])])
+                try await otherUserRef.updateData(["matched": FieldValue.arrayRemove([currentUser.id])])
+                try await otherUserRef.updateData(["disliked": FieldValue.arrayUnion([currentUser.id])])
+            }
+            catch {
+                print("Error unmatching: \(error)")
+            }
+        }
     }
 }

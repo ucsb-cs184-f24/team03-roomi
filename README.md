@@ -59,6 +59,10 @@ Sign into your apple id, change the bundle identifier to yours, and select a dev
 - Make sure your IPhone is plugged in and connected to the same wifi network
 - Click Run in Xcode to deploy to your selected device or simulator.
 
+### Deployment:
+- Our application is not deployable because we do not have an apple developer's account.
+- The closest we could get to "Deployment" was by following our Build and Run steps above.
+
 ## Functionality:
 TODO: Write usage instructions. Structuring it as a walkthrough can help structure this section, and showcase your features.
 

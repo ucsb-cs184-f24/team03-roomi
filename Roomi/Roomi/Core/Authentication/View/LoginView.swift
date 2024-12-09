@@ -46,7 +46,7 @@ struct LoginView: View {
                     InputView(text: $viewModel.password, title: "Password", placeholder: "Enter Your Password", isSecureField: true)
                     
                     // login button
-                    ButtonView(title: "Login"){
+                    ButtonView(title: "Login", background: .blue){
                         // Attempt Login
                         viewModel.loadingState = true
                         Task {

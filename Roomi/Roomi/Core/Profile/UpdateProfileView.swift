@@ -99,7 +99,7 @@ struct UpdateProfileView: View {
             
             Spacer()
             
-            ButtonView(title: "Update Profile") {
+            ButtonView(title: "Update Profile", background: .blue) {
                 Task {
                     do {
                         try await viewModel.updateProfile(user: User(id: "", email: "", name: name, age: age, gender: gender, phoneNumber: phoneNumber, schoolWork: schoolWork, bio: bio, social: social, drugs: drugs, petFriendly: petFriendly))

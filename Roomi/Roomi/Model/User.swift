@@ -19,4 +19,6 @@ struct User: Identifiable, Codable, Hashable {
     var social: String
     var drugs: String
     var petFriendly: Bool
+    var imageKey: String? // Optional to handle cases where no profile image is uploaded
+
 }

@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var profileImage: UIImage? = nil
+    @State private var isLoadingImage: Bool = true
 
     var body: some View {
         NavigationView {
@@ -18,9 +20,21 @@ struct ProfileView: View {
                     VStack(spacing: 16) {
                         if let user = viewModel.currentUser {
                             // Profile Picture
-                            Circle()
-                                .fill(Color.gray)
-                                .frame(width: 150, height: 150)
+                            if isLoadingImage {
+                                ProgressView() // Show loading spinner
+                                    .frame(width: 150, height: 150)
+                            } else if let image = profileImage {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 150, height: 150)
+                                    .clipShape(Circle())
+                                    .shadow(radius: 10)
+                            } else {
+                                Circle()
+                                    .fill(Color.gray)
+                                    .frame(width: 150, height: 150)
+                            }
 
                             // User Name
                             Text(user.name)
@@ -64,8 +78,40 @@ struct ProfileView: View {
             }
             .navigationBarTitleDisplayMode(.inline) // Use inline title for compact bar
         }
+        .onAppear {
+                    fetchImage()
+                }
+    }
+    /// Fetch the Base64 image string from Redis, decode it, and display it
+    private func fetchImage() {
+        guard let user = viewModel.currentUser, let imageKey = user.imageKey else {
+            print("User or image key is missing.")
+            self.isLoadingImage = false
+            return
+        }
+        
+        RedisManager.shared.fetchBase64Image(for: imageKey) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let base64String):
+                    if let base64String = base64String,
+                       let imageData = Data(base64Encoded: base64String),
+                       let image = UIImage(data: imageData) {
+                        self.profileImage = image
+                    } else {
+                        print("Failed to decode image data for key: \(imageKey)")
+                    }
+                    self.isLoadingImage = false
+                case .failure(let error):
+                    print("Error fetching image: \(error)")
+                    self.isLoadingImage = false
+                }
+            }
+        }
     }
 }
+
+
 
 #Preview {
     ProfileView()

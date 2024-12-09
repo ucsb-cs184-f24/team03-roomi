@@ -77,7 +77,8 @@ class CardsViewModel: ObservableObject {
                     bio: user.get("bio") as? String ?? "",
                     social: user.get("social") as? String ?? "",
                     drugs: user.get("drugs") as? String ?? "",
-                    petFriendly: user.get("petFriendly") as? Bool ?? true
+                    petFriendly: user.get("petFriendly") as? Bool ?? true,
+                    imageKey: user.get("imageKey") as? String ?? ""
                 )
             }
         } catch {

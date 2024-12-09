@@ -1,3 +1,11 @@
+//
+//  RedisManager.swift
+//  Roomi
+//
+//  Created by Ryan Vo on 12/8/24.
+//
+
+
 import Foundation
 import RediStack
 import NIO

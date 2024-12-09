@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
+import RediStack
+import FirebaseFirestore
+import NIO
 
 struct UpdateProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
@@ -19,6 +23,8 @@ struct UpdateProfileView: View {
     @State private var drugs: String
     @State private var petFriendly: Bool
     @State private var social: String
+    @State private var selectedImage: UIImage? = nil
+    @State private var isPickerPresented: Bool = false
     
     init(user: User?) {
         _name = State(initialValue: user?.name ?? "")
@@ -95,7 +101,31 @@ struct UpdateProfileView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
+                
+                Section(header: Text("Profile Image")) {
+                                    if let image = selectedImage {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 150)
+                                    } else {
+                                        Text("No image selected")
+                                    }
+                                    
+                                    Button("Select Image") {
+                                        isPickerPresented = true
+                                    }
+                                    
+                                    ButtonView(title: "Upload & Save Image", background: .green) {
+                                        Task {
+                                            await uploadImage()
+                                        }
+                                    }
+                                    .frame(width: 200, height: 50)
+                                    .padding()
+                                }
             }
+            
             
             Spacer()
             
@@ -112,6 +142,36 @@ struct UpdateProfileView: View {
             .frame(width: 150, height: 50)
             .padding()
         }
+            .sheet(isPresented: $isPickerPresented) {
+                    ImagePicker(image: $selectedImage)
+                }
+        }
+            
+            // Upload Image to Redis and Firebase
+            private func uploadImage() async {
+                guard let image = selectedImage else { return }
+                do {
+                    guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+                        print("Failed to convert image to JPEG data")
+                        return
+                    }
+                    let base64String = imageData.base64EncodedString()
+                    let redisKey = RedisKey("profile_image_\(UUID().uuidString)")
+                    
+                    if let redisConnection = RedisManager.shared.getConnection() {
+                        try await redisConnection.set(redisKey, to: base64String)
+                        let db = Firestore.firestore()
+                        let userId = viewModel.currentUser?.id ?? "unknown_user"
+                        try await db.collection("users").document(userId).setData([
+                            "imageKey": redisKey.description
+                        ], merge: true)
+                        print("Image uploaded and key saved to Firebase!")
+                    } else {
+                        print("Redis connection not available")
+                    }
+                } catch {
+                    print("Error uploading image: \(error)")
+                }
     }
 }
 

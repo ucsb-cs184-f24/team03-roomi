@@ -43,7 +43,7 @@ struct ProfileView: View {
                             }
 
                             // Logout Button
-                            ButtonView(title: "Logout") {
+                            ButtonView(title: "Logout", background: .red) {
                                 viewModel.signOut()
                             }
                             .frame(width: 100, height: 40)

@@ -77,7 +77,7 @@ struct BioView: View {
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(Color.gray.opacity(0.7))
+                            .foregroundColor(Color.blue.opacity(0.7))
                             .frame(height: 50)
                         
                         Text("Next")

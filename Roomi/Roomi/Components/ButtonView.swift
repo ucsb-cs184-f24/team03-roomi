@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ButtonView: View {
     let title: String
+    let background: Color
     let action: () -> Void
     
     var body: some View {
@@ -18,7 +19,7 @@ struct ButtonView: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color.gray.opacity(0.7))
+                    .foregroundColor(background)
                 
                 Text(title)
                     .foregroundColor(Color.white)
@@ -30,7 +31,7 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(title: "Value"
+        ButtonView(title: "Value", background: .blue
                  ){
             //Action
         }

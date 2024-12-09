@@ -29,6 +29,6 @@ Anderson: auth logic, unmatching, user manual, design document, match logic, lik
 
 Braden: all messaging functionality and UI
 
-Khang: Overall UI, Profile Details view and Match list, Tab bar
+Khang: Overall UI, Profile Details view and Match list, Tab bar, Home page card expanded view, swipe button UI, bug fixes
 
 Ryan: Uploading Photos

@@ -12,6 +12,8 @@ struct CardView: View {
     @State private var xOffset: CGFloat = 0
     @State private var degrees: Double = 0
     @State private var isExpanded: Bool = false
+    @State private var profileImage: UIImage? = nil
+    @State private var isLoadingImage: Bool = true
 
     let model: CardModel
 
@@ -27,13 +29,26 @@ struct CardView: View {
             VStack(spacing: 20) {
                 Spacer()
                 
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    .shadow(radius: 5)
+                
+                // Display profile image or stock image
+                if let image = profileImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                } else if isLoadingImage {
+                    ProgressView() // Show loading spinner
+                        .frame(height: 100)
+                } else {
+                    Image(systemName: "person.crop.circle") // Fallback stock image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                }
                     
 
                 Text(model.user.name)
@@ -86,8 +101,41 @@ struct CardView: View {
         .onReceive(viewModel.$buttonSwipeAction, perform: { action in
             onRecieveSwipeAction(action)
         })
+        .onAppear {
+            fetchProfileImage()
+        }
     }
 }
+
+private extension CardView {
+    func fetchProfileImage() {
+        guard let imageKey = model.user.imageKey else {
+            print("User or image key is missing.")
+            self.isLoadingImage = false
+            return
+        }
+        
+        RedisManager.shared.fetchBase64Image(for: imageKey) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let base64String):
+                    if let base64String = base64String,
+                       let imageData = Data(base64Encoded: base64String),
+                       let image = UIImage(data: imageData) {
+                        self.profileImage = image
+                    } else {
+                        print("Failed to decode image data for key: \(imageKey)")
+                    }
+                    self.isLoadingImage = false
+                case .failure(let error):
+                    print("Error fetching image: \(error)")
+                    self.isLoadingImage = false
+                }
+            }
+        }
+    }
+}
+
 
 
 

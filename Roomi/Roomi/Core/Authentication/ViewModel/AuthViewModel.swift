@@ -15,7 +15,7 @@ class AuthViewModel: ObservableObject {
     @Published var loginState = true
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
-    @Published var potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true)
+    @Published var potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true, imageKey: "")
     @Published var password = ""
     @Published var errorMessage = ""
     @Published var userList = [User]()
@@ -114,6 +114,7 @@ class AuthViewModel: ObservableObject {
         self.currentUser?.drugs = user.drugs
         self.currentUser?.petFriendly = user.petFriendly
         self.currentUser?.social = user.social
+        self.currentUser?.imageKey = user.imageKey
     }
     
     
@@ -173,13 +174,13 @@ class AuthViewModel: ObservableObject {
             
             // Extract profiles
             self.userList =  documents.map { user in
-                return User(id: user.documentID, email: user.get("email") as? String ?? "", name: user.get("name") as? String ?? "", age: user.get("age") as? Int ?? 0, gender: user.get("gender") as? String ?? "", phoneNumber: user.get("phoneNumber") as? String ?? "", schoolWork: user.get("schoolWork") as? String ?? "", bio: user.get("bio") as? String ?? "", social: user.get("social") as? String ?? "", drugs: user.get("drugs") as? String ?? "", petFriendly: user.get("petFriendly") as? Bool ?? true)
+                return User(id: user.documentID, email: user.get("email") as? String ?? "", name: user.get("name") as? String ?? "", age: user.get("age") as? Int ?? 0, gender: user.get("gender") as? String ?? "", phoneNumber: user.get("phoneNumber") as? String ?? "", schoolWork: user.get("schoolWork") as? String ?? "", bio: user.get("bio") as? String ?? "", social: user.get("social") as? String ?? "", drugs: user.get("drugs") as? String ?? "", petFriendly: user.get("petFriendly") as? Bool ?? true, imageKey: user.get("imageKey") as? String ?? "")
             }
         }
     }
     
     func clearPotentialUser() {
-        potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true)
+        potentialUser = User(id: "", email: "", name: "", age: 0, gender: "male", phoneNumber: "", schoolWork: "", bio: "", social: "", drugs: "", petFriendly: true, imageKey: "")
         password = ""
     }
 }

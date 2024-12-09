@@ -5,6 +5,8 @@ struct ProfileDetailView: View {
     let onMatchedList: Bool
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var cardsViewModel: CardsViewModel
+    @State private var profileImage: UIImage? = nil
+    @State private var isLoadingImage: Bool = true
     
     var body: some View {
         ZStack {
@@ -17,6 +19,27 @@ struct ProfileDetailView: View {
             
             VStack(spacing: 25) {
                 Spacer().frame(height: 80)
+                
+                // Profile Picture
+                if let image = profileImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                } else if isLoadingImage {
+                    ProgressView() // Loading spinner
+                        .frame(width: 150, height: 150)
+                } else {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 150, height: 150)
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                }
                 
                 Text(userInformation.name)
                     .font(.largeTitle).bold()
@@ -93,6 +116,9 @@ struct ProfileDetailView: View {
                 Spacer()
             }
         }
+        .onAppear {
+                    fetchProfileImage()
+                }
         .navigationBarHidden(true)
     }
 }
@@ -176,6 +202,35 @@ struct ProfileInfoBubble: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 8)
+    }
+}
+
+private extension ProfileDetailView {
+    func fetchProfileImage() {
+        guard let imageKey = userInformation.imageKey else {
+            print("User or image key is missing.")
+            self.isLoadingImage = false
+            return
+        }
+        
+        RedisManager.shared.fetchBase64Image(for: imageKey) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let base64String):
+                    if let base64String = base64String,
+                       let imageData = Data(base64Encoded: base64String),
+                       let image = UIImage(data: imageData) {
+                        self.profileImage = image
+                    } else {
+                        print("Failed to decode image data for key: \(imageKey)")
+                    }
+                    self.isLoadingImage = false
+                case .failure(let error):
+                    print("Error fetching image: \(error)")
+                    self.isLoadingImage = false
+                }
+            }
+        }
     }
 }
 

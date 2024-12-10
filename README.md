@@ -64,7 +64,7 @@ Sign into your apple id, change the bundle identifier to yours, and select a dev
 - The closest we could get to "Deployment" was by following our Build and Run steps above.
 
 ## Functionality:
-See User Manual at teams/MANUAL.md
+See User Manual at docs/MANUAL.md.
 
 ## Known Problems 
 TODO: Describe any known issues, bugs, odd behaviors or code smells. Provide steps to reproduce the problem and/or name a file or a function where the problem lives.

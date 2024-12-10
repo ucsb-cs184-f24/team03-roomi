@@ -53,6 +53,8 @@ If the user likes the profile shown, they can either like or dislike the profile
 
 As the user swipes through potential matches depending on if they liked or disliked the profile this information will be stored in the FireStore Database. Once a user has liked a user who has liked them back this will be considered a match and it will be updated accordingly in the Database and the Application. Once a match has been found the user will be prompted with a pop up which informs them that a match has been found.
 
+From a technical perspective, a match is found if both users have liked each other. So when a user has liked another user it will check if that user has liked you back. If so it will remove both profiles from each other's liked list in the database and add each other's profile to the matched list. Therefore we do not have redundant information and the database is easily readable in order to debug and manage.
+
 #### Blocking/Unmatching
 
 If a user wants to prevent all interactions with another user on our application, they can choose to block the other user. To achieve this, they will go to their matches page, click on a user's profile, and click the red button labeled "Block".

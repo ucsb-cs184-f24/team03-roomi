@@ -66,8 +66,7 @@ To log in:
 6. Clicking the Update Profile button will update your profile in the database and you will be brought back to the profile page with the updated information
 
 # Navigating the App
-
-## VIDEO DEMO????
+https://drive.google.com/file/d/1sQeXIdQOWxR2UjK0N9UwmpXTBvSLbq38/view?usp=sharing
 
 # Key Features and Usage
 

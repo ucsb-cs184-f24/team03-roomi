@@ -95,8 +95,8 @@ This feature's main purpose is to be able to communicate with the other user who
 
 Steps:
 1. Go to "Matches" tab
-2. Select a match
-3. Click on blue message button where it says "Message *Name of User*"
+2. Press on the match you want to chat with
+3. Press on blue message button where it says "Message *Name of User*"
 4. Start chatting with your match!
 
 ## Blocking

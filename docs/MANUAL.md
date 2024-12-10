@@ -75,9 +75,11 @@ Duis eu accumsan ligula, quis maximus libero. Praesent porta risus at tortor fin
 
 # FAQs
 
-Sed non velit ac nunc aliquam consequat ac at mauris. Integer tristique consectetur purus ac vehicula. Nunc elementum ante nec nisi scelerisque hendrerit. Phasellus accumsan iaculis arcu eget consequat. Pellentesque velit eros, ultricies ac lacus vel, facilisis finibus enim. Pellentesque ut ligula accumsan, consequat nisi quis, scelerisque felis. Pellentesque placerat, augue ac accumsan pretium, lectus mi congue mi, ac aliquam ex libero a mi. Pellentesque ut varius nisi, in dignissim tellus. Aliquam erat volutpat. Donec eros eros, convallis quis velit eget, consectetur mattis urna.
+## Can I message a liked user?
+### No, as of right now messaging is only for users who have matched with another user
 
+## How can I view a user's Profile on the Home Page?
+### Clicking the card will expand it showing you all the information about the user
 
-
-
-
+## I matched the user but I can't see it in my matched list.
+### You can swipe down on the match view which will reload the page with the most up to data information if a problem like this were to happen.

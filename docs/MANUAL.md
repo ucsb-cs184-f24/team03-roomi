@@ -11,7 +11,22 @@ Roomi is a mobile application that allows users to find and connect with potenti
 
 # Getting Started
 
-Praesent suscipit ex ligula, a dapibus nunc vulputate at. Nullam rhoncus lacus et risus ultrices sodales. Ut eu arcu enim. Praesent vulputate, magna in finibus tempor, sapien nisl posuere magna, ac tempor orci nunc eu leo. Praesent vehicula leo vitae dapibus scelerisque. Praesent vulputate, nunc a feugiat viverra, velit libero dapibus mi, elementum sollicitudin nibh arcu sed ante. Suspendisse ac enim eget velit suscipit pellentesque. Nunc convallis convallis mi quis hendrerit. Aenean in purus scelerisque justo euismod tempus. Cras non tincidunt lectus. Etiam varius dictum rhoncus. Aenean ut massa felis. Sed tincidunt, urna at vestibulum tincidunt, erat justo imperdiet mi, at aliquet sapien odio a metus. Curabitur quis est metus. Nulla risus urna, efficitur et lorem eu, interdum suscipit risus. Donec posuere eget est sed tempor.
+To use our application, users need to have an account.
+
+## Signing Up
+To create a new account:
+(Vid)
+1. Upon opening the application, users will face the login page.
+
+2. Click the sign up button.
+
+3. Fill out user information.
+
+4. Click create account.
+
+## Logging In
+To log in:
+(Vid)
 
 # Navigating the App
 

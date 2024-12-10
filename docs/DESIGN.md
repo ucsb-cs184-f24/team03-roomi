@@ -46,6 +46,10 @@ If the user likes the profile shown, they can either like or dislike the profile
 
 As the user swipes through potential matches depending on if they liked or disliked the profile this information will be stored in the FireStore Database. Once a user has liked a user who has liked them back this will be considered a match and it will be updated accordingly in the Database and the Application. Once a match has been found the user will be prompted with a pop up which informs them that a match has been found.
 
+#### Blocking/Unmatching
+
+If a user wants to prevent all interactions with another user on our application, they can choose to block the other user. To achieve this, they will go to their matches page, click on a user's profile, and click the red button labeled "Block".
+
 ### Messaging
 
 If the user wishes to message another user that they've matched with, they can first start by navigating to the "Matches" tab. On this page, users can view their list of matches. They can select a specific match that they wish to message, and this will bring up a profile information page about the selected user. This page will contain a button "Message *Name of User*" that will, when pressed, navigate the user to a page where they can send messages to their match. From here, the user can send/receive messages to and from their match so that they may get to know each other better and plan future steps to officially become roommates.

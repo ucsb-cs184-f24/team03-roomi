@@ -24,7 +24,7 @@ The diagram above depicts the current hierarchy of our application. The client c
 - We decided to to implement a swipe feature instead of a scroll feature for looking through potential matches. This decision was made based on our A/B testing. When letting our testers interact with these features, they preferred the swipe view more.
 
 ### Only Blocking, No Unmatching
-- We decided to only implement a block feature because they inherently have the same functionality for our application. When a user unmatches from a match, we infer that they do not like their match. Thus, we will not recommend this user in their swipe view again. Since users can only find new users based on our swipe feature, once a user unmatches from a match, they will never be able to interact with the unmatched user again. This is almost the same concept as blocking. Thus, instead of making our application more complicated with more buttons that have the same functionality, we decided on only a blocking feature.
+- We decided to only implement a block feature because they inherently have the same functionality for our application. When a user unmatches from a match, we infer that they do not like their match. Thus, we will not recommend this user in their swipe view again. Since users can only find new users based on our swipe feature, once a user unmatches from a match, they will never be able to interact with the unmatched user again. This is almost the same concept as blocking. Thus, instead of making our application more complicated with more buttons that have the same functionality, we decided only on a blocking feature.
 
 ## User Flows
 

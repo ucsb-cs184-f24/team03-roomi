@@ -23,7 +23,11 @@ The diagram above depicts the current hierarchy of our application. The client c
 
 #### Log In / Sign Up
 
+The user will be presented with two option upon entering the app: Login and Sign up. They will begin on the login page and if they do not already have an account, there is a button option to switch to sign up. If the user inputs their information and attempts to login, a loading overlay will appear and on a successful login, they will be logged into the app.
+
 #### Profile Set Up
+
+When the User chooses the sign up option, they are presented with two fields for email and password. Once they fill in their desired email and password, they are taken down a profile creation pipeline. This begins with getting the users phone number, if the user decides to cancel it will discard all of their information. Moving on to the next page is their full name age and gender, then school and bio, then roommate preferences. Each of these pages have the option to navigate back to the previous page. At the end they will be presented with a button to create the profile. They will then be taken back to the sign in page, a loading overlay will appear and if the creation is successful, they will be logged into the app.
 
 #### Search for Roommates
 

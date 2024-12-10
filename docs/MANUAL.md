@@ -39,6 +39,15 @@ To log in:
 
    ![Simulator Screenshot - iPhone 16 Pro - 2024-12-09 at 17 27 43](https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6)
 
+## Viewing your Profile
+
+1. Open the App
+2. Click the Profile Button on the button right
+3. Once clicked you will be presented with the profile page for the current user
+![IMG_6306](https://github.com/user-attachments/assets/1cf9f619-821b-40b7-b42a-9676c447593a)
+
+
+
 
 # Navigating the App
 

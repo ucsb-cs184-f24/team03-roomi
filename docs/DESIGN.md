@@ -3,7 +3,7 @@
 ## System Overview
 ![System Archtecture Diagram](Roomi_System_Architecture.png)
 
-The diagram above depicts the current hierarchy of our application. The client can send information to the frontend by interacting with the application. Once received, the application can send information to our Firebase Authentication service if they want to log in/out or sign up for a new account. Then, Firebase will send information back to the frontend, indicating a successful/unsuccesful authentication operation. Our database, Firestore, will be queried for different operations once they have logged in. Requests such as changing their profile, matching/unmatching with other users, messages, and many other functionalities all perform operations on the database. Upon receieving a request, Firestore will either update with the requested information or send an error message. We also have a cache for photo storage because photos need to be rendered everytime a user opens the app. Performing queries everytime on the database for large data is too inefficient when it can be avoided by caching.
+The diagram above depicts the current hierarchy of our application. The client can send information to the frontend by interacting with the application. Once received, the application can send information to our Firebase Authentication service if they want to log in/out or sign up for a new account. Then, Firebase will send information back to the frontend, indicating a successful/unsuccesful authentication operation. Our database, Firestore, will be queried for different operations once they have logged in. Requests such as changing their profile, matching/unmatching with other users, messages, and many other functionalities all perform operations on the database. Upon receieving a request, Firestore will either update with the requested information or send an error message. We also have a cache (Redis) for photo storage because photos need to be rendered everytime a user opens the app. Performing queries everytime on the database for large data is too inefficient when it can be avoided by caching.
 
 ## Team Decisions
 
@@ -14,8 +14,14 @@ The diagram above depicts the current hierarchy of our application. The client c
 ### User Properties
 - We have a list of user properties that we have brainstormed and need to narrow down. Some must include properties are photos, bios, age, name, email, contact info, and then some living preferences.
 
+### Using Redis for Photos
+- As touched on a little bit in our System Overview section, midway through our development process, we had decided to use caching for photo storage. The main reasons for this were because photos take up a lot of storage and querying this photos from Firestore would be inefficient. We did not want to reach our data limit for Firestore and caching allows for much more efficient retrieval of photos. Redis was chosen as our cache because it has a free feature and is one of the more established pre-implmented caches in the development world.
+
 ### Pages
 - We decided to provide a few pages, one for profile, one for swiping, one for messages, and then one for matches that will contain people who liked you and the full profile of all your matches.
+
+### Swipe View
+- We decided to to implement a swipe feature instead of a scroll feature for looking through potential matches. This decision was made based on our A/B testing. When letting our testers interact with these features, they preferred the swipe view more.
 
 ## User Flows
 

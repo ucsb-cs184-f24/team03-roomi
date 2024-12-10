@@ -42,12 +42,28 @@ To log in:
 ## Viewing your Profile
 
 1. Open the App
-2. Click the Profile Button on the button right
-3. Once clicked you will be presented with the profile page for the current user
+   
+3. Click the Profile Button on the button right
+
+5. Once clicked you will be presented with the profile page for the current user
 ![IMG_6306](https://github.com/user-attachments/assets/1cf9f619-821b-40b7-b42a-9676c447593a)
 
 
+## Editing Profile
 
+1. Once the app is launched navigate to the profile page which can be found when clicking the button on the bottom right
+
+3. Once on the profile page
+
+4. Find the "Edit" button on the top right of the profile view and click it
+   
+![IMG_6304](https://github.com/user-attachments/assets/22014219-461c-40a0-a795-68c1dfc91ba8)
+
+5. Then you will be brought to the Edit View where you will be presented with input fields where you can change your information
+
+![IMG_6305](https://github.com/user-attachments/assets/320cfcc2-dc2b-46c2-841e-1e352de1a754)
+
+6. Clicking the Update Profile button will update your profile in the database and you will be brought back to the profile page with the updated information
 
 # Navigating the App
 

@@ -15,7 +15,9 @@ To use our application, users need to have an account.
 
 ## Signing Up
 To create a new account:
-(Vid)
+
+https://github.com/user-attachments/assets/7ca8af3d-b5ed-4817-9f28-ed8753e43d35
+
 1. Upon opening the application, users will face the login page.
 
 2. Click the sign up button.
@@ -26,7 +28,12 @@ To create a new account:
 
 ## Logging In
 To log in:
-(Vid)
+
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/acac9168-d1ac-4f42-bc8a-03e33e0af674">
+
+1. Enter authentication credentials (email and password)
+2. Click the login button
+
 
 ## Uploading Profile Picture
 1. Navigate to the profile page

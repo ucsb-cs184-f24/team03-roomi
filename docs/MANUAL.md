@@ -93,6 +93,11 @@ This page is mainly used to see which users you have matched with and be able to
 
 This feature's main purpose is to be able to communicate with the other user who you have matched with. Here the user can communicate with the other user, set up meetings, and get to know the other user. Messages are real-time with timestamps which can help users know when messages are sent.
 
+## Blocking
+1. Click on matches tab.
+2. Click user profile.
+3. Click red button labeled "Block".
+
 # FAQs
 
 ## Can I message a liked user?

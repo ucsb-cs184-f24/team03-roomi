@@ -35,7 +35,7 @@ To log in:
 
 3. Scroll down to "Profile Image" section and select your photo
 
-4. Press the "Upload Photo" button and then "Update Profile" button to save
+4. Press the "Upload & Save Photo" button and then "Update Profile" button to save
 
    ![Simulator Screenshot - iPhone 16 Pro - 2024-12-09 at 17 27 43](https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6)
 

@@ -42,5 +42,7 @@ If the user likes the profile shown, they can either like or dislike the profile
 
 ### Messaging
 
+If the user wishes to message another user that they've matched with, they can first start by navigating to the "Matches" tab. On this page, users can view their list of matches. They can select a specific match that they wish to message, and this will bring up a profile information page about the selected user. This page will contain a button "Message *Name of User*" that will, when pressed, navigate the user to a page where they can send messages to their match. From here, the user can send/receive messages to and from their match so that they may get to know each other better and plan future steps to officially become roommates.
+
 ### Setting up/Editing your Profile
 On the profile page, there is a button on the top right side of the screen that will bring up another view that will allow the user to edit their displayed information such as bio, roommate preferences, as well as allow the user to upload a profile picture. This profile picture will be displayed on the user's profile page, as well as be displayed on their profile cards for potential matches.

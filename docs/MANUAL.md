@@ -93,6 +93,12 @@ This page is mainly used to see which users you have matched with and be able to
 
 This feature's main purpose is to be able to communicate with the other user who you have matched with. Here the user can communicate with the other user, set up meetings, and get to know the other user. Messages are real-time with timestamps which can help users know when messages are sent.
 
+Steps:
+1. Go to "Matches" tab
+2. Select a match
+3. Click on blue message button where it says "Message *Name of User*"
+4. Start chatting with your match!
+
 ## Blocking
 1. Click on matches tab.
 2. Click user profile.

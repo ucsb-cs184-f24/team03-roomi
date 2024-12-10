@@ -37,6 +37,9 @@ To log in:
 
 4. Press the "Upload Photo" button and then "Update Profile" button to save
 
+   ![Simulator Screenshot - iPhone 16 Pro - 2024-12-09 at 17 27 43](https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6)
+
+
 # Navigating the App
 
 Vivamus egestas tortor sed dui commodo pellentesque eu sit amet eros. Mauris pretium erat at viverra sagittis. Nulla varius dictum blandit. Suspendisse at fermentum urna. In molestie neque in erat facilisis, in ultricies sapien posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut ligula quis purus aliquam lacinia. Aliquam erat volutpat. Integer vulputate elementum purus. Duis mi lorem, ornare a varius vulputate, pellentesque ac nibh. Donec et lacus quis nisi fringilla mattis. Quisque porta quis justo at cursus. In lobortis felis at nibh maximus, id lobortis eros vulputate. Fusce tellus nulla, dignissim nec diam non, convallis accumsan arcu.

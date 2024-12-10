@@ -73,9 +73,19 @@ To log in:
 
 ## Home Page
 
+The purpose of this page is to explore other potential users to become your roommate. You are given the ability to like or dislike the user depending on the information in their profile. 
+
 ## Profile Page
 
+This page is to be able to view and manage the information in your profile. You can edit your profile through this and view the changes once updated.
+
 ## Match Page
+
+This page is mainly used to see which users you have matched with and be able to message them. There is also another feature for blocking the match so the user can no longer contact you.
+
+## Messaging
+
+This feature's main purpose is to be able to communicate with the other user who you have matched with. Here the user can communicate with the other user, set up meetings, and get to know the other user. Messages are real-time with timestamps which can help users know when messages are sent.
 
 # FAQs
 

@@ -71,7 +71,11 @@ To log in:
 
 # Key Features and Usage
 
-Duis eu accumsan ligula, quis maximus libero. Praesent porta risus at tortor finibus scelerisque. Curabitur euismod, dolor porttitor tristique eleifend, ipsum sem semper dui, interdum malesuada enim urna eu urna. Suspendisse porttitor tortor ut bibendum pharetra. Ut quis magna a magna cursus tristique quis elementum dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce interdum sodales nunc sed commodo. Suspendisse potenti. Phasellus eu tincidunt magna. Quisque mattis dui dolor, eu posuere est bibendum eu. Etiam eget odio enim. Vestibulum nec enim est. Donec id orci sem. Praesent quis massa tincidunt, efficitur risus ut, fermentum nisl. Vivamus maximus ante venenatis nulla tincidunt semper. Donec venenatis viverra sapien a maximus.
+## Home Page
+
+## Profile Page
+
+## Match Page
 
 # FAQs
 

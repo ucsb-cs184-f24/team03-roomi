@@ -43,3 +43,4 @@ If the user likes the profile shown, they can either like or dislike the profile
 ### Messaging
 
 ### Setting up/Editing your Profile
+On the profile page, there is a button on the top right side of the screen that will bring up another view that will allow the user to edit their displayed information such as bio, roommate preferences, as well as allow the user to upload a profile picture. This profile picture will be displayed on the user's profile page, as well as be displayed on their profile cards for potential matches.

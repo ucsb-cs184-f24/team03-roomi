@@ -34,7 +34,7 @@ When the User chooses the sign up option, they are presented with two fields for
 When the user is on the homepage, they will be shown user cards with brief information about the shown profile. The user can click on the card to see more information about the profile shown to see more preference details. The user will see two buttons, a red x on the left and a green check mark on the right, allowing them to either like or dislike the profile. Alternatively, they can also swipe on the card to like or dislike.
 
 #### Like/Dislike
-
+If the user likes the profile shown, they can either like or dislike the profile. If they like the profile, it will add it to their likes list in their matches page and switch to the next profile card on the stack. If they do not like the profile, the page will switch to the next profile card on the stack.
 
 #### ...
 

@@ -45,8 +45,6 @@ When the user is on the homepage, they will be shown user cards with brief infor
 #### Like/Dislike
 If the user likes the profile shown, they can either like or dislike the profile. If they like the profile, it will add it to their likes list in their matches page and switch to the next profile card on the stack. If they do not like the profile, the page will switch to the next profile card on the stack.
 
-#### ...
-
 ### Matching
 
 #### Swiping

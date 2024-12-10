@@ -51,6 +51,8 @@ If the user likes the profile shown, they can either like or dislike the profile
 
 #### Swiping
 
+The swipe cards themselves are a stack where each one has an on gesture functionality to translate the card right or left. Once it reahes a certain threshold, it automatically moves the card off the screen, when you let go, we can call the function to "like" or "dislike" a profile which will also remove that profile card from the stack, so that we do not have unneccesary cards.
+
 #### Find a Match
 
 As the user swipes through potential matches depending on if they liked or disliked the profile this information will be stored in the FireStore Database. Once a user has liked a user who has liked them back this will be considered a match and it will be updated accordingly in the Database and the Application. Once a match has been found the user will be prompted with a pop up which informs them that a match has been found.

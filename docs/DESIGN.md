@@ -46,3 +46,15 @@ If the user wishes to message another user that they've matched with, they can f
 
 ### Setting up/Editing your Profile
 On the profile page, there is a button on the top right side of the screen that will bring up another view that will allow the user to edit their displayed information such as bio, roommate preferences, as well as allow the user to upload a profile picture. This profile picture will be displayed on the user's profile page, as well as be displayed on their profile cards for potential matches.
+
+#### Log In / Sign Up
+
+The user will be presented with two option upon entering the app: Login and Sign up. They will begin on the login page and if they do not already have an account, there is a button option to switch to sign up. If the user inputs their information and attempts to login, a loading overlay will appear and on a successful login, they will be logged into the app.
+
+#### Profile Set Up
+
+When the User chooses the sign up option, they are presented with two fields for email and password. Once they fill in their desired email and password, they are taken down a profile creation pipeline. This begins with getting the users phone number, if the user decides to cancel it will discard all of their information. Moving on to the next page is their full name age and gender, then school and bio, then roommate preferences. Each of these pages have the option to navigate back to the previous page. At the end they will be presented with a button to create the profile. They will then be taken back to the sign in page, a loading overlay will appear and if the creation is successful, they will be logged into the app.
+
+#### Editting Profile
+
+When the user is viewing the profile view they are able to edit their profile using the "Edit" button found on the top right of the view. Once this button is clicked there will be input fields for all the fields associated with the users. These fields will be autofilled with the information the user initially entered when they created the account. The user is able to edit these fields and once satisfied they can click the "Update Profile" button which will update the information in the FireStore database. This information will immediately be reflected for both the current user and all other users viewing this profile.

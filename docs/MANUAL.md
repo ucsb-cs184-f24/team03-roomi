@@ -72,6 +72,8 @@ https://drive.google.com/file/d/1sQeXIdQOWxR2UjK0N9UwmpXTBvSLbq38/view?usp=shari
 
 The purpose of this page is to explore other potential users to become your roommate. You are given the ability to like or dislike the user depending on the information in their profile.
 
+https://github.com/user-attachments/assets/de083eb8-be93-4c1e-a65f-60669fc0d86f
+
 1. Click on home page tab.
 2. Swipe left to dislike a user.
 3. Swipe right to like a user.
@@ -79,11 +81,16 @@ The purpose of this page is to explore other potential users to become your room
 
 ## Profile Page
 
+https://github.com/user-attachments/assets/55e7ff77-0258-4b62-bed6-901a1efbd4da
+
 This page is to be able to view and manage the information in your profile. You can edit your profile through this and view the changes once updated.
 
 1. Click on profile page tab.
 
 ## Uploading Profile Picture
+
+https://github.com/user-attachments/assets/6325803f-c7f8-451a-9639-e5d002f41e48
+
 1. Navigate to the profile page
 
 2. Click on "Edit" button on the top right
@@ -94,9 +101,18 @@ This page is to be able to view and manage the information in your profile. You 
 
 ## Match Page
 
+https://github.com/user-attachments/assets/7205f669-fb55-4bc1-8442-0705f6555bba
+
 This page is mainly used to see which users you have matched with and be able to message them. There is also another feature for blocking the match so the user can no longer contact you.
 
 1. Click on match page tab.
+
+## Viewing Likes
+
+https://github.com/user-attachments/assets/a3053669-6a38-4a04-85c7-248be990f655
+
+1. Click on match page tab.
+2. Click on likes button near the top of the screen.
 
 ## Messaging
 

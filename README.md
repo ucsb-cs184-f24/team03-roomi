@@ -67,7 +67,8 @@ Sign into your apple id, change the bundle identifier to yours, and select a dev
 See User Manual at docs/MANUAL.md.
 
 ## Known Problems 
-TODO: Describe any known issues, bugs, odd behaviors or code smells. Provide steps to reproduce the problem and/or name a file or a function where the problem lives.
+1. Profile pictures will only render after user logs out then back in to the application.
+2. Scrolling down on profile page sometimes renders a white block that does not fit with out theme.
 
 
 

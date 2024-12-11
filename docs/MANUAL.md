@@ -44,7 +44,7 @@ To log in:
 
 4. Press the "Upload & Save Photo" button and then "Update Profile" button to save
 
-   ![Simulator Screenshot - iPhone 16 Pro - 2024-12-09 at 17 27 43](https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6)
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
 
 ## Viewing your Profile
 
@@ -53,7 +53,8 @@ To log in:
 3. Click the Profile Button on the button right
 
 5. Once clicked you will be presented with the profile page for the current user
-![IMG_6306](https://github.com/user-attachments/assets/1cf9f619-821b-40b7-b42a-9676c447593a)
+
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/1cf9f619-821b-40b7-b42a-9676c447593a">
 
 
 ## Editing Profile
@@ -63,12 +64,12 @@ To log in:
 3. Once on the profile page
 
 4. Find the "Edit" button on the top right of the profile view and click it
-   
-![IMG_6304](https://github.com/user-attachments/assets/22014219-461c-40a0-a795-68c1dfc91ba8)
+
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/22014219-461c-40a0-a795-68c1dfc91ba8">
 
 5. Then you will be brought to the Edit View where you will be presented with input fields where you can change your information
 
-![IMG_6305](https://github.com/user-attachments/assets/320cfcc2-dc2b-46c2-841e-1e352de1a754)
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/320cfcc2-dc2b-46c2-841e-1e352de1a754">
 
 6. Clicking the Update Profile button will update your profile in the database and you will be brought back to the profile page with the updated information
 
@@ -79,15 +80,21 @@ https://drive.google.com/file/d/1sQeXIdQOWxR2UjK0N9UwmpXTBvSLbq38/view?usp=shari
 
 ## Home Page
 
-The purpose of this page is to explore other potential users to become your roommate. You are given the ability to like or dislike the user depending on the information in their profile. 
+The purpose of this page is to explore other potential users to become your roommate. You are given the ability to like or dislike the user depending on the information in their profile.
+
+1. Click on home page tab.
 
 ## Profile Page
 
 This page is to be able to view and manage the information in your profile. You can edit your profile through this and view the changes once updated.
 
+1. Click on profile page tab.
+
 ## Match Page
 
 This page is mainly used to see which users you have matched with and be able to message them. There is also another feature for blocking the match so the user can no longer contact you.
+
+1. Click on match page tab.
 
 ## Messaging
 
@@ -95,14 +102,20 @@ This feature's main purpose is to be able to communicate with the other user who
 
 Steps:
 1. Go to "Matches" tab
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
 ![Simulator Screenshot - iPhone 16 Pro - 2024-12-10 at 15 21 30](https://github.com/user-attachments/assets/03dc47d9-45ae-4834-81dc-177a6b8de953)
 2. Press on the match you want to chat with
 3. Press on blue message button where it says "Message *Name of User*"
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
 ![Simulator Screenshot - iPhone 16 Pro - 2024-12-10 at 15 21 39](https://github.com/user-attachments/assets/2287c1d2-5e94-41f7-bb97-c302265ec0c7)
 4. Start chatting with your match!
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
 ![Simulator Screenshot - iPhone 16 Pro - 2024-12-10 at 15 22 10](https://github.com/user-attachments/assets/576f351c-61ca-4369-ab9f-157752b8e4fb)
 
 ## Blocking
+
+This feature's main purpose is to prevent another user from interacting with the blocker.
+
 1. Click on matches tab.
 2. Click user profile.
 3. Click red button labeled "Block".

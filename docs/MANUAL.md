@@ -34,18 +34,6 @@ To log in:
 1. Enter authentication credentials (email and password)
 2. Click the login button
 
-
-## Uploading Profile Picture
-1. Navigate to the profile page
-
-2. Click on "Edit" button on the top right
-
-3. Scroll down to "Profile Image" section and select your photo
-
-4. Press the "Upload & Save Photo" button and then "Update Profile" button to save
-
-<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
-
 ## Viewing your Profile
 
 1. Open the App
@@ -73,6 +61,8 @@ To log in:
 
 6. Clicking the Update Profile button will update your profile in the database and you will be brought back to the profile page with the updated information
 
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
+
 # Navigating the App
 https://drive.google.com/file/d/1sQeXIdQOWxR2UjK0N9UwmpXTBvSLbq38/view?usp=sharing
 
@@ -83,12 +73,24 @@ https://drive.google.com/file/d/1sQeXIdQOWxR2UjK0N9UwmpXTBvSLbq38/view?usp=shari
 The purpose of this page is to explore other potential users to become your roommate. You are given the ability to like or dislike the user depending on the information in their profile.
 
 1. Click on home page tab.
+2. Swipe left to dislike a user.
+3. Swipe right to like a user.
+4. Upon a match, user will be notified.
 
 ## Profile Page
 
 This page is to be able to view and manage the information in your profile. You can edit your profile through this and view the changes once updated.
 
 1. Click on profile page tab.
+
+## Uploading Profile Picture
+1. Navigate to the profile page
+
+2. Click on "Edit" button on the top right
+
+3. Scroll down to "Profile Image" section and select your photo
+
+4. Press the "Upload & Save Photo" button and then "Update Profile" button to save
 
 ## Match Page
 
@@ -102,20 +104,26 @@ This feature's main purpose is to be able to communicate with the other user who
 
 Steps:
 1. Go to "Matches" tab
-<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
-2. Press on the match you want to chat with
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/03dc47d9-45ae-4834-81dc-177a6b8de953">
+
+2. Press on the match you want to chat with.
 3. Press on blue message button where it says "Message *Name of User*"
-<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/2287c1d2-5e94-41f7-bb97-c302265ec0c7">
+
 4. Start chatting with your match!
-<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/576f351c-61ca-4369-ab9f-157752b8e4fb">
 
 ## Blocking
 
 This feature's main purpose is to prevent another user from interacting with the blocker.
 
 1. Click on matches tab.
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/03dc47d9-45ae-4834-81dc-177a6b8de953">
+
 2. Click user profile.
 3. Click red button labeled "Block".
+
+<img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/2287c1d2-5e94-41f7-bb97-c302265ec0c7">
 
 # FAQs
 

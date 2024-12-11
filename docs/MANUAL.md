@@ -103,14 +103,11 @@ This feature's main purpose is to be able to communicate with the other user who
 Steps:
 1. Go to "Matches" tab
 <img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
-![Simulator Screenshot - iPhone 16 Pro - 2024-12-10 at 15 21 30](https://github.com/user-attachments/assets/03dc47d9-45ae-4834-81dc-177a6b8de953)
 2. Press on the match you want to chat with
 3. Press on blue message button where it says "Message *Name of User*"
 <img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
-![Simulator Screenshot - iPhone 16 Pro - 2024-12-10 at 15 21 39](https://github.com/user-attachments/assets/2287c1d2-5e94-41f7-bb97-c302265ec0c7)
 4. Start chatting with your match!
 <img width="450" alt="Screenshot 2024-12-09 at 6 14 03 PM" src="https://github.com/user-attachments/assets/b546dd30-fbcf-466a-a855-3c4ae91762a6">
-![Simulator Screenshot - iPhone 16 Pro - 2024-12-10 at 15 22 10](https://github.com/user-attachments/assets/576f351c-61ca-4369-ab9f-157752b8e4fb)
 
 ## Blocking
 
